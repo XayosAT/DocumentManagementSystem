@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Christoph\\RiderProjects\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj": {}
+    "C:\\Users\\Philipp Wudernitz\\OneDrive\\Desktop\\DMS\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Christoph\\RiderProjects\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj": {
+    "C:\\Users\\Philipp Wudernitz\\OneDrive\\Desktop\\DMS\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Christoph\\RiderProjects\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Philipp Wudernitz\\OneDrive\\Desktop\\DMS\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj",
         "projectName": "DocumentManagementSystem",
-        "projectPath": "C:\\Users\\Christoph\\RiderProjects\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\Christoph\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Christoph\\RiderProjects\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\obj\\",
+        "projectPath": "C:\\Users\\Philipp Wudernitz\\OneDrive\\Desktop\\DMS\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\DocumentManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\Philipp Wudernitz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Philipp Wudernitz\\OneDrive\\Desktop\\DMS\\DocumentManagementSystem\\DMS_APP\\DocumentManagementSystem\\DocumentManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Christoph\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Philipp Wudernitz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
