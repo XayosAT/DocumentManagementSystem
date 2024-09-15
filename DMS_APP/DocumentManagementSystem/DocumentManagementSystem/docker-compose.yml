@@ -1,0 +1,11 @@
+version: '3.8'  # Define the version of Docker Compose
+
+services:
+  document-management-system:  # Name of the service
+    build:
+      context: .  # Directory where Dockerfile is located
+      dockerfile: Dockerfile  # Dockerfile used for building
+    ports:
+      - "8081:8081"  # Map host port 8081 to container port 8081
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production  # Set the environment to production
