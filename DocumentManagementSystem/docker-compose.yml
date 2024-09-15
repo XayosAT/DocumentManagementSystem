@@ -4,7 +4,7 @@ services:
   rest-server:
     image: document-management-system
     build:
-      context: .
+      context: ./REST
       dockerfile: Dockerfile
     ports:
       - "8081:8081"  # Expose port 8081 both on the container and the host
@@ -13,11 +13,10 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: nginx
     ports:
       - "8080:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
+    build:
+      context: ./NGINX
+      dockerfile: Dockerfile
     depends_on:
       - rest-server
