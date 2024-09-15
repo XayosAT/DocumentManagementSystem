@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  rest-server:
+    image: document-management-system
+    build:
+      context: ./REST
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"  # Expose port 8081 both on the container and the host
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production  # Set the environment to production
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    build:
+      context: ./NGINX
+      dockerfile: Dockerfile
+    depends_on:
+      - rest-server
