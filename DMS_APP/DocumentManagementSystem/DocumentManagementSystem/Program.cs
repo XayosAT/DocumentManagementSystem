@@ -19,6 +19,19 @@ app.UseSwaggerUI();
 // Remove HTTPS redirection for local development in Docker
 // app.UseHttpsRedirection();
 
+// implement a file upload and when uploaded inform the user on the website
+app.MapPost("/upload", async (IFormFile file) =>
+{
+    if (file is not null)
+    {
+        var filePath = Path.Combine(Directory.GetCurrentDirectory(), file.FileName);
+        using var stream = new FileStream(filePath, FileMode.Create);
+        await file.CopyToAsync(stream);
+        return $"File uploaded successfully to {filePath}";
+    }
+    return "No file uploaded";
+});
+
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
