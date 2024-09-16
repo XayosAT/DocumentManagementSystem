@@ -1,10 +1,13 @@
+// include SampleDocument class
 using DocumentManagementSystem;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 // Configure Kestrel to listen on port 8081
 builder.WebHost.ConfigureKestrel(options =>
@@ -27,7 +30,6 @@ var documents = new List<SampleDocument>
 
 app.MapGet("/", () => documents);
 
-// Direct the user to the upload page
-app.MapGet("/upload", () => "Upload a file");
+app.MapControllers();
 
 app.Run();
