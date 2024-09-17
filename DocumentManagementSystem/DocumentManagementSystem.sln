@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST", "REST\REST.csproj", "{46CB768D-24B1-432C-BB29-7040AC7A77F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentManagementSystem.Tests", "DocumentManagementSystem.Tests\DocumentManagementSystem.Tests.csproj", "{2DD8EF93-B315-49F3-9EB0-F9C85F2C2A89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{46CB768D-24B1-432C-BB29-7040AC7A77F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CB768D-24B1-432C-BB29-7040AC7A77F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CB768D-24B1-432C-BB29-7040AC7A77F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DD8EF93-B315-49F3-9EB0-F9C85F2C2A89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DD8EF93-B315-49F3-9EB0-F9C85F2C2A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DD8EF93-B315-49F3-9EB0-F9C85F2C2A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DD8EF93-B315-49F3-9EB0-F9C85F2C2A89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
