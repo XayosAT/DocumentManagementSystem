@@ -10,6 +10,24 @@ services:
       - "8081:8081"  # Expose port 8081 both on the container and the host
     environment:
       - ASPNETCORE_ENVIRONMENT=Production  # Set the environment to production
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=dms;Username=dms;Password=dms  # Connection string to PostgreSQL
+    depends_on:
+      - postgres  # Ensure rest-server starts after PostgreSQL is ready
+    networks:
+      - dms-network
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"  # Expose PostgreSQL port
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist data
+    networks:
+      - dms-network
 
   nginx:
     image: nginx:latest
@@ -20,3 +38,11 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - rest-server
+    networks:
+      - dms-network
+
+networks:
+  dms-network:
+
+volumes:
+  postgres_data:

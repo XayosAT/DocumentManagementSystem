@@ -1,13 +1,25 @@
 // include SampleDocument class
 using DocumentManagementSystem;
+using DocumentManagementSystem.DTOs;
+using DocumentManagementSystem.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
-builder.Services.AddControllers();
 // Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
+// register automapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// register dbcontext and repository
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+});
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Configure Kestrel to listen on port 8081
 builder.WebHost.ConfigureKestrel(options =>
