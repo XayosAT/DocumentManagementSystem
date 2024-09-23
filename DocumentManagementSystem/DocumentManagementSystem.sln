@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST", "REST\REST.csproj", "{46CB768D-24B1-432C-BB29-7040AC7A77F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentManagementSystem.Tests", "DocumentManagementSystem.Tests\DocumentManagementSystem.Tests.csproj", "{2DD8EF93-B315-49F3-9EB0-F9C85F2C2A89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{2DD8EF93-B315-49F3-9EB0-F9C85F2C2A89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
