@@ -7,6 +7,17 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
+// Configure CORS and enable all origins
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -39,6 +50,8 @@ var documents = new List<SampleDocument>
     new SampleDocument { Id = 2, Name = "Document 2", Path = "/documents/2" },
     new SampleDocument { Id = 3, Name = "Document 3", Path = "/documents/3" }
 };
+
+app.UseCors();
 
 app.MapGet("/", () => documents);
 
