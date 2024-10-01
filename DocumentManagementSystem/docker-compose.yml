@@ -4,7 +4,7 @@ services:
   rest-server:
     image: document-management-system
     build:
-      context: .
+      context: ./REST
       dockerfile: Dockerfile
     ports:
       - "8081:8081"  # Expose port 8081 both on the container and the host
@@ -44,7 +44,6 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: nginx
     ports:
       - "80:80"
     build:
@@ -60,4 +59,3 @@ networks:
 
 volumes:
   postgres_data:
-
