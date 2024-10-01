@@ -47,7 +47,7 @@ services:
     ports:
       - "80:80"
     build:
-      context: ./NGINX
+      context: ./WebServer
       dockerfile: Dockerfile
     depends_on:
       - rest-server

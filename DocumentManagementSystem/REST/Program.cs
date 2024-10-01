@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
+builder.Services.AddControllers();
+
 // Configure CORS and enable all origins
 builder.Services.AddCors(options =>
 {
@@ -43,17 +45,11 @@ var app = builder.Build();
 // Remove HTTPS redirection for local development in Docker
 // app.UseHttpsRedirection();
 
-// create a list of example documents
-var documents = new List<SampleDocument>
-{
-    new SampleDocument { Id = 1, Name = "Document 1", Path = "/documents/1" },
-    new SampleDocument { Id = 2, Name = "Document 2", Path = "/documents/2" },
-    new SampleDocument { Id = 3, Name = "Document 3", Path = "/documents/3" }
-};
+
 
 app.UseCors();
 
-app.MapGet("/", () => documents);
+//app.MapGet("/", () => documents);
 
 app.MapControllers();
 
