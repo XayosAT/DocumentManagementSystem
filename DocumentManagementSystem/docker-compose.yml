@@ -4,8 +4,8 @@ services:
   rest-server:
     image: document-management-system
     build:
-      context: ./REST
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: REST/Dockerfile  # Specify the Dockerfile location inside the REST folder
     ports:
       - "8081:8081"  # Expose port 8081 both on the container and the host
     environment:

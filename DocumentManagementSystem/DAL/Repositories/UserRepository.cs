@@ -1,6 +1,6 @@
-using DocumentManagementSystem.Entities;
+using DAL.Entities;
 
-namespace DocumentManagementSystem.Repositories;
+namespace DAL.Repositories;
 
 public interface IUserRepository
 {

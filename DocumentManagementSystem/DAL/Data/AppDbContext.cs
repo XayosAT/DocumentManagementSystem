@@ -1,7 +1,7 @@
-using DocumentManagementSystem.Entities;
+using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DocumentManagementSystem;
+namespace DAL;
 
 public class AppDbContext : DbContext
 {

@@ -1,6 +1,6 @@
-namespace DocumentManagementSystem.Entities;
+namespace DocumentManagementSystem.DTOs;
 
-public class Document
+public class DocumentDTO
 {
     public int Id { get; set; }
     public string Name { get; set; }

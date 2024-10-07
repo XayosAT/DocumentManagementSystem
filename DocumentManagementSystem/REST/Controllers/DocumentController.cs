@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using DocumentManagementSystem.Entities;
+using DocumentManagementSystem.DTOs;
 using System.Collections.Generic;
 
 namespace DocumentManagementSystem.Controllers;
@@ -36,13 +36,13 @@ public class DocumentController : ControllerBase
         };
     }
     [HttpGet]
-    public IEnumerable<Document> GetDocuments()
+    public IEnumerable<DocumentDTO> GetDocuments()
     {
-        return new List<Document>
+        return new List<DocumentDTO>
         {
-            new Document { Id = 1, Name = "Contract_Agreement_2024.pdf", Path = "/documents/Contract_Agreement_2024.pdf"},
-            new Document { Id = 2, Name = "Financial_Report_Q3_2024.pdf", Path = "/documents/Financial_Report_Q3_2024.pdf"},
-            new Document { Id = 3, Name = "Employee_Handbook_2024.pdf", Path = "/documents/Employee_Handbook_2024.pdf"}
+            new DocumentDTO { Id = 1, Name = "Contract_Agreement_2024.pdf", Path = "/documents/Contract_Agreement_2024.pdf"},
+            new DocumentDTO { Id = 2, Name = "Financial_Report_Q3_2024.pdf", Path = "/documents/Financial_Report_Q3_2024.pdf"},
+            new DocumentDTO { Id = 3, Name = "Employee_Handbook_2024.pdf", Path = "/documents/Employee_Handbook_2024.pdf"}
         };
     }
     
@@ -90,7 +90,7 @@ public class DocumentController : ControllerBase
     }
     
     [HttpPost("create-edit")]
-    public JsonResult CreateEdit(Document document)
+    public JsonResult CreateEdit(DocumentDTO document)
     {
         return new JsonResult("Trying to edit document");
     }

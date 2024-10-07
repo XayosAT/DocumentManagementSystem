@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Xunit;
-using DocumentManagementSystem.Entities;
+using DAL.Entities;
 
 public class UserValidationTests
 {

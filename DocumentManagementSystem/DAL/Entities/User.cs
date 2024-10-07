@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DocumentManagementSystem.Entities;
+namespace DAL.Entities;
 
 public class User
 {
