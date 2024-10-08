@@ -1,44 +1,47 @@
+using DAL.Data;
+using DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+builder.Services.AddDbContext<DocumentContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Migrations und Datenbankerstellung anwenden
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var context = scope.ServiceProvider.GetRequiredService<DocumentContext>();
+
+    // Verbindungstest zur Datenbank
+    try
+    {
+        Console.WriteLine("Versuche, eine Verbindung zur Datenbank herzustellen...");
+
+        // Warte, bis die Datenbank bereit ist
+        while (!context.Database.CanConnect())
+        {
+            Console.WriteLine("Datenbank ist noch nicht bereit, warte...");
+            Thread.Sleep(1000); // Warte 1 Sekunde
+        }
+
+        Console.WriteLine("Verbindung zur Datenbank erfolgreich.");
+
+        // Migrations anwenden und die Datenbank erstellen/aktualisieren
+        context.Database.EnsureCreated();
+        Console.WriteLine("Datenbankmigrationen erfolgreich angewendet.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Fehler bei der Anwendung der Migrationen: {ex.Message}");
+    }
 }
 
-app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast")
-    .WithOpenApi();
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

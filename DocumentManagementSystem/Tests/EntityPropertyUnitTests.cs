@@ -9,12 +9,12 @@ public class UserValidationTests
     public void ValidateUser_ValidData_ReturnsTrue()
     {
         // Arrange
-        var user = new User { FirstName = "John", LastName = "Doe", Email = "john@example.com" };
-        var context = new ValidationContext(user, null, null);
+        var document = new Document { Id = 0, Name = "PDF", Path = "root/var" };
+        var context = new ValidationContext(document, null, null);
         var results = new List<ValidationResult>();
 
         // Act
-        bool valid = Validator.TryValidateObject(user, context, results, true);
+        bool valid = Validator.TryValidateObject(document, context, results, true);
 
         // Assert
         Assert.True(valid);
@@ -24,7 +24,7 @@ public class UserValidationTests
     public void ValidateUser_InvalidEmail_ReturnsFalse()
     {
         // Arrange
-        var user = new User { FirstName = "John", LastName = "Doe"};
+        var user = new Document { Name = "John", Path = "Doe"};
         var context = new ValidationContext(user, null, null);
         var results = new List<ValidationResult>();
 

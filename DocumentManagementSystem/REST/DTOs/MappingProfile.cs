@@ -7,7 +7,7 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<User, UserDTO>();
-        CreateMap<UserDTO, User>();
+        CreateMap<Document, DocumentDTO>();
+        CreateMap<DocumentDTO, Document>();
     }
 }

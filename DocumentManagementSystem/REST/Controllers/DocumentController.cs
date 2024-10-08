@@ -10,9 +10,11 @@ namespace DocumentManagementSystem.Controllers;
 public class DocumentController : ControllerBase
 {
     private readonly string _uploadFolder;
+    private readonly IHttpClientFactory _httpClientFactory;
     
-    public DocumentController(IConfiguration configuration)
+    public DocumentController(IHttpClientFactory httpClientFactory)
     {
+        _httpClientFactory = httpClientFactory;
         _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
         if (!Directory.Exists(_uploadFolder))
         {
@@ -35,6 +37,22 @@ public class DocumentController : ControllerBase
             _ => "application/octet-stream",
         };
     }
+    
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.GetAsync("/api/documentitems");
+        
+        if (response.IsSuccessStatusCode) 
+        {
+            var documents = await response.Content.ReadFromJsonAsync<IEnumerable<DocumentDTO>>();
+            return Ok(documents);
+        }
+        return StatusCode((int)response.StatusCode, "Failed to retrieve documents");
+    }
+    /*
+    
     [HttpGet]
     public IEnumerable<DocumentDTO> GetDocuments()
     {
@@ -45,6 +63,7 @@ public class DocumentController : ControllerBase
             new DocumentDTO { Id = 3, Name = "Employee_Handbook_2024.pdf", Path = "/documents/Employee_Handbook_2024.pdf"}
         };
     }
+    */
     
     // GET: document/files/{filename}
     [HttpGet("files/{filename}")]
