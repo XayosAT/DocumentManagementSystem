@@ -34,6 +34,7 @@ using (var scope = app.Services.CreateScope())
 
         // Migrations anwenden und die Datenbank erstellen/aktualisieren
         context.Database.EnsureCreated();
+        // context.Database.Migrate();
         Console.WriteLine("Datenbankmigrationen erfolgreich angewendet.");
     }
     catch (Exception ex)

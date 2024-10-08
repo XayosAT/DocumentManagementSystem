@@ -2,9 +2,13 @@ using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Data;
-public sealed class DocumentContext(DbContextOptions<DocumentContext> options) : DbContext(options)
+public class DocumentContext : DbContext
 {
     public DbSet<Document>? DocumentItems { get; set; }
+    
+    public DocumentContext(DbContextOptions<DocumentContext> options) : base(options)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
