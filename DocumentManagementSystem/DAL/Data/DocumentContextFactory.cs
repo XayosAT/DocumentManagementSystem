@@ -1,3 +1,4 @@
+using DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
@@ -9,20 +10,22 @@ namespace DAL.Data
     {
         public DocumentContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<DocumentContext>();
-            
-            /*
-            // Load configuration
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("dalsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile("dalsettings.Development.json", optional: true, reloadOnChange: true)
+            // Assuming the REST project is the parent directory of DAL,
+            // navigate to the REST folder where appsettings.json resides
+            var basePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "REST");
+
+            // Build configuration to read from the REST project's appsettings.json
+            var config = new ConfigurationBuilder()
+                .SetBasePath(basePath)  // Point to the REST project's folder
+                .AddJsonFile("appsettings.json")
                 .Build();
-            */
-            
-            // Set the connection string
-            //var connectionString = configuration.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5430;Database=dms_db;Username=dms_user;Password=dms_password"); // Use Npgsql for PostgreSQL
+
+            // Read the connection string from the appsettings.json in the REST project
+            var connectionString = config.GetConnectionString("DefaultConnection");
+
+            // Configure the DbContext with the connection string
+            var optionsBuilder = new DbContextOptionsBuilder<DocumentContext>();
+            optionsBuilder.UseNpgsql(connectionString);
 
             return new DocumentContext(optionsBuilder.Options);
         }
