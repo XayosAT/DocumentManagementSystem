@@ -9,8 +9,14 @@ namespace DAL.Controllers;
 
 [ApiController]
 [Route("api/documentitems")]
-public class DocumentController(IDocumentRepository repository) : ControllerBase
+public class DocumentItemsController : ControllerBase
 {
+    private readonly IDocumentRepository _repository;
+
+    public DocumentItemsController(IDocumentRepository documentRepository)
+    {
+        _repository = documentRepository;
+    }
     [HttpGet]
     public async Task<IEnumerable<Document>> GetAsync()
     {
@@ -20,7 +26,7 @@ public class DocumentController(IDocumentRepository repository) : ControllerBase
             new Document { Id = 2, Name = "Financial_Report_Q3_2024.pdf", Path = "/documents/Financial_Report_Q3_2024.pdf"},
             new Document { Id = 3, Name = "Employee_Handbook_2024.pdf", Path = "/documents/Employee_Handbook_2024.pdf"}
         };
-        return await repository.GetAllAsync();
+        return await _repository.GetAllAsync();
     }
 
     [HttpPost]
@@ -30,14 +36,14 @@ public class DocumentController(IDocumentRepository repository) : ControllerBase
         {
             return BadRequest(new { message = "Task name cannot be empty." });
         }
-        await repository.AddAsync(item);
+        await _repository.AddAsync(item);
         return Ok();
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> PutAsync(int id, Document item)
     {
-        var existingItem = await repository.GetByIdAsync(id);
+        var existingItem = await _repository.GetByIdAsync(id);
         if (existingItem == null)
         {
             return NotFound();
@@ -46,20 +52,20 @@ public class DocumentController(IDocumentRepository repository) : ControllerBase
         existingItem.Name = item.Name;
         existingItem.Path = item.Path;
         existingItem.FileType = item.FileType;
-        await repository.UpdateAsync(existingItem);
+        await _repository.UpdateAsync(existingItem);
         return NoContent();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
-        var item = await repository.GetByIdAsync(id);
+        var item = await _repository.GetByIdAsync(id);
         if (item == null)
         {
             return NotFound();
         }
 
-        await repository.DeleteAsync(id);
+        await _repository.DeleteAsync(id);
         return NoContent();
     }
 }

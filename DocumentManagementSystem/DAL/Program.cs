@@ -44,5 +44,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.MapControllers();
+// Configure the HTTP request pipeline
+app.UseHttpsRedirection();
+app.UseAuthorization();
 
 app.Run();

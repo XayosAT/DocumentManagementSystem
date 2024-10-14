@@ -27,9 +27,9 @@ services:
     container_name: postgres
     image: postgres:latest
     environment:
-      POSTGRES_USER: dms
-      POSTGRES_PASSWORD: dms
-      POSTGRES_DB: dms
+      POSTGRES_USER: dms_user
+      POSTGRES_PASSWORD: dms_password
+      POSTGRES_DB: dms_db
     ports:
       - "5430:5432"  # Expose PostgreSQL port
     volumes:
@@ -69,6 +69,7 @@ services:
 
 networks:
   dms-network:
+    driver: bridge
 
 volumes:
   postgres_data:

@@ -35,13 +35,15 @@ builder.WebHost.ConfigureKestrel(options =>
 
 builder.Services.AddHttpClient("DAL", client =>
 {
-    client.BaseAddress = new Uri("http://dal:8081");
+    client.BaseAddress = new Uri("http://localhost:8081");
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
 var app = builder.Build();
 
 app.UseCors();
-app.Urls.Add("http://*:8080");
+// app.Urls.Add("http://*:8080");
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.MapControllers();
 
