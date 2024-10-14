@@ -1,50 +1,62 @@
-// include SampleDocument class
 using DocumentManagementSystem;
 using DocumentManagementSystem.DTOs;
 using Microsoft.EntityFrameworkCore;
+using DAL.Repositories;
+using DAL.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var configuration = builder.Configuration;
-
-builder.Services.AddControllers();
-
-// Configure CORS and enable all origins
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-    });
-});
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
 
-// register automapper
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// Configure the PostgreSQL database connection using Entity Framework Core
+builder.Services.AddDbContext<DocumentContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configure Kestrel to listen on port 8081
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.ListenAnyIP(8081); // Set the port to 8081 for Docker
-});
+// Register the DocumentRepository and IDocumentRepository for dependency injection
+builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
+// Configure HttpClient for communication within the application
 builder.Services.AddHttpClient("DAL", client =>
 {
     client.BaseAddress = new Uri("http://localhost:8081");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
+// Register AutoMapper to map between DTOs and entities
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Configure Kestrel to listen on port 8081 for Docker
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8081); // Set the port to 8081
+});
+
+// Configure CORS to allow all origins, methods, and headers
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policyBuilder =>
+    {
+        policyBuilder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
+// Add services to support API endpoint exploration (Swagger or OpenAPI)
+builder.Services.AddEndpointsApiExplorer();
+
 var app = builder.Build();
 
+// Apply CORS policy
 app.UseCors();
-// app.Urls.Add("http://*:8080");
-app.UseHttpsRedirection();
+
+// Apply authentication (optional, depending on your security setup)
 app.UseAuthentication();
+
+// Map the API controllers
 app.MapControllers();
 
+// Start the application
 app.Run();

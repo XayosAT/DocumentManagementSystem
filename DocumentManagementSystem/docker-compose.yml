@@ -9,6 +9,7 @@ services:
       dockerfile: REST/Dockerfile  # Specify the Dockerfile location inside the REST folder
     ports:
       - "8081:8081"  # Expose port 8081 both on the container and the host
+      - "5005:5005"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production  # Set the environment to production
       - ConnectionStrings__DefaultConnection=Host=postgres;Database=dms;Username=dms;Password=dms  # Connection string to PostgreSQL
@@ -36,11 +37,6 @@ services:
       - postgres_data:/var/lib/postgresql/data  # Persist data
     networks:
       - dms-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U dms_user -d dms_db"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   rabbitmq:
     container_name: rabbitmq

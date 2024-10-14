@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace DocumentManagementSystem.DTOs;
 
+[DataContract]
 public class DocumentDTO
 {
     public int Id { get; set; }

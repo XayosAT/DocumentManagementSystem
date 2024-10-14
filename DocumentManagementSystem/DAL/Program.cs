@@ -3,14 +3,6 @@ using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddDbContext<DocumentContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
-
 var app = builder.Build();
 
 // Migrations und Datenbankerstellung anwenden
@@ -42,10 +34,3 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"Fehler bei der Anwendung der Migrationen: {ex.Message}");
     }
 }
-
-app.MapControllers();
-// Configure the HTTP request pipeline
-app.UseHttpsRedirection();
-app.UseAuthorization();
-
-app.Run();

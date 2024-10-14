@@ -22,6 +22,7 @@ public class DocumentController : ControllerBase
         }
     }
     
+    [HttpGet]
     private string GetContentType(string path)
     {
         var ext = Path.GetExtension(path).ToLowerInvariant();
