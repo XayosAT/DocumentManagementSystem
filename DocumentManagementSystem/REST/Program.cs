@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<DocumentContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
 // Register the DocumentRepository and IDocumentRepository for dependency injection
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 

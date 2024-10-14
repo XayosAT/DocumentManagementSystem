@@ -5,6 +5,12 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+/*
+// Load configuration
+builder.Services.AddDbContext<DocumentContext>(options =>
+    options.UseNpgsql("Host=localhost;Port=5430;Database=dms_db;Username=dms_user;Password=dms_password"));
+*/
+
 // Migrations und Datenbankerstellung anwenden
 // using (var scope = app.Services.CreateScope())
 // {
