@@ -6,6 +6,7 @@ using FluentValidation;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using DAL.Validators;
 
 namespace DAL.Controllers;
 
@@ -15,13 +16,16 @@ public class DocumentItemsController : ControllerBase
 {
     private readonly IDocumentRepository _repository;
     private readonly IMapper _mapper;
-    private readonly IValidator<DocumentDTO> _validator;
+    private readonly IValidator<Document> _entityValidator;
+    private readonly IValidator<DocumentDTO> _dtoValidator;
 
-    public DocumentItemsController(IDocumentRepository documentRepository, IMapper mapper, IValidator<DocumentDTO> validator)
+    public DocumentItemsController(IDocumentRepository documentRepository, IMapper mapper,
+        IValidator<Document> entityValidator, IValidator<DocumentDTO> dtoValidator)
     {
         _repository = documentRepository;
         _mapper = mapper;
-        _validator = validator;
+        _entityValidator = entityValidator;
+        _dtoValidator = dtoValidator;
     }
     
     [HttpGet]
@@ -39,14 +43,14 @@ public class DocumentItemsController : ControllerBase
         {
             return BadRequest(new { message = "Document name cannot be empty." });
         }
+        var document = _mapper.Map<Document>(item);
         
-        var validationResult = await _validator.ValidateAsync(item);
+        var validationResult = await _entityValidator.ValidateAsync(document);
         if (!validationResult.IsValid)
         {
             return BadRequest(validationResult.Errors);
         }
         
-        var document = _mapper.Map<Document>(item);
         await _repository.AddAsync(document);
         return CreatedAtAction(nameof(GetAsync), new { id = document.Id }, document);
     }
@@ -59,12 +63,13 @@ public class DocumentItemsController : ControllerBase
         {
             return NotFound();
         }
-        var validationResult = await _validator.ValidateAsync(item);
+       
+        var document = _mapper.Map<Document>(item);
+        var validationResult = await _entityValidator.ValidateAsync(document);
         if (!validationResult.IsValid)
         {
             return BadRequest(validationResult.Errors);
         }
-        var document = _mapper.Map<Document>(item);
         existingItem.Name = document.Name;
         existingItem.Path = document.Path;
         existingItem.FileType = document.FileType;

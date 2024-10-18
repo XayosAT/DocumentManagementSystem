@@ -1,11 +1,13 @@
 using DocumentManagementSystem;
 using DocumentManagementSystem.DTOs;
-using DocumentManagementSystem.Validators;
+using DAL.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using DAL.Repositories;
 using DAL.Data;
+using DocumentManagementSystem.Entities;
+using DocumentManagementSystem.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +19,12 @@ builder.Services.AddControllers();
 builder.Services.AddControllers()
     .AddFluentValidation(config =>
     {
+        config.RegisterValidatorsFromAssemblyContaining<DocumentValidator>();
         config.RegisterValidatorsFromAssemblyContaining<DocumentDTOValidator>();
     });
 
 // Register FluentValidation manually if needed
-builder.Services.AddScoped<IValidator<DocumentDTO>, DocumentDTOValidator>();
+builder.Services.AddScoped<IValidator<Document>, DocumentValidator>();
 
 // Configure the PostgreSQL database connection using Entity Framework Core
 builder.Services.AddDbContext<DocumentContext>(options =>

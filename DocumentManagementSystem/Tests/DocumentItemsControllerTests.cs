@@ -7,25 +7,32 @@ using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using DocumentManagementSystem.DTOs;
 using FluentValidation;
+using DocumentManagementSystem.Validators;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DAL.Validators;
 
 public class DocumentItemsControllerTests
 {
     private readonly Mock<IDocumentRepository> _documentRepositoryMock;
-    private readonly Mock<IMapper> _mapperMock;
-    private readonly Mock<IValidator<DocumentDTO>> _validatorMock; 
+    private readonly IMapper _mapper;
+    private readonly IValidator<Document> _entityValidator;
+    private readonly IValidator<DocumentDTO> _dtoValidator; 
     private readonly DocumentItemsController _controller;
 
     public DocumentItemsControllerTests()
     {
         // Step 1: Create a Mock of IDocumentRepository
         _documentRepositoryMock = new Mock<IDocumentRepository>();
-        _mapperMock = new Mock<IMapper>();
-        _validatorMock = new Mock<IValidator<DocumentDTO>>();
+        var mappingConfig = new MapperConfiguration(mc => {
+            mc.AddProfile(new MappingProfile());
+        });
+        _mapper = mappingConfig.CreateMapper();
+        _entityValidator = new DocumentValidator();
+        _dtoValidator = new DocumentDTOValidator();
 
         // Step 2: Inject Mock into Controller
-        _controller = new DocumentItemsController(_documentRepositoryMock.Object, _mapperMock.Object, _validatorMock.Object);
+        _controller = new DocumentItemsController(_documentRepositoryMock.Object, _mapper, _entityValidator, _dtoValidator);
     }
 
     [Fact]
@@ -34,8 +41,8 @@ public class DocumentItemsControllerTests
         // Arrange
         var documents = new List<Document>
         {
-            new Document { Id = 1, Name = "Document1", Path = "Path1", FileType = ".pdf" },
-            new Document { Id = 2, Name = "Document2", Path = "Path2", FileType = ".docx" }
+            new Document { Id = 1, Name = "Document1", Path = "Path1", FileType = "pdf" },
+            new Document { Id = 2, Name = "Document2", Path = "Path2", FileType = "docx" }
         };
         
         _documentRepositoryMock
@@ -47,7 +54,7 @@ public class DocumentItemsControllerTests
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result); // Assert that the response is OkObjectResult
-        var returnedDocuments = Assert.IsType<List<Document>>(okResult.Value); // Assert that the value inside OkObjectResult is a List<Document>
+        var returnedDocuments = Assert.IsType<List<DocumentDTO>>(okResult.Value); // Assert that the value inside OkObjectResult is a List<Document>
         Assert.Equal(2, returnedDocuments.Count); // Verify the number of documents
     }
 
@@ -55,7 +62,7 @@ public class DocumentItemsControllerTests
     public async Task PostAsync_ShouldAddDocument_WhenValidDocumentIsProvided()
     {
         // Arrange
-        var newDocument = new Document { Id = 3, Name = "Document3", Path = "Path3", FileType = ".txt" };
+        var newDocument = new Document { Id = 3, Name = "Document3", Path = "Path3", FileType = "txt" };
 
         _documentRepositoryMock
             .Setup(repo => repo.AddAsync(It.IsAny<Document>()))
@@ -78,8 +85,7 @@ public class DocumentItemsControllerTests
         // Arrange
         var existingDocument = new Document { Id = 1, Name = "ExistingDocument", Path = "Path1", FileType = ".pdf" };
         var updatedDocument = new Document { Id = 1, Name = "UpdatedDocument", Path = "Path1", FileType = ".pdf" };
-        var updatedDocumentDTO = new DocumentDTO { Name = updatedDocument.Name, Path = updatedDocument.Path, FileType = updatedDocument.FileType };
-
+        
         _documentRepositoryMock
             .Setup(repo => repo.GetByIdAsync(existingDocument.Id))
             .ReturnsAsync(existingDocument);
@@ -87,7 +93,8 @@ public class DocumentItemsControllerTests
         _documentRepositoryMock
             .Setup(repo => repo.UpdateAsync(It.IsAny<Document>()))
             .Returns(Task.CompletedTask);
-
+        var updatedDocumentDTO = _mapper.Map<DocumentDTO>(updatedDocument);
+        
         // Act
         var result = await _controller.PutAsync(existingDocument.Id, updatedDocumentDTO);
 
