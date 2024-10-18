@@ -3,7 +3,6 @@ using DAL.Repositories;
 using DAL.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DAL.Data;
 
 namespace DAL.Controllers;
 
@@ -17,27 +16,27 @@ public class DocumentItemsController : ControllerBase
     {
         _repository = documentRepository;
     }
-    
+
     [HttpGet]
-    public async Task<IEnumerable<Document>> GetAsync()
+    public async Task<IActionResult> GetAsync()
     {
-        return await _repository.GetAllAsync();
+        var documents = await _repository.GetAllAsync();
+        return Ok(documents);
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostAsync(Document item)
+    public async Task<IActionResult> PostAsync([FromBody] Document item)
     {
         if (string.IsNullOrWhiteSpace(item.Name))
         {
-            return BadRequest(new { message = "Task name cannot be empty." });
+            return BadRequest(new { message = "Document name cannot be empty." });
         }
         await _repository.AddAsync(item);
-        return Ok();
+        return CreatedAtAction(nameof(GetAsync), new { id = item.Id }, item);
     }
 
-
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutAsync(int id, Document item)
+    public async Task<IActionResult> PutAsync(int id, [FromBody] Document item)
     {
         var existingItem = await _repository.GetByIdAsync(id);
         if (existingItem == null)

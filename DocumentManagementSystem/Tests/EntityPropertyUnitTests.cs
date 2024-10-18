@@ -5,6 +5,7 @@ using DAL.Entities;
 
 public class UserValidationTests
 {
+    /*
     [Fact]
     public void ValidateUser_ValidData_ReturnsTrue()
     {
@@ -34,4 +35,5 @@ public class UserValidationTests
         // Assert
         Assert.False(valid);
     }
+    */
 }

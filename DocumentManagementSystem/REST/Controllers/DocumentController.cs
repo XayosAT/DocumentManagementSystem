@@ -105,15 +105,54 @@ public class DocumentController : ControllerBase
             FileType = Path.GetExtension(file.FileName)
         };
 
+        if (!ModelState.IsValid)
+        {
+            // FluentValidation errors will be here if the model is invalid.
+            return BadRequest(ModelState);
+        }
+
         var client = _httpClientFactory.CreateClient("DAL");
         var response = await client.PostAsJsonAsync("/api/documentitems", document);
-    
+
         if (!response.IsSuccessStatusCode)
         {
             return StatusCode((int)response.StatusCode, "Failed to save document metadata");
         }
 
         return Ok();
+    }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.DeleteAsync($"/api/documentitems/{id}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return StatusCode((int)response.StatusCode, "Failed to delete document");
+        }
+
+        return NoContent();
+    }
+    
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] DocumentDTO document)
+    {
+        if (document == null)
+        {
+            return BadRequest("Invalid document data");
+        }
+
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.PutAsJsonAsync($"/api/documentitems/{id}", document);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return StatusCode((int)response.StatusCode, "Failed to update document");
+        }
+
+        return NoContent();
     }
 
     
