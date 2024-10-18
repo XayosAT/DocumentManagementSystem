@@ -52,19 +52,6 @@ public class DocumentController : ControllerBase
         }
         return StatusCode((int)response.StatusCode, "Failed to retrieve documents");
     }
-    /*
-    
-    [HttpGet]
-    public IEnumerable<DocumentDTO> GetDocuments()
-    {
-        return new List<DocumentDTO>
-        {
-            new DocumentDTO { Id = 1, Name = "Contract_Agreement_2024.pdf", Path = "/documents/Contract_Agreement_2024.pdf"},
-            new DocumentDTO { Id = 2, Name = "Financial_Report_Q3_2024.pdf", Path = "/documents/Financial_Report_Q3_2024.pdf"},
-            new DocumentDTO { Id = 3, Name = "Employee_Handbook_2024.pdf", Path = "/documents/Employee_Handbook_2024.pdf"}
-        };
-    }
-    */
     
     // GET: document/files/{filename}
     [HttpGet("files/{filename}")]
@@ -92,22 +79,44 @@ public class DocumentController : ControllerBase
     [HttpPost("upload")]
     public async Task<IActionResult> Post([FromForm] IFormFile file)
     {
-        
-        
         if (file == null || file.Length == 0)
         {
             return BadRequest("File is null or empty");
         }
 
-        var path = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", file.FileName);
+        // Save file to the uploads directory
+        var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+        if (!Directory.Exists(uploadPath))
+        {
+            Directory.CreateDirectory(uploadPath);
+        }
+        var path = Path.Combine(uploadPath, file.FileName);
 
         using (var stream = new FileStream(path, FileMode.Create))
         {
             await file.CopyToAsync(stream);
         }
 
+        // Save file metadata to the database
+        var document = new DocumentDTO
+        {
+            Name = file.FileName,
+            Path = path,
+            FileType = Path.GetExtension(file.FileName)
+        };
+
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.PostAsJsonAsync("/api/documentitems", document);
+    
+        if (!response.IsSuccessStatusCode)
+        {
+            return StatusCode((int)response.StatusCode, "Failed to save document metadata");
+        }
+
         return Ok();
     }
+
+    
     
     [HttpPost("create-edit")]
     public JsonResult CreateEdit(DocumentDTO document)

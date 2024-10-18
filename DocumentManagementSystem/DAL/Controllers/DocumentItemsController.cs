@@ -17,15 +17,10 @@ public class DocumentItemsController : ControllerBase
     {
         _repository = documentRepository;
     }
+    
     [HttpGet]
     public async Task<IEnumerable<Document>> GetAsync()
     {
-        return new List<Document>
-        {
-            new Document { Id = 1, Name = "Contract_Agreement_2024.pdf", Path = "/documents/Contract_Agreement_2024.pdf"},
-            new Document { Id = 2, Name = "Financial_Report_Q3_2024.pdf", Path = "/documents/Financial_Report_Q3_2024.pdf"},
-            new Document { Id = 3, Name = "Employee_Handbook_2024.pdf", Path = "/documents/Employee_Handbook_2024.pdf"}
-        };
         return await _repository.GetAllAsync();
     }
 
@@ -39,6 +34,7 @@ public class DocumentItemsController : ControllerBase
         await _repository.AddAsync(item);
         return Ok();
     }
+
 
     [HttpPut("{id}")]
     public async Task<IActionResult> PutAsync(int id, Document item)

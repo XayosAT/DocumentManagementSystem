@@ -12,7 +12,7 @@ services:
       - "5005:5005"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production  # Set the environment to production
-      - ConnectionStrings__DefaultConnection=Host=postgres;Database=dms;Username=dms;Password=dms  # Connection string to PostgreSQL
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=dms_db;Username=dms_user;Password=dms_password  # Connection string to PostgreSQL
       - RabbitMQ__HostName=rabbitmq  # Connection string to RabbitMQ
     depends_on:
       - postgres
