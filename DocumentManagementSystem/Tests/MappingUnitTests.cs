@@ -1,7 +1,7 @@
 using AutoMapper;
 using Xunit;
 using DocumentManagementSystem.DTOs;
-using DAL.Entities;
+using DocumentManagementSystem.Entities;
 
 public class MappingTests
 {

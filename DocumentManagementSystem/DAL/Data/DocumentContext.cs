@@ -1,4 +1,4 @@
-using DAL.Entities;
+using DocumentManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Data;

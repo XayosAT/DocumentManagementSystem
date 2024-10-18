@@ -1,24 +1,31 @@
 ﻿using Xunit;
 using Moq;
 using DAL.Repositories;
-using DAL.Entities;
+using DocumentManagementSystem.Entities;
 using DAL.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using DocumentManagementSystem.DTOs;
+using FluentValidation;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 public class DocumentItemsControllerTests
 {
     private readonly Mock<IDocumentRepository> _documentRepositoryMock;
+    private readonly Mock<IMapper> _mapperMock;
+    private readonly Mock<IValidator<DocumentDTO>> _validatorMock; 
     private readonly DocumentItemsController _controller;
 
     public DocumentItemsControllerTests()
     {
         // Step 1: Create a Mock of IDocumentRepository
         _documentRepositoryMock = new Mock<IDocumentRepository>();
+        _mapperMock = new Mock<IMapper>();
+        _validatorMock = new Mock<IValidator<DocumentDTO>>();
 
         // Step 2: Inject Mock into Controller
-        _controller = new DocumentItemsController(_documentRepositoryMock.Object);
+        _controller = new DocumentItemsController(_documentRepositoryMock.Object, _mapperMock.Object, _validatorMock.Object);
     }
 
     [Fact]
@@ -54,8 +61,9 @@ public class DocumentItemsControllerTests
             .Setup(repo => repo.AddAsync(It.IsAny<Document>()))
             .Returns(Task.CompletedTask); // This simulates a successful add operation
 
+        var newDocumentDTO = new DocumentDTO { Name = newDocument.Name, Path = newDocument.Path, FileType = newDocument.FileType };
         // Act
-        var result = await _controller.PostAsync(newDocument);
+        var result = await _controller.PostAsync(newDocumentDTO);
 
         // Assert
         var createdAtResult = Assert.IsType<CreatedAtActionResult>(result); // Assert that the response is CreatedAtActionResult
@@ -70,6 +78,7 @@ public class DocumentItemsControllerTests
         // Arrange
         var existingDocument = new Document { Id = 1, Name = "ExistingDocument", Path = "Path1", FileType = ".pdf" };
         var updatedDocument = new Document { Id = 1, Name = "UpdatedDocument", Path = "Path1", FileType = ".pdf" };
+        var updatedDocumentDTO = new DocumentDTO { Name = updatedDocument.Name, Path = updatedDocument.Path, FileType = updatedDocument.FileType };
 
         _documentRepositoryMock
             .Setup(repo => repo.GetByIdAsync(existingDocument.Id))
@@ -80,7 +89,7 @@ public class DocumentItemsControllerTests
             .Returns(Task.CompletedTask);
 
         // Act
-        var result = await _controller.PutAsync(existingDocument.Id, updatedDocument);
+        var result = await _controller.PutAsync(existingDocument.Id, updatedDocumentDTO);
 
         // Assert
         var noContentResult = Assert.IsType<NoContentResult>(result); // Assert that the response is NoContentResult
@@ -92,13 +101,14 @@ public class DocumentItemsControllerTests
     {
         // Arrange
         var updatedDocument = new Document { Id = 99, Name = "UpdatedDocument", Path = "Path1", FileType = ".pdf" };
+        var updatedDocumentDTO = new DocumentDTO { Name = updatedDocument.Name, Path = updatedDocument.Path, FileType = updatedDocument.FileType };
 
         _documentRepositoryMock
             .Setup(repo => repo.GetByIdAsync(updatedDocument.Id))
             .ReturnsAsync((Document)null); // Simulate document not found
 
         // Act
-        var result = await _controller.PutAsync(updatedDocument.Id, updatedDocument);
+        var result = await _controller.PutAsync(updatedDocument.Id, updatedDocumentDTO);
 
         // Assert
         var notFoundResult = Assert.IsType<NotFoundResult>(result); // Assert that the response is NotFoundResult

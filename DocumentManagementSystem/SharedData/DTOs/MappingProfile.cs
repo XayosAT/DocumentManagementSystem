@@ -1,5 +1,5 @@
 using AutoMapper;
-using DAL.Entities;
+using DocumentManagementSystem.Entities;
 
 namespace DocumentManagementSystem.DTOs;
 

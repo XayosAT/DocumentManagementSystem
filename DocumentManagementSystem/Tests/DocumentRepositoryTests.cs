@@ -1,5 +1,5 @@
 ﻿using DAL.Data;
-using DAL.Entities;
+using DocumentManagementSystem.Entities;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

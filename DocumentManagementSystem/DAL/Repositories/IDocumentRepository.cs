@@ -1,4 +1,4 @@
-using DAL.Entities;
+using DocumentManagementSystem.Entities;
 
 namespace DAL.Repositories;
 
