@@ -2,6 +2,7 @@ using AutoMapper;
 using Xunit;
 using DocumentManagementSystem.DTOs;
 using DocumentManagementSystem.Entities;
+using System;
 
 public class MappingTests
 {
@@ -16,10 +17,10 @@ public class MappingTests
     }
 
     [Fact]
-    public void TestMapping_UserDTOToUser()
+    public void TestMapping_DocumentDTOToDocument_Success()
     {
         // Arrange
-        var documentDto = new DocumentDTO { Id = 0, Name = "PFD", Path = "root/var" };
+        var documentDto = new DocumentDTO { Id = 1, Name = "PDF", Path = "root/var" };
 
         // Act
         var document = _mapper.Map<Document>(documentDto);
