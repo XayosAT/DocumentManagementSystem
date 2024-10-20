@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using DocumentManagementSystem.Entities;
+using DocumentManagementSystem.DTOs;
 using System.Collections.Generic;
 
 namespace DocumentManagementSystem.Controllers;
@@ -10,9 +10,11 @@ namespace DocumentManagementSystem.Controllers;
 public class DocumentController : ControllerBase
 {
     private readonly string _uploadFolder;
+    private readonly IHttpClientFactory _httpClientFactory;
     
-    public DocumentController(IConfiguration configuration)
+    public DocumentController(IHttpClientFactory httpClientFactory)
     {
+        _httpClientFactory = httpClientFactory;
         _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
         if (!Directory.Exists(_uploadFolder))
         {
@@ -20,6 +22,7 @@ public class DocumentController : ControllerBase
         }
     }
     
+    [HttpGet]
     private string GetContentType(string path)
     {
         var ext = Path.GetExtension(path).ToLowerInvariant();
@@ -35,15 +38,19 @@ public class DocumentController : ControllerBase
             _ => "application/octet-stream",
         };
     }
+    
     [HttpGet]
-    public IEnumerable<Document> GetDocuments()
+    public async Task<IActionResult> Get()
     {
-        return new List<Document>
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.GetAsync("/api/documentitems");
+        
+        if (response.IsSuccessStatusCode) 
         {
-            new Document { Id = 1, Name = "Contract_Agreement_2024.pdf", Path = "/documents/Contract_Agreement_2024.pdf"},
-            new Document { Id = 2, Name = "Financial_Report_Q3_2024.pdf", Path = "/documents/Financial_Report_Q3_2024.pdf"},
-            new Document { Id = 3, Name = "Employee_Handbook_2024.pdf", Path = "/documents/Employee_Handbook_2024.pdf"}
-        };
+            var documents = await response.Content.ReadFromJsonAsync<IEnumerable<DocumentDTO>>();
+            return Ok(documents);
+        }
+        return StatusCode((int)response.StatusCode, "Failed to retrieve documents");
     }
     
     // GET: document/files/{filename}
@@ -72,25 +79,86 @@ public class DocumentController : ControllerBase
     [HttpPost("upload")]
     public async Task<IActionResult> Post([FromForm] IFormFile file)
     {
-        
-        
         if (file == null || file.Length == 0)
         {
             return BadRequest("File is null or empty");
         }
 
-        var path = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", file.FileName);
+        // Save file to the uploads directory
+        var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+        if (!Directory.Exists(uploadPath))
+        {
+            Directory.CreateDirectory(uploadPath);
+        }
+        var path = Path.Combine(uploadPath, file.FileName);
 
         using (var stream = new FileStream(path, FileMode.Create))
         {
             await file.CopyToAsync(stream);
         }
 
+        // Save file metadata to the database
+        var document = new DocumentDTO
+        {
+            Name = file.FileName,
+            Path = path,
+            FileType = Path.GetExtension(file.FileName)
+        };
+
+        if (!ModelState.IsValid)
+        {
+            // FluentValidation errors will be here if the model is invalid.
+            return BadRequest(ModelState);
+        }
+
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.PostAsJsonAsync("/api/documentitems", document);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return StatusCode((int)response.StatusCode, "Failed to save document metadata");
+        }
+
         return Ok();
     }
     
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.DeleteAsync($"/api/documentitems/{id}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return StatusCode((int)response.StatusCode, "Failed to delete document");
+        }
+
+        return NoContent();
+    }
+    
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] DocumentDTO document)
+    {
+        if (document == null)
+        {
+            return BadRequest("Invalid document data");
+        }
+
+        var client = _httpClientFactory.CreateClient("DAL");
+        var response = await client.PutAsJsonAsync($"/api/documentitems/{id}", document);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return StatusCode((int)response.StatusCode, "Failed to update document");
+        }
+
+        return NoContent();
+    }
+
+    
+    
     [HttpPost("create-edit")]
-    public JsonResult CreateEdit(Document document)
+    public JsonResult CreateEdit(DocumentDTO document)
     {
         return new JsonResult("Trying to edit document");
     }

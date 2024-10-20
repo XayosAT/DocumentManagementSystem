@@ -2,6 +2,7 @@ using AutoMapper;
 using Xunit;
 using DocumentManagementSystem.DTOs;
 using DocumentManagementSystem.Entities;
+using System;
 
 public class MappingTests
 {
@@ -16,17 +17,17 @@ public class MappingTests
     }
 
     [Fact]
-    public void TestMapping_UserDTOToUser()
+    public void TestMapping_DocumentDTOToDocument_Success()
     {
         // Arrange
-        var userDto = new UserDTO { FirstName = "John", LastName = "Doe", Email = "john@example.com" };
+        var documentDto = new DocumentDTO { Id = 1, Name = "PDF", Path = "root/var" };
 
         // Act
-        var user = _mapper.Map<User>(userDto);
+        var document = _mapper.Map<Document>(documentDto);
 
         // Assert
-        Assert.Equal(userDto.FirstName, user.FirstName);
-        Assert.Equal(userDto.LastName, user.LastName);
-        Assert.Equal(userDto.Email, user.Email);
+        Assert.Equal(documentDto.Id, document.Id);
+        Assert.Equal(documentDto.Name, document.Name);
+        Assert.Equal(documentDto.Path, document.Path);
     }
 }
