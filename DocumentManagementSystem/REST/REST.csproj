@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <InvariantGlobalization>true</InvariantGlobalization>
         <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-        <RootNamespace>DocumentManagementSystem</RootNamespace>
+        <RootNamespace>REST</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

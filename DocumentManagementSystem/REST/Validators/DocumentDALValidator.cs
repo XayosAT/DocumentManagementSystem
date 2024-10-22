@@ -1,12 +1,12 @@
 using System.ComponentModel;
 using FluentValidation;
-using DocumentManagementSystem.Entities;
+using SharedData.EntitiesDAL;
 
-namespace DAL.Validators;
+namespace REST.Validators;
 
-public class DocumentValidator : AbstractValidator<Document>
+public class DocumentDALValidator : AbstractValidator<DocumentDAL>
 {
-    public DocumentValidator()
+    public DocumentDALValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Name is required")

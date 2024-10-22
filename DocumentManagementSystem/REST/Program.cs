@@ -1,13 +1,13 @@
 using DocumentManagementSystem;
 using DocumentManagementSystem.DTOs;
-using DAL.Validators;
+using REST.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using DAL.Repositories;
 using DAL.Data;
-using DocumentManagementSystem.Entities;
-using DocumentManagementSystem.Validators;
+using SharedData.EntitiesDAL;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,12 +19,11 @@ builder.Services.AddControllers();
 builder.Services.AddControllers()
     .AddFluentValidation(config =>
     {
-        config.RegisterValidatorsFromAssemblyContaining<DocumentValidator>();
-        config.RegisterValidatorsFromAssemblyContaining<DocumentDTOValidator>();
+        config.RegisterValidatorsFromAssemblyContaining<DocumentDALValidator>();
     });
 
 // Register FluentValidation manually if needed
-builder.Services.AddScoped<IValidator<Document>, DocumentValidator>();
+builder.Services.AddScoped<IValidator<DocumentDAL>, DocumentDALValidator>();
 
 // Configure the PostgreSQL database connection using Entity Framework Core
 builder.Services.AddDbContext<DocumentContext>(options =>
@@ -34,12 +33,6 @@ builder.Services.AddDbContext<DocumentContext>(options =>
 // Register the DocumentRepository and IDocumentRepository for dependency injection
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
-// Configure HttpClient for communication within the application
-builder.Services.AddHttpClient("DAL", client =>
-{
-    client.BaseAddress = new Uri("http://localhost:8081");
-    client.DefaultRequestHeaders.Add("Accept", "application/json");
-});
 
 // Register AutoMapper to map between DTOs and entities
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

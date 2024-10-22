@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DocumentManagementSystem.Entities;
+namespace SharedData.EntitiesDAL;
 
 [Table("documents")]
-public class Document
+public class DocumentDAL
 {   
     [Column("id")]
     public int Id { get; set; }

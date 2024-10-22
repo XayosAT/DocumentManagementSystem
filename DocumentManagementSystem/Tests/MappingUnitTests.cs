@@ -1,8 +1,8 @@
 using AutoMapper;
 using Xunit;
 using DocumentManagementSystem.DTOs;
-using DocumentManagementSystem.Entities;
 using System;
+using SharedData.DAL_Entities;
 
 public class MappingTests
 {
@@ -23,7 +23,7 @@ public class MappingTests
         var documentDto = new DocumentDTO { Id = 1, Name = "PDF", Path = "root/var" };
 
         // Act
-        var document = _mapper.Map<Document>(documentDto);
+        var document = _mapper.Map<DocumentDAL>(documentDto);
 
         // Assert
         Assert.Equal(documentDto.Id, document.Id);
