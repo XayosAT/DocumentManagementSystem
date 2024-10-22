@@ -138,21 +138,16 @@ public class DocumentController : ControllerBase
         {
             return NotFound();
         }
-
-        // Map DTO to BL entity for business operations
+        
         var documentBL = _mapper.Map<DocumentBL>(documentDTO);
-
-        // Validate the BL entity using FluentValidation
-        var blValidationResult = await _blValidator.ValidateAsync(documentBL);
-        if (!blValidationResult.IsValid)
+        var validationResult = await _blValidator.ValidateAsync(documentBL);
+        if (!validationResult.IsValid)
         {
-            return BadRequest(blValidationResult.Errors);
+            return BadRequest(validationResult.Errors);
         }
-
-        // Update business fields using BL entity
-        existingItem.Name = documentBL.Name;
-        existingItem.Path = documentBL.Path;
-        existingItem.FileType = documentBL.FileType;
+        
+        _mapper.Map(documentDTO, existingItem);
+        
 
         await _repository.UpdateAsync(existingItem);
         return NoContent();
