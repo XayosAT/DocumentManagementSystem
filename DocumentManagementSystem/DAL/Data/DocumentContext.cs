@@ -1,10 +1,10 @@
-using DocumentManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
+using SharedData.EntitiesDAL;
 
 namespace DAL.Data;
 public class DocumentContext : DbContext
 {
-    public DbSet<Document>? DocumentItems { get; set; }
+    public DbSet<DocumentDAL>? DocumentItems { get; set; }
     
     public DocumentContext(DbContextOptions<DocumentContext> options) : base(options)
     {
@@ -13,7 +13,7 @@ public class DocumentContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Manuelle Konfiguration der Tabelle
-        modelBuilder.Entity<Document>(entity =>
+        modelBuilder.Entity<DocumentDAL>(entity =>
         {
             entity.ToTable("Documents");  // Setzt den Tabellennamen
 

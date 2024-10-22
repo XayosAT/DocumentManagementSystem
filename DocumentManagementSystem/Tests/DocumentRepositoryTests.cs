@@ -1,10 +1,10 @@
 ﻿using DAL.Data;
-using DocumentManagementSystem.Entities;
 using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SharedData.DAL_Entities;
 using Xunit;
 
 
@@ -25,10 +25,10 @@ public class DocumentRepositoryTests
     {
         // Arrange
         var context = GetInMemoryDbContext();
-        context.DocumentItems.AddRange(new List<Document>
+        context.DocumentItems.AddRange(new List<DocumentDAL>
         {
-            new Document { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" },
-            new Document { Id = 2, Name = "Document 2", Path = "/path2", FileType = "docx" }
+            new DocumentDAL { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" },
+            new DocumentDAL { Id = 2, Name = "Document 2", Path = "/path2", FileType = "docx" }
         });
         await context.SaveChangesAsync();
 
@@ -47,10 +47,10 @@ public class DocumentRepositoryTests
     {
         // Arrange
         var context = GetInMemoryDbContext();
-        context.DocumentItems.AddRange(new List<Document>
+        context.DocumentItems.AddRange(new List<DocumentDAL>
         {
-            new Document { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" },
-            new Document { Id = 2, Name = "Document 2", Path = "/path2", FileType = "docx" }
+            new DocumentDAL { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" },
+            new DocumentDAL { Id = 2, Name = "Document 2", Path = "/path2", FileType = "docx" }
         });
         await context.SaveChangesAsync();
 
@@ -70,7 +70,7 @@ public class DocumentRepositoryTests
         // Arrange
         var context = GetInMemoryDbContext();
         var repository = new DocumentRepository(context);
-        var document = new Document { Id = 3, Name = "Document 3", Path = "/path3", FileType = "xlsx" };
+        var document = new DocumentDAL { Id = 3, Name = "Document 3", Path = "/path3", FileType = "xlsx" };
 
         // Act
         await repository.AddAsync(document);
@@ -86,7 +86,7 @@ public class DocumentRepositoryTests
     {
         // Arrange
         var context = GetInMemoryDbContext();
-        var document = new Document { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" };
+        var document = new DocumentDAL { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" };
         context.DocumentItems.Add(document);
         await context.SaveChangesAsync();
 
@@ -106,7 +106,7 @@ public class DocumentRepositoryTests
     {
         // Arrange
         var context = GetInMemoryDbContext();
-        var document = new Document { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" };
+        var document = new DocumentDAL { Id = 1, Name = "Document 1", Path = "/path1", FileType = "pdf" };
         context.DocumentItems.Add(document);
         await context.SaveChangesAsync();
 

@@ -1,28 +1,164 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
+using DAL.Repositories;
 using DocumentManagementSystem.DTOs;
+using FluentValidation;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using SharedData.EntitiesBL;
+using SharedData.EntitiesDAL;
 
-namespace DocumentManagementSystem.Controllers;
+namespace REST.Controllers;
 
 [ApiController]
 [Route("document")]
 public class DocumentController : ControllerBase
 {
+    private readonly IDocumentRepository _repository;
+    private readonly IMapper _mapper;
+    private readonly IValidator<DocumentDAL> _dalValidator;
+    private readonly IValidator<DocumentBL> _blValidator;
     private readonly string _uploadFolder;
-    private readonly IHttpClientFactory _httpClientFactory;
-    
-    public DocumentController(IHttpClientFactory httpClientFactory)
+
+    public DocumentController(
+        IDocumentRepository documentRepository, 
+        IMapper mapper, 
+        IValidator<DocumentDAL> dalValidator,
+        IValidator<DocumentBL> blValidator)
     {
-        _httpClientFactory = httpClientFactory;
+        _repository = documentRepository;
+        _mapper = mapper;
+        _dalValidator = dalValidator;
+        _blValidator = blValidator;
+
+        // Initialize the upload folder path
         _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
         if (!Directory.Exists(_uploadFolder))
         {
             Directory.CreateDirectory(_uploadFolder);
         }
     }
-    
+
+    // GET: document
     [HttpGet]
+    public async Task<IActionResult> GetAsync()
+    {
+        var documents = await _repository.GetAllAsync();
+        var documentDTOs = _mapper.Map<IEnumerable<DocumentDTO>>(documents);
+        return Ok(documentDTOs);
+    }
+
+    // GET: document/files/{filename}
+    [HttpGet("files/{filename}")]
+    public IActionResult GetFile(string filename)
+    {
+        // Combine the uploads folder with the requested filename
+        var filePath = Path.Combine(_uploadFolder, filename);
+
+        // Check if the file exists
+        if (!System.IO.File.Exists(filePath))
+        {
+            return NotFound("File not found.");
+        }
+
+        // Determine the content type based on the file extension
+        string contentType = GetContentType(filePath);
+
+        // Read the file content and return it as a response
+        var fileBytes = System.IO.File.ReadAllBytes(filePath);
+        return File(fileBytes, contentType);
+    }
+
+    // POST: document/upload
+    [HttpPost("upload")]
+    public async Task<IActionResult> Post([FromForm] IFormFile file)
+    {
+        if (file == null || file.Length == 0)
+        {
+            return BadRequest("File is null or empty");
+        }
+
+        // Save file to the uploads directory
+        var path = Path.Combine(_uploadFolder, file.FileName);
+
+        using (var stream = new FileStream(path, FileMode.Create))
+        {
+            await file.CopyToAsync(stream);
+        }
+
+        // Create document DTO and map to DAL entity
+        var documentDTO = new DocumentDTO
+        {
+            Name = file.FileName,
+            Path = path,
+            FileType = Path.GetExtension(file.FileName)
+        };
+
+        var documentDAL = _mapper.Map<DocumentDAL>(documentDTO);
+
+        // Validate the DAL entity using FluentValidation
+        var validationResult = await _dalValidator.ValidateAsync(documentDAL);
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+
+        await _repository.AddAsync(documentDAL);
+
+        return CreatedAtAction(nameof(GetAsync), new { id = documentDAL.Id }, documentDAL);
+    }
+
+    // DELETE: document/{id}
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        var item = await _repository.GetByIdAsync(id);
+        if (item == null)
+        {
+            return NotFound();
+        }
+
+        await _repository.DeleteAsync(id);
+        return NoContent();
+    }
+
+    // PUT: document/{id}
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateAsync(int id, [FromBody] DocumentDTO documentDTO)
+    {
+        if (documentDTO == null)
+        {
+            return BadRequest("Invalid document data");
+        }
+
+        var existingItem = await _repository.GetByIdAsync(id);
+        if (existingItem == null)
+        {
+            return NotFound();
+        }
+
+        // Map DTO to BL entity for business operations
+        var documentBL = _mapper.Map<DocumentBL>(documentDTO);
+
+        // Validate the BL entity using FluentValidation
+        var blValidationResult = await _blValidator.ValidateAsync(documentBL);
+        if (!blValidationResult.IsValid)
+        {
+            return BadRequest(blValidationResult.Errors);
+        }
+
+        // Update business fields using BL entity
+        existingItem.Name = documentBL.Name;
+        existingItem.Path = documentBL.Path;
+        existingItem.FileType = documentBL.FileType;
+
+        await _repository.UpdateAsync(existingItem);
+        return NoContent();
+    }
+
+    // Helper method to get content type based on file extension
     private string GetContentType(string path)
     {
         var ext = Path.GetExtension(path).ToLowerInvariant();
@@ -37,129 +173,5 @@ public class DocumentController : ControllerBase
             ".gif" => "image/gif",
             _ => "application/octet-stream",
         };
-    }
-    
-    [HttpGet]
-    public async Task<IActionResult> Get()
-    {
-        var client = _httpClientFactory.CreateClient("DAL");
-        var response = await client.GetAsync("/api/documentitems");
-        
-        if (response.IsSuccessStatusCode) 
-        {
-            var documents = await response.Content.ReadFromJsonAsync<IEnumerable<DocumentDTO>>();
-            return Ok(documents);
-        }
-        return StatusCode((int)response.StatusCode, "Failed to retrieve documents");
-    }
-    
-    // GET: document/files/{filename}
-    [HttpGet("files/{filename}")]
-    public IActionResult GetFile(string filename)
-    {
-        // Combine the uploads folder with the requested filename
-        var filePath = Path.Combine(_uploadFolder, filename);
-
-        // Check if the file exists
-        if (!System.IO.File.Exists(filePath))
-        {
-            return NotFound("File not found.");
-        }
-
-        // Determine the content type based on the file extension (for example: "application/json" for .json files)
-        string contentType = GetContentType(filePath);
-
-        // Read the file content and return it as a response
-        var fileBytes = System.IO.File.ReadAllBytes(filePath);
-
-        // Instead of forcing a download, return the file with the correct content type so that it opens in the browser
-        return File(fileBytes, contentType);
-    }
-
-    [HttpPost("upload")]
-    public async Task<IActionResult> Post([FromForm] IFormFile file)
-    {
-        if (file == null || file.Length == 0)
-        {
-            return BadRequest("File is null or empty");
-        }
-
-        // Save file to the uploads directory
-        var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
-        if (!Directory.Exists(uploadPath))
-        {
-            Directory.CreateDirectory(uploadPath);
-        }
-        var path = Path.Combine(uploadPath, file.FileName);
-
-        using (var stream = new FileStream(path, FileMode.Create))
-        {
-            await file.CopyToAsync(stream);
-        }
-
-        // Save file metadata to the database
-        var document = new DocumentDTO
-        {
-            Name = file.FileName,
-            Path = path,
-            FileType = Path.GetExtension(file.FileName)
-        };
-
-        if (!ModelState.IsValid)
-        {
-            // FluentValidation errors will be here if the model is invalid.
-            return BadRequest(ModelState);
-        }
-
-        var client = _httpClientFactory.CreateClient("DAL");
-        var response = await client.PostAsJsonAsync("/api/documentitems", document);
-
-        if (!response.IsSuccessStatusCode)
-        {
-            return StatusCode((int)response.StatusCode, "Failed to save document metadata");
-        }
-
-        return Ok();
-    }
-    
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
-    {
-        var client = _httpClientFactory.CreateClient("DAL");
-        var response = await client.DeleteAsync($"/api/documentitems/{id}");
-
-        if (!response.IsSuccessStatusCode)
-        {
-            return StatusCode((int)response.StatusCode, "Failed to delete document");
-        }
-
-        return NoContent();
-    }
-    
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, [FromBody] DocumentDTO document)
-    {
-        if (document == null)
-        {
-            return BadRequest("Invalid document data");
-        }
-
-        var client = _httpClientFactory.CreateClient("DAL");
-        var response = await client.PutAsJsonAsync($"/api/documentitems/{id}", document);
-
-        if (!response.IsSuccessStatusCode)
-        {
-            return StatusCode((int)response.StatusCode, "Failed to update document");
-        }
-
-        return NoContent();
-    }
-
-    
-    
-    [HttpPost("create-edit")]
-    public JsonResult CreateEdit(DocumentDTO document)
-    {
-        return new JsonResult("Trying to edit document");
     }
 }

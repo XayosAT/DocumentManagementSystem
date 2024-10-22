@@ -1,6 +1,6 @@
-using DocumentManagementSystem.Entities;
 using DAL.Data;
 using Microsoft.EntityFrameworkCore;
+using SharedData.EntitiesDAL;
 
 namespace DAL.Repositories;
 
@@ -13,23 +13,23 @@ public class DocumentRepository : IDocumentRepository
     {
         _context = context;
     }
-    public async Task<IEnumerable<Document>> GetAllAsync()
+    public async Task<IEnumerable<DocumentDAL>> GetAllAsync()
     {
         return await _context.DocumentItems.ToListAsync();
     }
     
-    public async Task<Document> GetByIdAsync(int id)
+    public async Task<DocumentDAL> GetByIdAsync(int id)
     {
         return await _context.DocumentItems.FindAsync(id);
     }
     
-    public async Task AddAsync(Document item)
+    public async Task AddAsync(DocumentDAL item)
     {
         _context.DocumentItems.AddAsync(item);
         await _context.SaveChangesAsync();
     }
     
-    public async Task UpdateAsync(Document item)
+    public async Task UpdateAsync(DocumentDAL item)
     {
         _context.DocumentItems.Update(item);
         await _context.SaveChangesAsync();
