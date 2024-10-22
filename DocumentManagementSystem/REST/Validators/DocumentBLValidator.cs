@@ -16,13 +16,9 @@ namespace REST.Validators
             RuleFor(x => x.Path)
                 .NotEmpty().WithMessage("Path is required");
 
-            // Validation rules for the FileType property
+            // Combined validation rules for the FileType property
             RuleFor(x => x.FileType)
-                .NotEmpty().WithMessage("FileType is required");
-
-            // Additional Business Rule: Example
-            // Ensure the FileType is either '.pdf', '.docx', or '.txt'
-            RuleFor(x => x.FileType)
+                .NotEmpty().WithMessage("FileType is required")
                 .Must(fileType => new[] { ".pdf", ".docx", ".txt" }.Contains(fileType.ToLower()))
                 .WithMessage("FileType must be either '.pdf', '.docx', or '.txt'");
         }

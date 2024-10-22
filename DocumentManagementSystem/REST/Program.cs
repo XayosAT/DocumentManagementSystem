@@ -1,5 +1,5 @@
-using DocumentManagementSystem;
-using DocumentManagementSystem.DTOs;
+using SharedData;
+using SharedData.DTOs;
 using REST.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
