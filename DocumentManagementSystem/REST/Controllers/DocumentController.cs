@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DAL.Repositories;
-using DocumentManagementSystem.DTOs;
+using SharedData.DTOs;
 using FluentValidation;
 using System.Collections.Generic;
 using System.IO;

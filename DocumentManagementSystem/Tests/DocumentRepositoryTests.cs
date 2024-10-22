@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SharedData.DAL_Entities;
+using SharedData.EntitiesDAL;
 using Xunit;
-
+using System;
 
 public class DocumentRepositoryTests
 {
     private DocumentContext GetInMemoryDbContext()
     {
-        var dbName = Guid.NewGuid().ToString(); // Use a unique name for each test
+        var dbName = Guid.NewGuid().ToString(); // Unique database name per test to isolate them
         var options = new DbContextOptionsBuilder<DocumentContext>()
             .UseInMemoryDatabase(databaseName: dbName)
             .Options;
@@ -73,7 +73,7 @@ public class DocumentRepositoryTests
         var document = new DocumentDAL { Id = 3, Name = "Document 3", Path = "/path3", FileType = "xlsx" };
 
         // Act
-        await repository.AddAsync(document);
+        await repository.AddAsync(document); // Ensure AddAsync is awaited
         var addedDocument = await context.DocumentItems.FindAsync(3);
 
         // Assert

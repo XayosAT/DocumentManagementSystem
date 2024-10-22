@@ -25,7 +25,7 @@ public class DocumentRepository : IDocumentRepository
     
     public async Task AddAsync(DocumentDAL item)
     {
-        _context.DocumentItems.AddAsync(item);
+        await _context.DocumentItems.AddAsync(item);
         await _context.SaveChangesAsync();
     }
     

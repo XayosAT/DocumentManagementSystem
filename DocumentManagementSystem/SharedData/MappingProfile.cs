@@ -1,5 +1,5 @@
 using AutoMapper;
-using DocumentManagementSystem.DTOs;
+using SharedData.DTOs;
 using SharedData.EntitiesDAL;
 using SharedData.EntitiesBL;
 

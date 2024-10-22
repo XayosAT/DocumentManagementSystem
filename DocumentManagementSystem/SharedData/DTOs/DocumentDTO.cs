@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
-namespace DocumentManagementSystem.DTOs;
+namespace SharedData.DTOs;
 
 [DataContract]
 public class DocumentDTO
