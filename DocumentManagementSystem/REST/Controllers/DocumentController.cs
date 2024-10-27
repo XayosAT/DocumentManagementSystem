@@ -7,6 +7,7 @@ using System.IO;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using REST.RabbitMQ;
 using SharedData.EntitiesBL;
 using SharedData.EntitiesDAL;
 
@@ -21,17 +22,20 @@ public class DocumentController : ControllerBase
     private readonly IValidator<DocumentDAL> _dalValidator;
     private readonly IValidator<DocumentBL> _blValidator;
     private readonly string _uploadFolder;
+    private readonly IMessagePublisher _publisher;
 
     public DocumentController(
         IDocumentRepository documentRepository, 
         IMapper mapper, 
         IValidator<DocumentDAL> dalValidator,
-        IValidator<DocumentBL> blValidator)
+        IValidator<DocumentBL> blValidator,
+        IMessagePublisher publisher)
     {
         _repository = documentRepository;
         _mapper = mapper;
         _dalValidator = dalValidator;
         _blValidator = blValidator;
+        _publisher = publisher;
 
         // Initialize the upload folder path
         _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
@@ -106,7 +110,9 @@ public class DocumentController : ControllerBase
         }
 
         await _repository.AddAsync(documentDAL);
-
+        _publisher.Publish($"Document Path: {documentDAL.Path}", "dms_routing_key");
+        
+        // this is causing an error but the program does not crash
         return CreatedAtAction(nameof(GetAsync), new { id = documentDAL.Id }, documentDAL);
     }
 
