@@ -6,11 +6,59 @@ using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using DAL.Repositories;
 using DAL.Data;
+using Microsoft.Extensions.Options;
+using RabbitMQ.Client;
+using REST.RabbitMQ;
 using SharedData.EntitiesDAL;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Bind RabbitMQSettings
+builder.Services.Configure<RabbitMQSettings>(builder.Configuration.GetSection("RabbitMQSettings"));
+
+// Register RabbitMQ connection as singleton
+builder.Services.AddSingleton<IConnection>(sp =>
+{
+    var settings = sp.GetRequiredService<IOptions<RabbitMQSettings>>().Value;
+    var queueName = settings.QueueName;
+    var exchangeName = settings.ExchangeName;
+    var routingKey = settings.RoutingKey;
+    
+    var factory = new ConnectionFactory
+    {
+        HostName = settings.HostName,
+        Port = settings.Port,
+        UserName = settings.UserName,
+        Password = settings.Password,
+        VirtualHost = settings.VirtualHost
+    };
+    var connection = factory.CreateConnection();
+    // Declare the exchange once the connection is established
+    using var channel = connection.CreateModel();
+    channel.ExchangeDeclare(
+        exchange: exchangeName,
+        type: ExchangeType.Direct);
+    channel.QueueDeclare(
+        queue: queueName,
+        durable: false,
+        exclusive: false,
+        autoDelete: false);
+    channel.QueueBind(
+        queue: queueName,
+        exchange: exchangeName,
+        routingKey: routingKey);
+    return connection;
+});
+
+// Register RabbitMQ channel as scoped
+builder.Services.AddScoped<IModel>(sp =>
+{
+    var connection = sp.GetRequiredService<IConnection>();
+    return connection.CreateModel();
+});
+
+builder.Services.AddScoped<IMessagePublisher, RabbitMQPublisher>();
 
 // Add services to the container.
 builder.Services.AddControllers();
