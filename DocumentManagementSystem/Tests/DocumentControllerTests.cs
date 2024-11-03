@@ -12,6 +12,7 @@ using SharedData.EntitiesDAL;
 using SharedData.EntitiesBL;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using REST.RabbitMQ;
 
 public class DocumentControllerTests
 {
@@ -19,6 +20,7 @@ public class DocumentControllerTests
     private readonly Mock<IMapper> _mapperMock;
     private readonly Mock<IValidator<DocumentDAL>> _dalValidatorMock;
     private readonly Mock<IValidator<DocumentBL>> _blValidatorMock;
+    private readonly Mock<IMessagePublisher> _publisherMock;
     private readonly DocumentController _controller;
 
     public DocumentControllerTests()
@@ -27,12 +29,14 @@ public class DocumentControllerTests
         _mapperMock = new Mock<IMapper>();
         _dalValidatorMock = new Mock<IValidator<DocumentDAL>>();
         _blValidatorMock = new Mock<IValidator<DocumentBL>>();
+        _publisherMock = new Mock<IMessagePublisher>();
 
         _controller = new DocumentController(
             _repositoryMock.Object,
             _mapperMock.Object,
             _dalValidatorMock.Object,
-            _blValidatorMock.Object
+            _blValidatorMock.Object,
+            _publisherMock.Object
         );
     }
 
@@ -98,7 +102,7 @@ public class DocumentControllerTests
         fileMock.Setup(f => f.FileName).Returns(fileName);
         fileMock.Setup(f => f.Length).Returns(ms.Length);
 
-        var documentDTO = new DocumentDTO { Name = fileName, Path = "Uploads/test.txt", FileType = ".txt" };
+        // var documentDTO = new DocumentDTO { Name = fileName, Path = "Uploads/test.txt", FileType = ".txt" };
         var documentDAL = new DocumentDAL { Name = fileName, Path = "Uploads/test.txt", FileType = ".txt" };
 
         _mapperMock.Setup(mapper => mapper.Map<DocumentDAL>(It.IsAny<DocumentDTO>())).Returns(documentDAL);
