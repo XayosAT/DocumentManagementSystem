@@ -4,7 +4,7 @@ using SharedData.EntitiesDAL;
 namespace DAL.Data;
 public class DocumentContext : DbContext
 {
-    public DbSet<DocumentDAL>? DocumentItems { get; set; }
+    public DbSet<DocumentDAL> DocumentItems { get; set; }
     
     public DocumentContext(DbContextOptions<DocumentContext> options) : base(options)
     {

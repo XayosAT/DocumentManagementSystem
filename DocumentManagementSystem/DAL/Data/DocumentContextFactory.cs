@@ -2,10 +2,12 @@ using DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace DAL.Data
 {
+    [ExcludeFromCodeCoverage]
     public class DocumentContextFactory : IDesignTimeDbContextFactory<DocumentContext>
     {
         public DocumentContext CreateDbContext(string[] args)

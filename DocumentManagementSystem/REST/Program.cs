@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using SharedData;
 using SharedData.DTOs;
 using REST.Validators;
@@ -148,3 +149,5 @@ finally
 {
     logger.Info("Application is shutting down.");
 }
+
+[ExcludeFromCodeCoverage] public partial class Program {}
