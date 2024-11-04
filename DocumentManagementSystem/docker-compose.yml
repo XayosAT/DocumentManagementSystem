@@ -21,6 +21,8 @@ services:
       #   condition: service_healthy  # Ensure the rest-server starts after PostgreSQL is ready (using health check)
       # rabbitmq:
       #   condition: service_started  # Ensure rest-server starts after RabbitMQ is ready
+    volumes:
+      - ./Logs:/app/Logs  # Persist logs
     networks:
       - dms-network
 
@@ -69,3 +71,4 @@ networks:
 
 volumes:
   postgres_data:
+  
