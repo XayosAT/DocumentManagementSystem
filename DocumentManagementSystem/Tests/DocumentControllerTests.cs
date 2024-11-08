@@ -12,7 +12,8 @@ using SharedData.EntitiesDAL;
 using SharedData.EntitiesBL;
 using Microsoft.AspNetCore.Http;
 using System.IO;
-using REST.RabbitMQ;
+using DAL.RabbitMQ;
+using DAL.Services;
 
 public class DocumentControllerTests
 {
@@ -22,6 +23,7 @@ public class DocumentControllerTests
     private readonly Mock<IValidator<DocumentBL>> _blValidatorMock;
     private readonly Mock<IMessagePublisher> _publisherMock;
     private readonly DocumentController _controller;
+    private readonly DocumentService _documentService;
 
     public DocumentControllerTests()
     {
@@ -31,14 +33,19 @@ public class DocumentControllerTests
         _blValidatorMock = new Mock<IValidator<DocumentBL>>();
         _publisherMock = new Mock<IMessagePublisher>();
 
-        _controller = new DocumentController(
+        // Mocking DocumentService's dependencies
+        var documentService = new DocumentService(
             _repositoryMock.Object,
             _mapperMock.Object,
             _dalValidatorMock.Object,
             _blValidatorMock.Object,
             _publisherMock.Object
         );
+
+        // Initialize the controller with DocumentService
+        _controller = new DocumentController(documentService);
     }
+
 
     [Fact]
     public async Task Get_ShouldReturnAllDocuments_WhenResponseIsSuccessful()
@@ -71,19 +78,24 @@ public class DocumentControllerTests
     }
 
     [Fact]
-    public async Task Get_ShouldReturnNotFound_WhenDocumentsDoNotExist()
+    public async Task Get_ShouldReturnEmptyList_WhenDocumentsDoNotExist()
     {
         // Arrange
-        _repositoryMock.Setup(repo => repo.GetAllAsync()).ReturnsAsync((IEnumerable<DocumentDAL>)null);
+        _repositoryMock.Setup(repo => repo.GetAllAsync()).ReturnsAsync(new List<DocumentDAL>());
+
+        var documentDTOList = new List<DocumentDTO>();  // Empty list
+        _mapperMock.Setup(mapper => mapper.Map<IEnumerable<DocumentDTO>>(It.IsAny<IEnumerable<DocumentDAL>>()))
+            .Returns(documentDTOList);
 
         // Act
         var result = await _controller.GetAsync();
 
         // Assert
-        var okResult = Assert.IsType<OkObjectResult>(result);  // Ensure OkObjectResult is returned
-        var returnedList = Assert.IsType<DocumentDTO[]>(okResult.Value);  // Ensure the result is a list
-        Assert.Empty(returnedList); 
+        var okResult = Assert.IsType<OkObjectResult>(result); // Ensure OkObjectResult is returned
+        var returnedDocuments = Assert.IsType<List<DocumentDTO>>(okResult.Value);
+        Assert.Empty(returnedDocuments);  // Ensure the list is empty
     }
+    
     /*
     [Fact]
     public async Task Post_ShouldUploadFileAndReturnOk_WhenFileIsValid()
@@ -114,16 +126,12 @@ public class DocumentControllerTests
 
         // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
-
-        // Extract the value as a dictionary
         var responseObject = Assert.IsType<Dictionary<string, object>>(okResult.Value);
-    
-        // Assert values in the dictionary
         Assert.Equal("Document successfully uploaded.", responseObject["message"]);
         Assert.Equal(documentDAL.Id, (int)responseObject["documentId"]);
     }
     */
-
+    
     [Fact]
     public async Task Post_ShouldReturnBadRequest_WhenFileIsInvalid()
     {

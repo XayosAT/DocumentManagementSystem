@@ -9,11 +9,13 @@ using DAL.Repositories;
 using DAL.Data;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
-using REST.RabbitMQ;
+using DAL.RabbitMQ;
 using SharedData.EntitiesDAL;
 using log4net;
 using System.Reflection;
+using DAL.Services;
 using Microsoft.Extensions.Logging;
+using DAL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +32,8 @@ builder.Logging.AddLog4Net();     // Add log4net as the logging provider
 
 // Log startup information
 logger.Info("Starting up the application...");
+
+builder.Services.AddScoped<DocumentService>();
 
 // Bind RabbitMQSettings
 builder.Services.Configure<RabbitMQSettings>(builder.Configuration.GetSection("RabbitMQSettings"));

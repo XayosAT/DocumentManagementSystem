@@ -58,7 +58,7 @@
         // Fetch data from REST API
         async function fetchDocuments() {
             try {
-                const response = await fetch('http://localhost:8081/document');
+                const response = await fetch('http://localhost:8081/document/getall');
                 if (!response.ok) throw new Error('Network response was not ok');
                 documents = await response.json();
                 renderDocumentList();

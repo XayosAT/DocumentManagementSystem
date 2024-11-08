@@ -1,7 +1,7 @@
 using RabbitMQ.Client;
 using System.Text;
 
-namespace REST.RabbitMQ;
+namespace DAL.RabbitMQ;
 
 public interface IMessagePublisher
 {

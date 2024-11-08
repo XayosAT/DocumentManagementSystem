@@ -1,15 +1,237 @@
-2024-11-04 12:02:31,305 [1] INFO  Program - Starting up the application...
-2024-11-04 12:02:33,324 [1] INFO  Program - Kestrel is configured to listen on port 8081
-2024-11-04 12:02:33,349 [1] INFO  Program - Application startup complete. Running now...
-2024-11-04 12:02:33,758 [1] INFO  Program - Starting the web host...
-2024-11-04 12:02:33,847 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
-2024-11-04 12:02:34,032 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
-2024-11-04 12:02:34,150 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
-2024-11-04 12:02:34,154 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
-2024-11-04 12:02:34,157 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
-2024-11-04 12:02:34,161 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
-2024-11-04 12:03:09,310 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:09,769 [13] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7SP2J2L400", Request id "0HN7SP2J2L400:00000001": An unhandled exception was thrown by the application.
+2024-11-08 09:07:39,684 [1] INFO  Program - Starting up the application...
+2024-11-08 09:07:41,341 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-08 09:07:41,376 [1] INFO  Program - Application startup complete. Running now...
+2024-11-08 09:07:41,705 [1] INFO  Program - Starting the web host...
+2024-11-08 09:07:41,763 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-08 09:07:41,856 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-08 09:07:41,899 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-08 09:07:41,900 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-08 09:07:41,901 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-08 09:07:41,902 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-08 09:07:50,179 [11] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:07:56,715 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000002": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:01,647 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000003": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method17(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:04,432 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000004": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:08,969 [10] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000005": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:14,859 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000006": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:15,864 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000007": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:16,459 [14] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000008": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:16,996 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:00000009": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:17,262 [14] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:0000000A": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:08:39,999 [15] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:0000000B": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:09:32,093 [3] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:0000000C": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:09:43,977 [19] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:0000000D": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method17(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:11:03,175 [24] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:0000000E": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method17(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:11:07,197 [26] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQJ8T59H7", Request id "0HN7VQJ8T59H7:0000000F": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Unable to resolve service for type 'DAL.Services.DocumentService' while attempting to activate 'REST.Controllers.DocumentController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:16:12,100 [32] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-08 09:16:12,120 [1] INFO  Program - Application is shutting down.
+2024-11-08 09:16:45,141 [1] INFO  Program - Starting up the application...
+2024-11-08 09:16:46,437 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-08 09:16:46,459 [1] INFO  Program - Application startup complete. Running now...
+2024-11-08 09:16:46,690 [1] INFO  Program - Starting the web host...
+2024-11-08 09:16:46,739 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-08 09:16:46,842 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-08 09:16:46,899 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-08 09:16:46,901 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-08 09:16:46,902 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-08 09:16:46,904 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-08 09:16:50,384 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:16:51,563 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQO9S5IUT", Request id "0HN7VQO9S5IUT:00000001": An unhandled exception was thrown by the application.
 RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
  ---> System.AggregateException: One or more errors occurred. (Connection failed)
  ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
@@ -37,7 +259,7 @@ RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified end
    at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
    at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
    at RabbitMQ.Client.ConnectionFactory.CreateConnection()
-   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 53
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 56
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
@@ -49,8 +271,13 @@ RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified end
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
    at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
    at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
-   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 68
+   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 71
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
    at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
@@ -75,261 +302,616 @@ RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified end
    at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
-2024-11-04 12:03:14,564 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:14,667 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
-2024-11-04 12:03:14,680 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:03:14,787 [10] INFO  REST.Controllers.DocumentController - Received file upload request.
-2024-11-04 12:03:14,804 [12] INFO  REST.Controllers.DocumentController - File Zivildienst_Philipp_Bescheid.pdf successfully saved to /app/Uploads/Zivildienst_Philipp_Bescheid.pdf
-2024-11-04 12:03:16,580 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:16,588 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:03:16,592 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 12:03:16,708 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (129ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Documents" (file_type, name, path)
-VALUES (@p0, @p1, @p2)
-RETURNING id;
-2024-11-04 12:03:16,812 [15] INFO  REST.Controllers.DocumentController - Document metadata successfully saved to the database.
-2024-11-04 12:03:17,046 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:16:57,012 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:16:57,031 [12] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQO9S5IUT", Request id "0HN7VQO9S5IUT:00000002": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 56
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 71
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method24(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:17:00,712 [6] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:17:00,724 [6] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQO9S5IUT", Request id "0HN7VQO9S5IUT:00000003": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 56
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 71
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:26:31,679 [1] INFO  Program - Starting up the application...
+2024-11-08 09:26:32,928 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-08 09:26:32,937 [1] INFO  Program - Application startup complete. Running now...
+2024-11-08 09:26:33,049 [1] INFO  Program - Starting the web host...
+2024-11-08 09:26:33,079 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-08 09:26:33,143 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-08 09:26:33,194 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-08 09:26:33,196 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-08 09:26:33,197 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-08 09:26:33,198 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-08 09:29:24,747 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-08 09:29:24,770 [1] INFO  Program - Application is shutting down.
+2024-11-08 09:29:55,895 [1] INFO  Program - Starting up the application...
+2024-11-08 09:29:57,503 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-08 09:29:57,522 [1] INFO  Program - Application startup complete. Running now...
+2024-11-08 09:29:57,766 [1] INFO  Program - Starting the web host...
+2024-11-08 09:29:57,831 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-08 09:29:57,921 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-08 09:29:57,952 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-08 09:29:57,954 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-08 09:29:57,955 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-08 09:29:57,955 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-08 09:30:14,467 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:30:15,368 [10] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VQVPHENB2", Request id "0HN7VQVPHENB2:00000001": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 58
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 73
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:30:40,722 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:30:40,775 [13] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-08 09:30:40,783 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:30:40,783 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:30:40,785 [13] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:30:41,427 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
-2024-11-04 12:03:17,092 [15] INFO  REST.Controllers.DocumentController - Successfully retrieved 3 documents.
-2024-11-04 12:03:19,548 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:19,556 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:03:19,557 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 12:03:19,586 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:30:45,882 [14] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:30:45,886 [14] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:30:45,886 [14] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:30:45,887 [14] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:30:45,907 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
-2024-11-04 12:03:19,589 [12] INFO  REST.Controllers.DocumentController - Successfully retrieved 3 documents.
-2024-11-04 12:03:41,777 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:41,783 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:03:41,795 [10] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 1
-2024-11-04 12:03:42,048 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:30:59,102 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:30:59,106 [8] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:30:59,107 [8] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:30:59,107 [8] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:30:59,154 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-08 09:32:04,515 [16] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-08 09:32:04,539 [1] INFO  Program - Application is shutting down.
+2024-11-08 09:32:35,889 [1] INFO  Program - Starting up the application...
+2024-11-08 09:32:36,770 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-08 09:32:36,781 [1] INFO  Program - Application startup complete. Running now...
+2024-11-08 09:32:36,880 [1] INFO  Program - Starting the web host...
+2024-11-08 09:32:36,907 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-08 09:32:36,954 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-08 09:32:36,986 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-08 09:32:36,987 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-08 09:32:36,988 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-08 09:32:36,988 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-08 09:32:44,662 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:32:45,113 [11] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VR16A86I5", Request id "0HN7VR16A86I5:00000001": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 58
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 73
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:32:51,520 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:32:51,549 [8] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VR16A86I5", Request id "0HN7VR16A86I5:00000002": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 58
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 73
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:32:52,885 [6] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:32:52,890 [6] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN7VR16A86I5", Request id "0HN7VR16A86I5:00000003": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.Framing.Impl.AutorecoveringConnection.Init(IEndpointResolver endpoints)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection()
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__0(IServiceProvider sp) in /src/REST/Program.cs:line 58
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_1(IServiceProvider sp) in /src/REST/Program.cs:line 73
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-08 09:32:54,275 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:32:54,325 [8] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-08 09:32:54,336 [8] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:32:54,337 [8] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:32:54,339 [8] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:32:55,064 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-08 09:33:06,039 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:06,043 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:06,043 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:06,044 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:33:06,066 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-08 09:33:12,941 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:12,946 [8] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:12,947 [8] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:12,970 [8] INFO  REST.Controllers.DocumentController - Received PUT request for document id: 8
+2024-11-08 09:33:13,108 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
 WHERE d.id = @__p_0
 LIMIT 1
-2024-11-04 12:03:42,078 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-DELETE FROM "Documents"
-WHERE id = @p0;
-2024-11-04 12:03:42,086 [17] INFO  REST.Controllers.DocumentController - Document with id 1 successfully deleted.
-2024-11-04 12:03:49,282 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:49,288 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:03:49,317 [17] INFO  REST.Controllers.DocumentController - Received PUT request for document id: 2
-2024-11-04 12:03:49,326 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-WHERE d.id = @__p_0
-LIMIT 1
-2024-11-04 12:03:49,374 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (34ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:33:13,186 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
 UPDATE "Documents" SET file_type = @p0, name = @p1, path = @p2
 WHERE id = @p3;
-2024-11-04 12:03:49,376 [10] INFO  REST.Controllers.DocumentController - Document with id 2 successfully updated.
-2024-11-04 12:03:52,064 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:52,069 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:03:52,072 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 12:03:52,077 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:33:15,644 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:15,647 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:15,648 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:15,648 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:33:15,650 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
-2024-11-04 12:03:52,079 [15] INFO  REST.Controllers.DocumentController - Successfully retrieved 2 documents.
-2024-11-04 12:03:55,557 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:03:55,561 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:03:55,563 [17] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 2
-2024-11-04 12:03:55,568 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:33:23,001 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:23,003 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:23,004 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:23,030 [11] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-08 09:33:23,086 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (14ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-08 09:33:23,868 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:23,871 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:23,872 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:23,872 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:33:23,875 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-08 09:33:25,353 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:25,355 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:25,356 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:25,356 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:33:25,360 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-08 09:33:29,070 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:29,073 [8] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:29,073 [8] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:29,075 [8] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 8
+2024-11-08 09:33:29,084 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
 WHERE d.id = @__p_0
 LIMIT 1
-2024-11-04 12:03:55,575 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:33:29,095 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
 DELETE FROM "Documents"
 WHERE id = @p0;
-2024-11-04 12:03:55,576 [17] INFO  REST.Controllers.DocumentController - Document with id 2 successfully deleted.
-2024-11-04 12:04:05,604 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:04:05,609 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:04:05,636 [17] INFO  REST.Controllers.DocumentController - Received file upload request.
-2024-11-04 12:04:05,644 [12] INFO  REST.Controllers.DocumentController - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully saved to /app/Uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
-2024-11-04 12:04:05,654 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:33:31,522 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:33:31,524 [8] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:33:31,525 [8] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:33:31,525 [8] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:33:31,529 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-08 09:34:11,719 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:34:11,724 [8] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:34:11,725 [8] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:34:11,735 [16] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-08 09:34:11,747 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
 INSERT INTO "Documents" (file_type, name, path)
 VALUES (@p0, @p1, @p2)
 RETURNING id;
-2024-11-04 12:04:05,657 [12] INFO  REST.Controllers.DocumentController - Document metadata successfully saved to the database.
-2024-11-04 12:04:06,857 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:04:06,862 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:04:06,864 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 12:04:06,869 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:34:13,175 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:34:13,178 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:34:13,178 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:34:13,179 [16] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:34:13,182 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
-2024-11-04 12:04:06,871 [12] INFO  REST.Controllers.DocumentController - Successfully retrieved 2 documents.
-2024-11-04 12:04:21,497 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:04:21,501 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:04:21,502 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 12:04:21,507 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:34:25,706 [8] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:34:25,709 [8] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:34:25,709 [8] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:34:25,709 [8] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:34:25,713 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
-2024-11-04 12:04:21,509 [17] INFO  REST.Controllers.DocumentController - Successfully retrieved 2 documents.
-2024-11-04 12:07:22,609 [20] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:07:22,614 [20] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:07:22,635 [17] INFO  REST.Controllers.DocumentController - Received file upload request.
-2024-11-04 12:07:22,644 [17] INFO  REST.Controllers.DocumentController - File Zivildienst_Philipp_Bescheid.pdf successfully saved to /app/Uploads/Zivildienst_Philipp_Bescheid.pdf
-2024-11-04 12:07:22,653 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Documents" (file_type, name, path)
-VALUES (@p0, @p1, @p2)
-RETURNING id;
-2024-11-04 12:07:22,654 [17] INFO  REST.Controllers.DocumentController - Document metadata successfully saved to the database.
-2024-11-04 12:07:23,847 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:07:23,852 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:07:23,853 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 12:07:23,858 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:34:28,860 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:34:28,863 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:34:28,863 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:34:28,864 [15] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:34:28,867 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
-2024-11-04 12:07:23,859 [20] INFO  REST.Controllers.DocumentController - Successfully retrieved 3 documents.
-2024-11-04 12:07:34,537 [19] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:07:34,540 [19] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:07:34,542 [19] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 3
-2024-11-04 12:07:34,546 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:34:33,253 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:34:33,256 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:34:33,256 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:34:33,257 [16] INFO  REST.Controllers.DocumentController - Received PUT request for document id: 9
+2024-11-08 09:34:33,261 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
 WHERE d.id = @__p_0
 LIMIT 1
-2024-11-04 12:07:34,593 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (44ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-DELETE FROM "Documents"
-WHERE id = @p0;
-2024-11-04 12:07:34,594 [19] INFO  REST.Controllers.DocumentController - Document with id 3 successfully deleted.
-2024-11-04 12:11:00,218 [26] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 12:11:00,223 [26] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 12:11:00,224 [26] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 12:11:00,252 [27] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+2024-11-08 09:34:33,265 [8] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+UPDATE "Documents" SET file_type = @p0, name = @p1, path = @p2
+WHERE id = @p3;
+2024-11-08 09:34:38,000 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-08 09:34:38,002 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-08 09:34:38,003 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-08 09:34:38,003 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-08 09:34:38,005 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
-2024-11-04 12:11:00,253 [27] INFO  REST.Controllers.DocumentController - Successfully retrieved 2 documents.
-2024-11-04 13:27:20,651 [87] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:27:20,672 [87] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:27:20,674 [87] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 13:27:20,763 [88] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-2024-11-04 13:27:20,771 [88] INFO  REST.Controllers.DocumentController - Successfully retrieved 2 documents.
-2024-11-04 13:29:24,499 [92] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:29:24,506 [92] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:29:24,513 [92] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 4
-2024-11-04 13:29:24,543 [92] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-WHERE d.id = @__p_0
-LIMIT 1
-2024-11-04 13:29:24,559 [92] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-DELETE FROM "Documents"
-WHERE id = @p0;
-2024-11-04 13:29:24,561 [92] INFO  REST.Controllers.DocumentController - Document with id 4 successfully deleted.
-2024-11-04 13:29:28,252 [89] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:29:28,254 [89] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:29:28,255 [89] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 5
-2024-11-04 13:29:28,261 [91] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-WHERE d.id = @__p_0
-LIMIT 1
-2024-11-04 13:29:28,268 [89] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-DELETE FROM "Documents"
-WHERE id = @p0;
-2024-11-04 13:29:28,269 [89] INFO  REST.Controllers.DocumentController - Document with id 5 successfully deleted.
-2024-11-04 13:29:30,369 [91] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:29:30,372 [91] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:29:30,373 [91] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 13:29:30,376 [92] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-2024-11-04 13:29:30,377 [92] INFO  REST.Controllers.DocumentController - Successfully retrieved 0 documents.
-2024-11-04 13:38:26,270 [108] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:38:26,277 [108] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:38:26,294 [108] INFO  REST.Controllers.DocumentController - Received file upload request.
-2024-11-04 13:38:26,299 [108] INFO  REST.Controllers.DocumentController - File Zivildienst_Philipp_Bescheid.pdf successfully saved to /app/Uploads/Zivildienst_Philipp_Bescheid.pdf
-2024-11-04 13:38:26,326 [108] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Documents" (file_type, name, path)
-VALUES (@p0, @p1, @p2)
-RETURNING id;
-2024-11-04 13:38:26,329 [108] INFO  REST.Controllers.DocumentController - Document metadata successfully saved to the database.
-2024-11-04 13:38:27,556 [108] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:38:27,559 [108] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:38:27,559 [108] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 13:38:27,564 [105] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-2024-11-04 13:38:27,565 [105] INFO  REST.Controllers.DocumentController - Successfully retrieved 1 documents.
-2024-11-04 13:38:46,072 [105] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:38:46,075 [105] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:38:46,076 [105] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 6
-2024-11-04 13:38:46,082 [105] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-WHERE d.id = @__p_0
-LIMIT 1
-2024-11-04 13:38:46,089 [105] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-DELETE FROM "Documents"
-WHERE id = @p0;
-2024-11-04 13:38:46,090 [105] INFO  REST.Controllers.DocumentController - Document with id 6 successfully deleted.
-2024-11-04 13:58:46,966 [19] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:58:46,970 [19] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:58:46,970 [19] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 13:58:46,989 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-2024-11-04 13:58:46,990 [19] INFO  REST.Controllers.DocumentController - Successfully retrieved 0 documents.
-2024-11-04 13:58:52,455 [19] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:58:52,458 [19] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:58:52,471 [17] INFO  REST.Controllers.DocumentController - Received file upload request.
-2024-11-04 13:58:52,478 [17] INFO  REST.Controllers.DocumentController - File Zivildienst_Philipp_Bescheid.pdf successfully saved to /app/Uploads/Zivildienst_Philipp_Bescheid.pdf
-2024-11-04 13:58:52,486 [26] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Documents" (file_type, name, path)
-VALUES (@p0, @p1, @p2)
-RETURNING id;
-2024-11-04 13:58:52,488 [26] INFO  REST.Controllers.DocumentController - Document metadata successfully saved to the database.
-2024-11-04 13:58:54,544 [26] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:58:54,546 [26] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:58:54,547 [26] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 13:58:54,549 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-2024-11-04 13:58:54,550 [19] INFO  REST.Controllers.DocumentController - Successfully retrieved 1 documents.
-2024-11-04 13:59:09,873 [26] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 13:59:09,876 [26] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 13:59:09,876 [26] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 7
-2024-11-04 13:59:09,882 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-WHERE d.id = @__p_0
-LIMIT 1
-2024-11-04 13:59:09,889 [26] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-DELETE FROM "Documents"
-WHERE id = @p0;
-2024-11-04 13:59:09,890 [26] INFO  REST.Controllers.DocumentController - Document with id 7 successfully deleted.
-2024-11-04 14:09:21,794 [43] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 14:09:21,802 [43] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 14:09:21,818 [37] INFO  REST.Controllers.DocumentController - Received file upload request.
-2024-11-04 14:09:21,828 [37] INFO  REST.Controllers.DocumentController - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully saved to /app/Uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
-2024-11-04 14:09:21,857 [47] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Documents" (file_type, name, path)
-VALUES (@p0, @p1, @p2)
-RETURNING id;
-2024-11-04 14:09:21,859 [47] INFO  REST.Controllers.DocumentController - Document metadata successfully saved to the database.
-2024-11-04 14:09:22,980 [37] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 14:09:22,984 [37] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 14:09:22,985 [37] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 14:09:22,990 [37] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-2024-11-04 14:09:22,992 [37] INFO  REST.Controllers.DocumentController - Successfully retrieved 1 documents.
-2024-11-04 14:09:45,694 [37] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 14:09:45,700 [37] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 14:09:45,719 [53] INFO  REST.Controllers.DocumentController - Received file upload request.
-2024-11-04 14:09:45,729 [44] INFO  REST.Controllers.DocumentController - File Zivildienst_Philipp_Bescheid.pdf successfully saved to /app/Uploads/Zivildienst_Philipp_Bescheid.pdf
-2024-11-04 14:09:45,740 [53] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
-INSERT INTO "Documents" (file_type, name, path)
-VALUES (@p0, @p1, @p2)
-RETURNING id;
-2024-11-04 14:09:45,742 [53] INFO  REST.Controllers.DocumentController - Document metadata successfully saved to the database.
-2024-11-04 14:09:47,077 [53] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
-2024-11-04 14:09:47,081 [53] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
-2024-11-04 14:09:47,083 [53] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
-2024-11-04 14:09:47,086 [44] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-SELECT d.id, d.file_type, d.name, d.path
-FROM "Documents" AS d
-2024-11-04 14:09:47,088 [44] INFO  REST.Controllers.DocumentController - Successfully retrieved 2 documents.
+2024-11-08 09:34:52,736 [20] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-08 09:34:52,765 [1] INFO  Program - Application is shutting down.
