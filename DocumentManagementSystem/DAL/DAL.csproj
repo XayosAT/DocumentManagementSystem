@@ -20,6 +20,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.0-rc.1.24451.1" />
+        <PackageReference Include="Minio" Version="6.0.3" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0-rc.1" />
         <PackageReference Include="RabbitMQ.Client" Version="6.4.0-rc.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>

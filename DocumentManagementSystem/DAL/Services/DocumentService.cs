@@ -23,6 +23,7 @@ namespace DAL.Services
         private readonly IValidator<DocumentBL> _blValidator;
         private readonly IMessagePublisher _publisher;
         private readonly string _uploadFolder;
+        private readonly string _routingKey = "dms_routing_key";
 
         public DocumentService(
             IDocumentRepository repository,
@@ -96,7 +97,7 @@ namespace DAL.Services
             }
 
             await _repository.AddAsync(documentDAL);
-            _publisher.Publish($"Document Path: {documentDAL.Path}", "dms_routing_key");
+            _publisher.Publish($"Document Path: {documentDAL.Path}", _routingKey);
 
             return documentDAL.Id.ToString();
         }

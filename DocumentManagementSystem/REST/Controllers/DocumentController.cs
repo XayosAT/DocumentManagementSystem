@@ -30,17 +30,17 @@ public class DocumentController : ControllerBase
         return Ok(documents);
     }
 
-    [HttpGet("files/{filename}")]
-    public IActionResult GetFile(string filename)
-    {
-        _logger.Info($"Received GET request for file: {filename}");
-        var fileBytes = _documentService.GetFile(filename, out string contentType);
-        if (fileBytes == null)
-        {
-            return NotFound("File not found.");
-        }
-        return File(fileBytes, contentType);
-    }
+    // [HttpGet("files/{filename}")]
+    // public IActionResult GetFile(string filename)
+    // {
+    //     _logger.Info($"Received GET request for file: {filename}");
+    //     var fileBytes = _documentService.GetFile(filename, out string contentType);
+    //     if (fileBytes == null)
+    //     {
+    //         return NotFound("File not found.");
+    //     }
+    //     return File(fileBytes, contentType);
+    // }
 
     [HttpPost("upload")]
     public async Task<IActionResult> Post([FromForm] IFormFile file)

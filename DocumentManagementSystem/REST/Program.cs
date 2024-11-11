@@ -16,6 +16,7 @@ using System.Reflection;
 using DAL.Services;
 using Microsoft.Extensions.Logging;
 using DAL.Services;
+using Minio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,21 @@ builder.Logging.AddLog4Net();     // Add log4net as the logging provider
 
 // Log startup information
 logger.Info("Starting up the application...");
+
+builder.Services.AddSingleton(sp =>
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var endpoint = configuration["Minio:Endpoint"];
+    var accessKey = configuration["Minio:AccessKey"];
+    var secretKey = configuration["Minio:SecretKey"];
+    var useSSL = configuration.GetValue<bool>("Minio:UseSSL");
+
+    return new MinioClient()
+        .WithEndpoint(endpoint)
+        .WithCredentials(accessKey, secretKey)
+        .WithSSL(useSSL)
+        .Build();
+}); 
 
 builder.Services.AddScoped<DocumentService>();
 
