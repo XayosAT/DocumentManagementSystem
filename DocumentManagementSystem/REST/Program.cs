@@ -75,7 +75,7 @@ builder.Services.AddSingleton<IConnection>(sp =>
     // Declare the exchange once the connection is established
     using var channel = connection.CreateModel();
     channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Direct);
-    channel.QueueDeclare(queue: queueName, durable: false, exclusive: false, autoDelete: false);
+    channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false);
     channel.QueueBind(queue: queueName, exchange: exchangeName, routingKey: routingKey);
 
     logger.Info($"RabbitMQ connection successfully established with host {settings.HostName}");

@@ -1323,3 +1323,1675 @@ RETURNING id;
 SELECT d.id, d.file_type, d.name, d.path
 FROM "Documents" AS d
 2024-11-11 16:20:21,010 [17] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 16:23:09,382 [1] INFO  Program - Starting up the application...
+2024-11-11 16:23:11,412 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 16:23:11,437 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 16:23:11,732 [1] INFO  Program - Starting the web host...
+2024-11-11 16:23:11,820 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 16:23:11,996 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 16:23:12,116 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 16:23:12,118 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 16:23:12,120 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 16:23:12,122 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 16:24:17,214 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 16:24:17,715 [13] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 16:24:17,898 [11] INFO  DAL.Services.DocumentService - Bucket uploads created successfully.
+2024-11-11 16:24:17,899 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 16:24:17,902 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 16:24:17,906 [13] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 16:24:17,911 [13] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 16:24:19,477 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 16:24:19,640 [13] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 16:24:19,909 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 16:24:19,920 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 16:24:19,922 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 16:24:19,923 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 16:24:19,925 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 16:24:19,969 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 16:24:19,971 [13] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 16:24:25,005 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 16:24:25,020 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 16:24:25,021 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 16:24:25,051 [13] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 10
+2024-11-11 16:24:25,056 [13] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 10.
+2024-11-11 16:24:25,443 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 16:24:25,449 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 10 fetched successfully.
+2024-11-11 16:24:25,462 [10] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 16:24:25,465 [10] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 10.
+2024-11-11 16:24:25,688 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (83ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 16:24:25,707 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 10 deleted successfully.
+2024-11-11 16:24:30,856 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 16:24:30,865 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 16:24:30,866 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 16:24:30,870 [10] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 12
+2024-11-11 16:24:30,871 [10] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 12.
+2024-11-11 16:24:30,881 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 16:24:30,883 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 12 fetched successfully.
+2024-11-11 16:24:30,889 [13] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 16:24:30,890 [13] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 12.
+2024-11-11 16:24:30,900 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 16:24:30,902 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 12 deleted successfully.
+2024-11-11 16:24:59,775 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 16:24:59,785 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 16:24:59,786 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 16:24:59,842 [10] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 16:25:00,031 [19] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 16:25:00,063 [19] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 16:25:00,144 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (32ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 16:25:00,167 [17] INFO  DAL.Repositories.DocumentRepository - Document with ID: 13 added successfully.
+2024-11-11 16:25:01,281 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 16:25:01,290 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 16:25:01,291 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 16:25:01,292 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 16:25:01,293 [17] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 16:25:01,296 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 16:25:01,297 [17] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 16:26:26,945 [20] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 16:26:27,010 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:07:46,711 [1] INFO  Program - Starting up the application...
+2024-11-11 19:07:48,336 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:07:48,366 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:07:48,675 [1] INFO  Program - Starting the web host...
+2024-11-11 19:07:48,757 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:07:48,972 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:07:49,095 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:07:49,098 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:07:49,101 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:07:49,115 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:08:34,747 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:08:34,976 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 19:08:35,056 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:08:35,057 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:08:35,060 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:08:35,062 [12] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:08:35,759 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:08:35,836 [10] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 19:08:54,414 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:08:54,424 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:08:54,425 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:08:54,470 [15] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:08:54,533 [16] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:08:54,551 [16] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 19:08:54,673 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (17ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:08:54,695 [16] INFO  DAL.Repositories.DocumentRepository - Document with ID: 14 added successfully.
+2024-11-11 19:08:55,814 [14] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:08:55,821 [14] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:08:55,821 [14] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:08:55,822 [14] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:08:55,822 [14] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:08:55,871 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:08:55,872 [14] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 19:09:47,542 [18] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:09:47,575 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:13:33,921 [1] INFO  Program - Starting up the application...
+2024-11-11 19:13:35,522 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:13:35,540 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:13:35,796 [1] INFO  Program - Starting the web host...
+2024-11-11 19:13:35,864 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:13:36,039 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:13:36,121 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:13:36,123 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:13:36,125 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:13:36,127 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:14:27,767 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:14:28,125 [13] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 19:14:28,240 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:14:28,241 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:14:28,244 [13] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:14:28,247 [13] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:14:29,010 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:14:29,124 [11] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 19:14:40,765 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:14:40,775 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:14:40,776 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:14:40,791 [12] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 14
+2024-11-11 19:14:40,795 [12] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 14.
+2024-11-11 19:14:40,906 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:14:40,911 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 14 fetched successfully.
+2024-11-11 19:14:40,920 [13] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:14:40,922 [13] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 14.
+2024-11-11 19:14:40,997 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:14:41,006 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 14 deleted successfully.
+2024-11-11 19:14:45,924 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:14:45,934 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:14:45,935 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:14:45,978 [12] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:14:46,044 [13] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:14:46,056 [13] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 19:14:46,158 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:14:46,180 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 15 added successfully.
+2024-11-11 19:14:47,223 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:14:47,228 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:14:47,229 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:14:47,231 [13] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:14:47,232 [13] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:14:47,235 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:14:47,237 [13] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 19:16:17,615 [17] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:16:17,645 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:16:58,178 [1] INFO  Program - Starting up the application...
+2024-11-11 19:16:59,596 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:16:59,610 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:16:59,748 [1] INFO  Program - Starting the web host...
+2024-11-11 19:16:59,785 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:16:59,841 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:16:59,882 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:16:59,883 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:16:59,885 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:16:59,886 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:19:06,613 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:19:06,637 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:19:43,545 [1] INFO  Program - Starting up the application...
+2024-11-11 19:19:45,193 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:19:45,211 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:19:45,395 [1] INFO  Program - Starting the web host...
+2024-11-11 19:19:45,464 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:19:45,543 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:19:45,590 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:19:45,592 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:19:45,593 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:19:45,595 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:19:58,827 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:19:58,856 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:20:14,558 [1] INFO  Program - Starting up the application...
+2024-11-11 19:20:16,054 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:20:16,072 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:20:16,370 [1] INFO  Program - Starting the web host...
+2024-11-11 19:20:16,429 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:20:16,543 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:20:16,624 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:20:16,626 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:20:16,627 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:20:16,629 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:26:11,817 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:26:11,843 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:26:30,679 [1] INFO  Program - Starting up the application...
+2024-11-11 19:26:32,212 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:26:32,241 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:26:32,556 [1] INFO  Program - Starting the web host...
+2024-11-11 19:26:32,655 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:26:32,806 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:26:32,933 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:26:32,936 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:26:32,944 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:26:32,946 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:35:45,386 [1] INFO  Program - Starting up the application...
+2024-11-11 19:35:46,590 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:35:46,602 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:35:46,726 [1] INFO  Program - Starting the web host...
+2024-11-11 19:35:46,755 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:35:46,797 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:35:46,824 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:35:46,825 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:35:46,826 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:35:46,826 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:37:19,412 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:37:20,041 [12] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN82H10L18MU", Request id "0HN82H10L18MU:00000002": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dms_queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean passive, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.IModelExensions.QueueDeclare(IModel model, String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__1(IServiceProvider sp) in /src/REST/Program.cs:line 78
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_2(IServiceProvider sp) in /src/REST/Program.cs:line 89
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-11 19:37:28,569 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:37:28,595 [11] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN82H10L18MU", Request id "0HN82H10L18MU:00000003": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dms_queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean passive, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.IModelExensions.QueueDeclare(IModel model, String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__1(IServiceProvider sp) in /src/REST/Program.cs:line 78
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_2(IServiceProvider sp) in /src/REST/Program.cs:line 89
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method24(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-11 19:37:31,514 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:37:31,533 [12] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN82H10L18MU", Request id "0HN82H10L18MU:00000004": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dms_queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean passive, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.IModelExensions.QueueDeclare(IModel model, String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__1(IServiceProvider sp) in /src/REST/Program.cs:line 78
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_2(IServiceProvider sp) in /src/REST/Program.cs:line 89
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method24(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-11 19:38:10,349 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:38:10,363 [11] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN82H10L18MU", Request id "0HN82H10L18MU:00000005": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dms_queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean passive, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.IModelExensions.QueueDeclare(IModel model, String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__1(IServiceProvider sp) in /src/REST/Program.cs:line 78
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_2(IServiceProvider sp) in /src/REST/Program.cs:line 89
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitScopeCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method24(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-11 19:38:20,668 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:38:20,682 [12] ERROR Microsoft.AspNetCore.Server.Kestrel - Connection id "0HN82H10L18MU", Request id "0HN82H10L18MU:00000006": An unhandled exception was thrown by the application.
+RabbitMQ.Client.Exceptions.OperationInterruptedException: The AMQP operation was interrupted: AMQP close-reason, initiated by Peer, code=406, text='PRECONDITION_FAILED - inequivalent arg 'durable' for queue 'dms_queue' in vhost '/': received 'false' but current is 'true'', classId=50, methodId=10
+   at RabbitMQ.Client.Impl.SimpleBlockingRpcContinuation.GetReply(TimeSpan timeout)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean passive, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.ModelBase.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.Impl.AutorecoveringModel.QueueDeclare(String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at RabbitMQ.Client.IModelExensions.QueueDeclare(IModel model, String queue, Boolean durable, Boolean exclusive, Boolean autoDelete, IDictionary`2 arguments)
+   at Program.<>c__DisplayClass0_0.<<Main>$>b__1(IServiceProvider sp) in /src/REST/Program.cs:line 78
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Program.<>c.<<Main>$>b__0_2(IServiceProvider sp) in /src/REST/Program.cs:line 89
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitCache(ServiceCallSite callSite, RuntimeResolverContext context, ServiceProviderEngineScope serviceProviderEngine, RuntimeResolverLock lockType)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method32(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2024-11-11 19:40:11,596 [21] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:40:11,623 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:40:33,414 [1] INFO  Program - Starting up the application...
+2024-11-11 19:40:34,813 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:40:34,837 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:40:35,047 [1] INFO  Program - Starting the web host...
+2024-11-11 19:40:35,094 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:40:35,191 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:40:35,255 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:40:35,257 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:40:35,259 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:40:35,261 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:41:42,126 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:41:42,152 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:42:36,794 [1] INFO  Program - Starting up the application...
+2024-11-11 19:42:38,122 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:42:38,140 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:42:38,350 [1] INFO  Program - Starting the web host...
+2024-11-11 19:42:38,401 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:42:38,491 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:42:38,545 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:42:38,548 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:42:38,549 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:42:38,552 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:44:13,477 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:44:13,508 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:44:58,263 [1] INFO  Program - Starting up the application...
+2024-11-11 19:44:59,769 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:44:59,801 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:45:00,050 [1] INFO  Program - Starting the web host...
+2024-11-11 19:45:00,100 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:45:00,184 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:45:00,228 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:45:00,230 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:45:00,231 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:45:00,233 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:45:30,768 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:45:30,980 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 19:45:31,057 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:45:31,058 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:45:31,060 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:45:31,064 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:45:31,775 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:45:31,853 [10] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 19:45:38,174 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:45:38,184 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:45:38,185 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:45:38,201 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 15
+2024-11-11 19:45:38,205 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 15.
+2024-11-11 19:45:38,330 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:45:38,332 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 15 fetched successfully.
+2024-11-11 19:45:38,342 [15] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:45:38,344 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 15.
+2024-11-11 19:45:38,416 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:45:38,425 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 15 deleted successfully.
+2024-11-11 19:45:43,420 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:45:43,429 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:45:43,430 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:45:43,463 [16] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:45:43,526 [15] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:45:43,544 [15] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 19:45:43,640 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:45:43,651 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 16 added successfully.
+2024-11-11 19:45:44,631 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:45:44,636 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:45:44,637 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:45:44,637 [15] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:45:44,638 [15] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:45:44,642 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:45:44,644 [15] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 19:46:02,875 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:46:02,880 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:46:02,881 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:46:02,883 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 16
+2024-11-11 19:46:02,884 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 16.
+2024-11-11 19:46:02,891 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:46:02,893 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 16 fetched successfully.
+2024-11-11 19:46:02,897 [15] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:46:02,897 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 16.
+2024-11-11 19:46:02,904 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:46:02,906 [16] INFO  DAL.Repositories.DocumentRepository - Document with ID: 16 deleted successfully.
+2024-11-11 19:46:06,421 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:46:06,427 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:46:06,428 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:46:06,430 [10] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 11
+2024-11-11 19:46:06,430 [10] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 11.
+2024-11-11 19:46:06,434 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:46:06,437 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 11 fetched successfully.
+2024-11-11 19:46:06,440 [10] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:46:06,441 [10] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 11.
+2024-11-11 19:46:06,448 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:46:06,449 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 11 deleted successfully.
+2024-11-11 19:46:10,173 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:46:10,179 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:46:10,180 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:46:10,181 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 9
+2024-11-11 19:46:10,182 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 9.
+2024-11-11 19:46:10,186 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:46:10,187 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 9 fetched successfully.
+2024-11-11 19:46:10,190 [15] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid1.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:46:10,191 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 9.
+2024-11-11 19:46:10,196 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:46:10,197 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 9 deleted successfully.
+2024-11-11 19:46:17,253 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:46:17,258 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:46:17,259 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:46:17,260 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 13
+2024-11-11 19:46:17,261 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 13.
+2024-11-11 19:46:17,267 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:46:17,269 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 13 fetched successfully.
+2024-11-11 19:46:17,274 [15] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:46:17,275 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 13.
+2024-11-11 19:46:17,282 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:46:17,283 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 13 deleted successfully.
+2024-11-11 19:46:22,364 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:46:22,371 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:46:22,372 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:46:22,383 [18] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:46:22,430 [10] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:46:22,431 [10] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 19:46:22,439 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:46:22,441 [18] INFO  DAL.Repositories.DocumentRepository - Document with ID: 17 added successfully.
+2024-11-11 19:46:23,528 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:46:23,532 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:46:23,534 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:46:23,534 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:46:23,535 [10] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:46:23,538 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:46:23,540 [10] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 19:46:26,902 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:46:26,906 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:46:26,907 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:46:26,907 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:46:26,908 [10] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:46:26,913 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:46:26,915 [10] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 19:48:41,641 [22] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:48:41,676 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:51:12,689 [1] INFO  Program - Starting up the application...
+2024-11-11 19:51:14,059 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:51:14,078 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:51:14,308 [1] INFO  Program - Starting the web host...
+2024-11-11 19:51:14,368 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:51:14,481 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:51:14,554 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:51:14,556 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:51:14,558 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:51:14,560 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:51:42,511 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:51:42,727 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 19:51:42,812 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:51:42,813 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:51:42,815 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:51:42,818 [12] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:51:43,504 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:51:43,596 [12] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 19:51:46,757 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:51:46,768 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:51:46,769 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:51:46,814 [11] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:51:46,877 [12] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:51:46,889 [12] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 19:51:47,006 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (12ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:51:47,024 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 18 added successfully.
+2024-11-11 19:51:47,862 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:51:47,871 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:51:47,871 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:51:47,871 [16] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:51:47,872 [16] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:51:47,912 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:51:47,913 [16] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 19:52:54,050 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:52:54,062 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:52:54,063 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:52:54,067 [11] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 18
+2024-11-11 19:52:54,071 [11] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 18.
+2024-11-11 19:52:54,172 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:52:54,176 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 18 fetched successfully.
+2024-11-11 19:52:54,183 [12] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:52:54,185 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 18.
+2024-11-11 19:52:54,203 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:52:54,208 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 18 deleted successfully.
+2024-11-11 19:53:03,894 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:53:03,903 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:53:03,904 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:53:03,919 [11] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:53:03,979 [11] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:53:03,980 [11] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 19:53:03,989 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:53:03,990 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 19 added successfully.
+2024-11-11 19:53:05,190 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:53:05,195 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:53:05,196 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:53:05,197 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:53:05,197 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:53:05,200 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:53:05,202 [11] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 19:53:34,638 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:53:34,644 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:53:34,644 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:53:34,646 [18] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 17
+2024-11-11 19:53:34,646 [18] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 17.
+2024-11-11 19:53:34,652 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:53:34,653 [18] INFO  DAL.Repositories.DocumentRepository - Document with ID: 17 fetched successfully.
+2024-11-11 19:53:34,657 [18] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:53:34,658 [18] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 17.
+2024-11-11 19:53:34,665 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:53:34,666 [18] INFO  DAL.Repositories.DocumentRepository - Document with ID: 17 deleted successfully.
+2024-11-11 19:53:39,292 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:53:39,299 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:53:39,300 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:53:39,309 [11] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:53:39,347 [18] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:53:39,348 [18] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 19:53:39,356 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:53:39,357 [18] INFO  DAL.Repositories.DocumentRepository - Document with ID: 20 added successfully.
+2024-11-11 19:53:40,557 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:53:40,561 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:53:40,562 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:53:40,563 [18] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:53:40,563 [18] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:53:40,567 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:53:40,569 [18] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 19:55:43,049 [25] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:55:43,092 [1] INFO  Program - Application is shutting down.
+2024-11-11 19:56:51,973 [1] INFO  Program - Starting up the application...
+2024-11-11 19:56:53,174 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 19:56:53,187 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 19:56:53,320 [1] INFO  Program - Starting the web host...
+2024-11-11 19:56:53,350 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 19:56:53,402 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 19:56:53,439 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 19:56:53,440 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 19:56:53,441 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 19:56:53,443 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 19:57:19,048 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:57:19,296 [10] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 19:57:19,386 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:57:19,388 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:57:19,390 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:57:19,393 [10] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:57:19,976 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:57:20,047 [13] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 19:57:24,035 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:57:24,048 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:57:24,049 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:57:24,067 [13] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 20
+2024-11-11 19:57:24,070 [13] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 20.
+2024-11-11 19:57:24,184 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:57:24,188 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 20 fetched successfully.
+2024-11-11 19:57:24,196 [12] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:57:24,198 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 20.
+2024-11-11 19:57:24,276 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:57:24,285 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 20 deleted successfully.
+2024-11-11 19:57:33,638 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:57:33,648 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:57:33,649 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:57:33,674 [13] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:57:33,736 [10] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:57:33,747 [10] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 19:57:33,838 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:57:33,851 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 21 added successfully.
+2024-11-11 19:57:35,456 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:57:35,462 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:57:35,462 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:57:35,462 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:57:35,463 [10] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:57:35,467 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:57:35,469 [13] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 19:58:10,099 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:58:10,110 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:58:10,111 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:58:10,115 [12] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 19
+2024-11-11 19:58:10,116 [12] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 19.
+2024-11-11 19:58:10,126 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 19:58:10,128 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 19 fetched successfully.
+2024-11-11 19:58:10,134 [12] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 19:58:10,135 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 19.
+2024-11-11 19:58:10,144 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 19:58:10,146 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 19 deleted successfully.
+2024-11-11 19:58:14,154 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:58:14,163 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:58:14,164 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:58:14,178 [12] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 19:58:14,225 [12] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 19:58:14,226 [12] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 19:58:14,234 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 19:58:14,235 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 22 added successfully.
+2024-11-11 19:58:14,905 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 19:58:14,911 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 19:58:14,912 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 19:58:14,912 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 19:58:14,913 [12] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 19:58:14,917 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 19:58:14,918 [12] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 19:59:03,951 [20] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 19:59:03,995 [1] INFO  Program - Application is shutting down.
+2024-11-11 20:00:49,524 [1] INFO  Program - Starting up the application...
+2024-11-11 20:00:51,118 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 20:00:51,138 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 20:00:51,426 [1] INFO  Program - Starting the web host...
+2024-11-11 20:00:51,503 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 20:00:51,646 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 20:00:51,738 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 20:00:51,742 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 20:00:51,744 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 20:00:51,746 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 20:01:19,828 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:01:20,078 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 20:01:20,152 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:01:20,153 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:01:20,155 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:01:20,159 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:01:20,772 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:01:20,847 [11] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:02:11,435 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:02:11,448 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:02:11,449 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:02:11,450 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:02:11,452 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:02:11,480 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:02:11,482 [16] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:02:15,263 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:02:15,272 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:02:15,273 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:02:15,320 [18] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:02:15,392 [18] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:02:15,405 [18] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 20:02:15,555 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:02:15,575 [18] INFO  DAL.Repositories.DocumentRepository - Document with ID: 23 added successfully.
+2024-11-11 20:02:16,690 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:02:16,695 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:02:16,695 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:02:16,696 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:02:16,697 [12] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:02:16,700 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:02:16,701 [12] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 20:02:18,519 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:02:18,524 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:02:18,525 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:02:18,526 [18] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:02:18,527 [18] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:02:18,530 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:02:18,531 [18] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 20:02:24,924 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:02:24,932 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:02:24,933 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:02:24,947 [16] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:02:24,996 [17] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:02:24,998 [17] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 20:02:25,008 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:02:25,009 [17] INFO  DAL.Repositories.DocumentRepository - Document with ID: 24 added successfully.
+2024-11-11 20:02:26,199 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:02:26,203 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:02:26,204 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:02:26,204 [16] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:02:26,205 [16] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:02:26,207 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:02:26,208 [16] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 20:10:45,654 [29] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:10:45,683 [1] INFO  Program - Application is shutting down.
+2024-11-11 20:11:28,963 [1] INFO  Program - Starting up the application...
+2024-11-11 20:11:30,053 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 20:11:30,074 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 20:11:30,309 [1] INFO  Program - Starting the web host...
+2024-11-11 20:11:30,378 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 20:11:30,467 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 20:11:30,522 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 20:11:30,525 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 20:11:30,528 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 20:11:30,530 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 20:11:58,469 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:11:58,712 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 20:11:58,786 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:11:58,787 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:11:58,790 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:11:58,792 [12] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:11:59,516 [14] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:11:59,595 [14] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 20:13:14,762 [18] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:13:14,799 [1] INFO  Program - Application is shutting down.
+2024-11-11 20:13:50,412 [1] INFO  Program - Starting up the application...
+2024-11-11 20:13:51,706 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 20:13:51,726 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 20:13:51,946 [1] INFO  Program - Starting the web host...
+2024-11-11 20:13:52,017 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-11 20:13:52,148 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-11 20:13:52,239 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-11 20:13:52,242 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 20:13:52,243 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 20:13:52,244 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 20:18:23,463 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:18:23,490 [1] INFO  Program - Application is shutting down.
+2024-11-11 20:19:10,135 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-11 20:19:10,603 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-11 20:19:11,485 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 22024-11-11 20:19:15,605 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:19:20,620 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:19:25,630 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:19:30,638 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 5/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:19:35,686 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for message2024-11-11 20:20:18,228 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:20:18,257 [1] INFO  Program - Application is shutting down.
+sting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-11 20:19:35,727 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-11 20:19:35,728 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-11 20:19:36,716 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:36 +00:00
+2024-11-11 20:19:37,718 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:37 +00:00
+2024-11-11 20:19:38,720 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:38 +00:00
+2024-11-11 20:19:39,722 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:39 +00:00
+2024-11-11 20:19:40,715 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:40 +00:00
+2024-11-11 20:19:41,716 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:41 +00:00
+2024-11-11 20:19:42,729 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:42 +00:00
+2024-11-11 20:19:43,730 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:43 +00:00
+2024-11-11 20:19:44,742 [6] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:44 +00:00
+2024-11-11 20:19:45,746 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:45 +00:00
+2024-11-11 20:19:46,758 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:46 +00:00
+2024-11-11 20:19:47,760 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:47 +00:00
+2024-11-11 20:19:48,761 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:48 +00:00
+2024-11-11 20:19:49,763 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:49 +00:00
+2024-11-11 20:19:50,773 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:50 +00:00
+2024-11-11 20:19:51,776 [11] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:51 +00:00
+2024-11-11 20:19:52,778 [11] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:52 +00:00
+2024-11-11 20:19:53,790 [11] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:53 +00:00
+2024-11-11 20:19:54,792 [11] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:54 +00:00
+2024-11-11 20:19:55,799 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:55 +00:00
+2024-11-11 20:19:56,804 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:56 +00:00
+2024-11-11 20:19:57,806 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:57 +00:00
+2024-11-11 20:19:58,807 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:58 +00:00
+2024-11-11 20:19:59,809 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:19:59 +00:00
+2024-11-11 20:20:00,812 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:00 +00:00
+2024-11-11 20:20:01,817 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:01 +00:00
+2024-11-11 20:20:02,819 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:02 +00:00
+2024-11-11 20:20:03,820 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:03 +00:00
+2024-11-11 20:20:04,822 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:04 +00:00
+2024-11-11 20:20:05,821 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:05 +00:00
+2024-11-11 20:20:06,826 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:06 +00:00
+2024-11-11 20:20:07,828 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:07 +00:00
+2024-11-11 20:20:08,829 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:08 +00:00
+2024-11-11 20:20:09,840 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:09 +00:00
+2024-11-11 20:20:10,840 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:10 +00:00
+2024-11-11 20:20:11,841 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:11 +00:00
+2024-11-11 20:20:12,842 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:12 +00:00
+2024-11-11 20:20:13,844 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:13 +00:00
+2024-11-11 20:20:14,845 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:14 +00:00
+2024-11-11 20:20:15,846 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:15 +00:00
+2024-11-11 20:20:16,847 [10] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:20:16 +00:00
+2024-11-11 20:20:17,408 [13] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:21:16,265 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-11 20:21:16,780 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-11 20:21:17,692 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 22024-11-11 20:21:21,793 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:21:26,805 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:21:31,801 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:21:36,809 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 5/7. Exception: None of the specified endpoints were reachable
+2024-11-11 20:21:41,852 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for message2024-11-11 20:22:19,048 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:22:19,318 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 20:22:19,403 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:22:19,404 [11] INFO  REST.Controllers.DocumentController - DocumentControlle2024-11-11 20:22:39,864 [8] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:22:39,865 [8] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:27:19,032 [19] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:22:20,281 [11] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-11-11 20:22:26,860 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:22:26,870 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:22:26,871 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:22:26,892 [16] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 21
+2024-11-11 20:22:26,896 [16] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 21.
+2024-11-11 20:22:27,032 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:22:27,036 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 21 fetched successfully.
+2024-11-11 20:22:27,046 [15] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:22:27,048 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 21.
+2024-11-11 20:22:27,132 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:22:27,140 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 21 deleted successfully.
+2024-11-11 20:22:30,385 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:22:30,393 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:22:30,394 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:22:30,399 [16] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 22
+2024-11-11 20:22:30,400 [16] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 22.
+2024-11-11 20:22:30,457 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:22:30,458 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 22 fetched successfully.
+2024-11-11 20:22:30,464 [15] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:22:30,465 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 22.
+2024-11-11 20:22:30,472 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:22:30,474 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 22 deleted successfully.
+2024-11-11 20:22:33,419 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:22:33,424 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:22:33,425 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:22:33,428 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 23
+2024-11-11 20:22:33,428 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 23.
+2024-11-11 20:22:33,434 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:22:33,435 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 23 fetched successfully.
+2024-11-11 20:22:33,439 [15] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:22:33,439 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 23.
+2024-11-11 20:22:33,445 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:22:33,446 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 23 deleted successfully.
+2024-11-11 20:22:36,261 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:22:36,269 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:22:36,270 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:22:36,271 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 24
+2024-11-11 20:22:36,272 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 24.
+2024-11-11 20:22:36,276 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:22:36,278 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 24 fetched successfully.
+2024-11-11 20:22:36,282 [11] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:22:36,283 [11] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 24.
+2024-11-11 20:22:36,290 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:22:36,291 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 24 deleted successfully.
+2024-11-11 20:22:39,681 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:22:39,687 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:22:39,688 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:22:39,727 [10] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:22:39,791 [16] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:22:39,807 [16] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 20:22:39,840 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:22:39,855 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 25 added successfully.
+2024-11-11 20:22:41,467 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:22:41,472 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:22:41,472 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:22:41,473 [15] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:22:41,474 [15] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:22:41,478 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:22:41,480 [15] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 20:23:48,227 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:23:48,237 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:23:48,237 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:23:48,248 [17] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:23:48,290 [11] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:23:48,291 [11] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 20:23:48,301 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:23:48,303 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 26 added successfully.
+2024-11-11 20:23:49,097 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:23:49,102 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:23:49,103 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:23:49,107 [18] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:23:49,108 [18] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:23:49,110 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:23:49,112 [18] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:25:14,531 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:25:14,543 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:25:14,544 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:25:14,555 [18] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:25:14,598 [21] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:25:14,599 [21] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 20:25:14,607 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:25:14,609 [21] INFO  DAL.Repositories.DocumentRepository - Document with ID: 27 added successfully.
+2024-11-11 20:25:15,689 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:25:15,695 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:25:15,696 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:25:15,697 [18] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:25:15,697 [18] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:25:15,700 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:25:15,701 [18] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 20:27:19,792 [24] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:27:19,821 [1] INFO  Program - Application is shutting down.
+2024-11-11 20:28:27,392 [1] INFO  Program - Starting up the application...
+2024-11-11 20:28:28,474 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 20:28:28,487 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 20:28:28,629 [1] INFO  Program - Starting the web host...
+2024-11-11 202024-11-11 20:28:32,904 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:28:37,911 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:28:42,915 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:28:47,960 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for messages...
+2024-11-12024-11-11 20:28:52,799 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:28:53,083 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 20:28:53,186 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:28:53,187 [11] INFO  REST.Controllers.DocumentController - Doc2024-11-11 20:29:29,327 [11] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Zivildienst_Philipp_Bescheid.pdf
+2024-11-11 20:29:29,329 [11] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Zivildienst_Philipp_Bescheid.pdf
+2024-11-11 20:32:14,515 [14] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+, CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:28:54,061 [11] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 20:29:08,752 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:08,767 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:08,769 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:08,794 [12] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 27
+2024-11-11 20:29:08,796 [12] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 27.
+2024-11-11 20:29:08,940 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:29:08,945 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 27 fetched successfully.
+2024-11-11 20:29:08,952 [11] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:29:08,954 [11] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 27.
+2024-11-11 20:29:09,022 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:29:09,032 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 27 deleted successfully.
+2024-11-11 20:29:12,046 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:12,058 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:12,059 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:12,062 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 26
+2024-11-11 20:29:12,063 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 26.
+2024-11-11 20:29:12,190 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:29:12,193 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 26 fetched successfully.
+2024-11-11 20:29:12,199 [15] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:29:12,201 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 26.
+2024-11-11 20:29:12,211 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:29:12,214 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 26 deleted successfully.
+2024-11-11 20:29:14,867 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:14,873 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:14,874 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:14,877 [15] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 25
+2024-11-11 20:29:14,878 [15] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 25.
+2024-11-11 20:29:14,883 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:29:14,884 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 25 fetched successfully.
+2024-11-11 20:29:14,888 [15] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:29:14,889 [15] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 25.
+2024-11-11 20:29:14,896 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:29:14,897 [17] INFO  DAL.Repositories.DocumentRepository - Document with ID: 25 deleted successfully.
+2024-11-11 20:29:17,372 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:17,377 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:17,378 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:17,379 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:29:17,380 [17] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:29:17,383 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:29:17,384 [12] INFO  DAL.Repositories.DocumentRepository - 0 documents fetched successfully.
+2024-11-11 20:29:29,122 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:29,128 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:29,128 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:29,159 [17] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:29:29,236 [17] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:29:29,260 [17] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 20:29:29,302 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:29:29,316 [17] INFO  DAL.Repositories.DocumentRepository - Document with ID: 28 added successfully.
+2024-11-11 20:29:30,538 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:30,543 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:30,544 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:30,545 [15] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:29:30,546 [15] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:29:30,549 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:29:30,551 [15] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 20:29:42,410 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:42,416 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:42,417 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:42,427 [15] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:29:42,468 [17] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:29:42,469 [17] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 20:29:42,477 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:29:42,478 [17] INFO  DAL.Repositories.DocumentRepository - Document with ID: 29 added successfully.
+2024-11-11 20:29:43,619 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:29:43,624 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:29:43,625 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:29:43,626 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:29:43,626 [17] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:29:43,629 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:29:43,630 [17] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:30:41,595 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:30:41,613 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:30:41,614 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:30:41,623 [21] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:30:41,677 [19] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:30:41,678 [19] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 20:30:41,686 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:30:41,688 [21] INFO  DAL.Repositories.DocumentRepository - Document with ID: 30 added successfully.
+2024-11-11 20:30:42,633 [21] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:30:42,638 [21] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:30:42,639 [21] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:30:42,640 [21] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:30:42,641 [21] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:30:42,643 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:30:42,645 [21] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 20:32:15,229 [22] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:32:15,264 [1] INFO  Program - Application is shutting down.
+2024-11-11 20:33:03,402 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-11 20:33:03,934 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-11 20:33:04,919 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 202024-11-11 20:33:08,942 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:33:13,977 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:33:18,981 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:33:24,023 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for messages...
+2024-11-11 20:33:24,040 [1] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:33:24 +00:00
+2024-11-11 20:33:24,052 [1] INFO  Microsoft.Host2024-11-11 20:33:36,557 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:33:36,789 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-11 20:33:36,870 [12024-11-11 20:34:00,203 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:34:00,205 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:34:16,980 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Zivildienst_Philipp_Bescheid.pdf
+2024-11-11 20:34:16,981 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Zivildienst_Philipp_Bescheid.pdf
+2024-11-11 20:35:04,115 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:35:04,116 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:36:07,280 [12] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:36:07,282 [12] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Jahreszeugnis_4.Jahrgang.pdf
+2024-11-11 20:36:21,483 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf
+2024-11-11 20:36:21,484 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf
+2024-11-11 20:37:29,150 [15] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+y.
+2024-11-11 20:33:51,640 [12] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:33:51,642 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 28.
+2024-11-11 20:33:51,717 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:33:51,727 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 28 deleted successfully.
+2024-11-11 20:33:55,079 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:33:55,092 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:33:55,093 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:33:55,096 [16] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 29
+2024-11-11 20:33:55,098 [16] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 29.
+2024-11-11 20:33:55,162 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:33:55,164 [16] INFO  DAL.Repositories.DocumentRepository - Document with ID: 29 fetched successfully.
+2024-11-11 20:33:55,171 [16] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:33:55,171 [16] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 29.
+2024-11-11 20:33:55,179 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:33:55,181 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 29 deleted successfully.
+2024-11-11 20:33:56,955 [16] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:33:56,960 [16] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:33:56,960 [16] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:33:56,962 [16] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 30
+2024-11-11 20:33:56,963 [16] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 30.
+2024-11-11 20:33:56,967 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:33:56,968 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 30 fetched successfully.
+2024-11-11 20:33:56,971 [12] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:33:56,972 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 30.
+2024-11-11 20:33:56,981 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:33:56,982 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 30 deleted successfully.
+2024-11-11 20:34:00,008 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:34:00,015 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:34:00,016 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:34:00,050 [11] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:34:00,132 [15] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:34:00,144 [15] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 20:34:00,179 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:34:00,193 [15] INFO  DAL.Repositories.DocumentRepository - Document with ID: 31 added successfully.
+2024-11-11 20:34:01,200 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:34:01,207 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:34:01,208 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:34:01,209 [15] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:34:01,210 [15] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:34:01,214 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:34:01,215 [15] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 20:34:16,890 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:34:16,905 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:34:16,906 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:34:16,919 [15] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:34:16,965 [17] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:34:16,966 [17] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Zivildienst_Philipp_Bescheid.pdf.
+2024-11-11 20:34:16,975 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:34:16,977 [17] INFO  DAL.Repositories.DocumentRepository - Document with ID: 32 added successfully.
+2024-11-11 20:34:18,020 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:34:18,025 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:34:18,026 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:34:18,027 [15] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:34:18,027 [15] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:34:18,029 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:34:18,031 [15] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:34:28,626 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:34:28,632 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:34:28,633 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:34:28,634 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:34:28,635 [17] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:34:28,639 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:34:28,640 [17] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:35:04,021 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:35:04,034 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:35:04,035 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:35:04,045 [15] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:35:04,102 [11] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:35:04,103 [11] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 20:35:04,111 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:35:04,112 [17] INFO  DAL.Repositories.DocumentRepository - Document with ID: 33 added successfully.
+2024-11-11 20:35:05,094 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:35:05,099 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:35:05,100 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:35:05,100 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:35:05,101 [17] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:35:05,104 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:35:05,105 [17] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 20:35:57,205 [19] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:35:57,214 [19] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:35:57,215 [19] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:35:57,216 [19] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 31
+2024-11-11 20:35:57,217 [19] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 31.
+2024-11-11 20:35:57,223 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:35:57,224 [19] INFO  DAL.Repositories.DocumentRepository - Document with ID: 31 fetched successfully.
+2024-11-11 20:35:57,229 [19] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:35:57,230 [19] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 31.
+2024-11-11 20:35:57,239 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:35:57,240 [20] INFO  DAL.Repositories.DocumentRepository - Document with ID: 31 deleted successfully.
+2024-11-11 20:36:00,509 [21] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:36:00,513 [21] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:36:00,514 [21] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:36:00,516 [21] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 32
+2024-11-11 20:36:00,517 [21] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 32.
+2024-11-11 20:36:00,521 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:36:00,522 [19] INFO  DAL.Repositories.DocumentRepository - Document with ID: 32 fetched successfully.
+2024-11-11 20:36:00,527 [19] INFO  DAL.Services.DocumentService - File Zivildienst_Philipp_Bescheid.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:36:00,528 [19] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 32.
+2024-11-11 20:36:00,536 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:36:00,537 [19] INFO  DAL.Repositories.DocumentRepository - Document with ID: 32 deleted successfully.
+2024-11-11 20:36:03,814 [21] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:36:03,819 [21] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:36:03,820 [21] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:36:03,821 [21] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 33
+2024-11-11 20:36:03,822 [21] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 33.
+2024-11-11 20:36:03,828 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:36:03,829 [21] INFO  DAL.Repositories.DocumentRepository - Document with ID: 33 fetched successfully.
+2024-11-11 20:36:03,833 [21] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:36:03,834 [21] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 33.
+2024-11-11 20:36:03,841 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:36:03,841 [21] INFO  DAL.Repositories.DocumentRepository - Document with ID: 33 deleted successfully.
+2024-11-11 20:36:07,194 [19] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:36:07,203 [19] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:36:07,205 [19] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:36:07,217 [22] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:36:07,264 [22] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:36:07,265 [22] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Jahreszeugnis_4.Jahrgang.pdf.
+2024-11-11 20:36:07,274 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:36:07,276 [21] INFO  DAL.Repositories.DocumentRepository - Document with ID: 34 added successfully.
+2024-11-11 20:36:08,380 [21] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:36:08,385 [21] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:36:08,386 [21] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:36:08,387 [21] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:36:08,387 [21] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:36:08,389 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:36:08,390 [21] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 20:36:21,353 [21] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:36:21,363 [21] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:36:21,364 [21] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:36:21,379 [17] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:36:21,470 [21] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:36:21,471 [21] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf.
+2024-11-11 20:36:21,479 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:36:21,480 [21] INFO  DAL.Repositories.DocumentRepository - Document with ID: 35 added successfully.
+2024-11-11 20:36:22,590 [17] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:36:22,595 [17] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:36:22,596 [17] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:36:22,596 [17] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:36:22,596 [17] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:36:22,599 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:36:22,601 [21] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:37:14,645 [19] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:37:14,654 [19] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:37:14,655 [19] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:37:14,657 [19] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 34
+2024-11-11 20:37:14,658 [19] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 34.
+2024-11-11 20:37:14,661 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:37:14,663 [19] INFO  DAL.Repositories.DocumentRepository - Document with ID: 34 fetched successfully.
+2024-11-11 20:37:14,667 [19] INFO  DAL.Services.DocumentService - File Philipp_Jahreszeugnis_4.Jahrgang.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:37:14,668 [19] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 34.
+2024-11-11 20:37:14,677 [19] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:37:14,678 [19] INFO  DAL.Repositories.DocumentRepository - Document with ID: 34 deleted successfully.
+2024-11-11 20:37:24,466 [23] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:37:24,484 [23] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:37:24,485 [23] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:37:24,486 [23] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 35
+2024-11-11 20:37:24,487 [23] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 35.
+2024-11-11 20:37:24,498 [22] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-11 20:37:24,500 [22] INFO  DAL.Repositories.DocumentRepository - Document with ID: 35 fetched successfully.
+2024-11-11 20:37:24,504 [22] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf successfully removed from MinIO bucket uploads.
+2024-11-11 20:37:24,505 [22] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 35.
+2024-11-11 20:37:24,512 [23] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-11 20:37:24,513 [23] INFO  DAL.Repositories.DocumentRepository - Document with ID: 35 deleted successfully.
+2024-11-11 20:37:29,871 [26] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:37:29,903 [1] INFO  Program - Application is shutting down.
+2024-11-11 20:37:37,062 [1] INFO  Program - Starting up the application...
+2024-11-11 20:37:38,197 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-11 20:37:38,208 [1] INFO  Program - Application startup complete. Running now...
+2024-11-11 20:37:38,377 [1] INFO  Program - Starting the web host...
+2024-11-11 202024-11-11 20:37:42,614 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:37:47,619 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-11 20:37:52,663 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for messages...
+2024-11-11 20:37:52,680 [1] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/11/2024 20:37:52 +00:00
+2024-11-11 20:37:52,691 [1] INFO  Microsoft.Hosting.Lifetime - Appl2024-11-11 20:38:17,528 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:38:17,778 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-112024-11-11 20:38:28,753 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Wudernitz_Bewerbung.pdf
+2024-11-11 20:38:28,754 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Wudernitz_Bewerbung.pdf
+2024-11-11 20:38:51,061 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Wudernitz_Lebenslauf.pdf
+2024-11-11 20:38:51,063 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Wudernitz_Lebenslauf.pdf
+2024-11-11 20:39:16,431 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: Document Path: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-11 20:39:16,433 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: Document Path: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-11 20:40:00,567 [14] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+ocumentController initialized successfully.
+2024-11-11 20:38:28,474 [12] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:38:28,537 [14] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_Bewerbung.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:38:28,557 [14] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Wudernitz_Bewerbung.pdf.
+2024-11-11 20:38:28,718 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (30ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:38:28,745 [10] INFO  DAL.Repositories.DocumentRepository - Document with ID: 36 added successfully.
+2024-11-11 20:38:30,026 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:38:30,034 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:38:30,035 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:38:30,036 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:38:30,037 [10] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:38:30,095 [10] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:38:30,101 [10] INFO  DAL.Repositories.DocumentRepository - 1 documents fetched successfully.
+2024-11-11 20:38:50,981 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:38:50,990 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:38:50,991 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:38:51,002 [10] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:38:51,042 [16] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_Lebenslauf.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:38:51,043 [16] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Wudernitz_Lebenslauf.pdf.
+2024-11-11 20:38:51,052 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:38:51,057 [16] INFO  DAL.Repositories.DocumentRepository - Document with ID: 37 added successfully.
+2024-11-11 20:38:52,360 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:38:52,366 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:38:52,366 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:38:52,367 [18] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:38:52,368 [18] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:38:52,372 [18] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:38:52,374 [18] INFO  DAL.Repositories.DocumentRepository - 2 documents fetched successfully.
+2024-11-11 20:39:16,359 [18] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:39:16,370 [18] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:39:16,371 [18] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:39:16,380 [20] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-11-11 20:39:16,412 [18] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf successfully uploaded to MinIO bucket uploads.
+2024-11-11 20:39:16,413 [18] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf.
+2024-11-11 20:39:16,424 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Documents" (file_type, name, path)
+VALUES (@p0, @p1, @p2)
+RETURNING id;
+2024-11-11 20:39:16,427 [20] INFO  DAL.Repositories.DocumentRepository - Document with ID: 38 added successfully.
+2024-11-11 20:39:17,587 [10] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-11 20:39:17,593 [10] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-11 20:39:17,594 [10] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-11 20:39:17,595 [10] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-11 20:39:17,596 [10] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-11 20:39:17,599 [20] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-11 20:39:17,601 [20] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-11 20:40:01,310 [22] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-11 20:40:01,349 [1] INFO  Program - Application is shutting down.

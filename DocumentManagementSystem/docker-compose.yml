@@ -26,6 +26,27 @@ services:
     networks:
       - dms-network
 
+  worker-service:
+    container_name: worker-service
+    image: document-worker-service
+    build:
+      context: .
+      dockerfile: DocumentWorkerService/Dockerfile  # Specify the Dockerfile location inside the Worker folder
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production  # Set the environment to production
+      - RabbitMQ__HostName=rabbitmq  # RabbitMQ connection details
+      - Minio__Endpoint=minio:9000
+      - Minio__AccessKey=minio
+      - Minio__SecretKey=minio123
+      - Minio__BucketName=uploads
+    depends_on:
+      - rabbitmq
+      - minio
+    volumes:
+      - ./Logs:/app/Logs
+    networks:
+      - dms-network
+
   postgres:
     container_name: postgres
     image: postgres:latest
