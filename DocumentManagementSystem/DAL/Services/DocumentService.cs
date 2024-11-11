@@ -3,14 +3,17 @@ using System.IO;
 using System.Threading.Tasks;
 using AutoMapper;
 using DAL.Repositories;
-using DAL.Services;
 using FluentValidation;
 using log4net;
 using Microsoft.AspNetCore.Http;
+using Minio;
+using Minio.Exceptions;
 using SharedData.DTOs;
 using SharedData.EntitiesBL;
 using SharedData.EntitiesDAL;
 using DAL.RabbitMQ;
+using Microsoft.Extensions.Configuration;
+using Minio.DataModel.Args;
 
 namespace DAL.Services
 {
@@ -22,7 +25,8 @@ namespace DAL.Services
         private readonly IValidator<DocumentDAL> _dalValidator;
         private readonly IValidator<DocumentBL> _blValidator;
         private readonly IMessagePublisher _publisher;
-        private readonly string _uploadFolder;
+        private readonly IMinioClient _minioClient;
+        private readonly string _bucketName;
         private readonly string _routingKey = "dms_routing_key";
 
         public DocumentService(
@@ -30,21 +34,41 @@ namespace DAL.Services
             IMapper mapper,
             IValidator<DocumentDAL> dalValidator,
             IValidator<DocumentBL> blValidator,
-            IMessagePublisher publisher)
+            IMessagePublisher publisher,
+            IMinioClient minioClient,
+            IConfiguration configuration)
         {
             _repository = repository;
             _mapper = mapper;
             _dalValidator = dalValidator;
             _blValidator = blValidator;
             _publisher = publisher;
+            _minioClient = minioClient;
 
-            // Initialize the upload folder path
-            _uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
-            if (!Directory.Exists(_uploadFolder))
-            {
-                Directory.CreateDirectory(_uploadFolder);
-            }
+            // Set bucket name from configuration or default to 'uploads'.
+            _bucketName = configuration["Minio:BucketName"] ?? "uploads";
+            InitializeBucket().Wait();
+
             _logger.Info("DocumentService initialized successfully.");
+        }
+
+        // Method to ensure the bucket exists
+        private async Task InitializeBucket()
+        {
+            try
+            {
+                bool found = await _minioClient.BucketExistsAsync(new BucketExistsArgs().WithBucket(_bucketName));
+                if (!found)
+                {
+                    await _minioClient.MakeBucketAsync(new MakeBucketArgs().WithBucket(_bucketName));
+                    _logger.Info($"Bucket {_bucketName} created successfully.");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("Error while initializing the MinIO bucket.", ex);
+                throw;
+            }
         }
 
         public async Task<IEnumerable<DocumentDTO>> GetAllDocumentsAsync()
@@ -59,47 +83,70 @@ namespace DAL.Services
             return document != null ? _mapper.Map<DocumentDTO>(document) : null;
         }
 
-        public byte[] GetFile(string filename, out string contentType)
+        public async Task<byte[]> GetFileAsync(string filename)
         {
-            var filePath = Path.Combine(_uploadFolder, filename);
-            if (!File.Exists(filePath))
+            try
             {
-                contentType = null;
-                return null;
-            }
+                // Get the file from MinIO
+                var ms = new MemoryStream();
+                await _minioClient.GetObjectAsync(new GetObjectArgs()
+                    .WithBucket(_bucketName)
+                    .WithObject(filename)
+                    .WithCallbackStream((stream) => stream.CopyTo(ms)));
 
-            contentType = GetContentType(filePath);
-            return File.ReadAllBytes(filePath);
+                return ms.ToArray();
+            }
+            catch (MinioException ex)
+            {
+                _logger.Error($"Error occurred when trying to fetch file {filename} from MinIO.", ex);
+                throw new FileNotFoundException($"File {filename} not found in MinIO.", ex);
+            }
         }
 
         public async Task<string> UploadDocumentAsync(IFormFile file)
         {
-            var path = Path.Combine(_uploadFolder, file.FileName);
+            var fileName = file.FileName;
 
-            using (var stream = new FileStream(path, FileMode.Create))
+            try
             {
-                await file.CopyToAsync(stream);
+                // Upload file to MinIO bucket
+                await using var stream = file.OpenReadStream();
+                await _minioClient.PutObjectAsync(new PutObjectArgs()
+                    .WithBucket(_bucketName)
+                    .WithObject(fileName)
+                    .WithStreamData(stream)
+                    .WithObjectSize(file.Length)
+                    .WithContentType(file.ContentType));
+
+                _logger.Info($"File {fileName} successfully uploaded to MinIO bucket {_bucketName}.");
+
+                // Create document DTO and map to DAL entity
+                var documentDTO = new DocumentDTO
+                {
+                    Name = fileName,
+                    Path = $"minio://{_bucketName}/{fileName}",
+                    FileType = Path.GetExtension(fileName)
+                };
+
+                var documentDAL = _mapper.Map<DocumentDAL>(documentDTO);
+
+                // Validate the DAL entity using FluentValidation
+                var validationResult = await _dalValidator.ValidateAsync(documentDAL);
+                if (!validationResult.IsValid)
+                {
+                    throw new ValidationException(validationResult.Errors);
+                }
+
+                await _repository.AddAsync(documentDAL);
+                _publisher.Publish($"Document Path: {documentDAL.Path}", _routingKey);
+
+                return documentDAL.Id.ToString();
             }
-
-            var documentDTO = new DocumentDTO
+            catch (MinioException ex)
             {
-                Name = file.FileName,
-                Path = path,
-                FileType = Path.GetExtension(file.FileName)
-            };
-
-            var documentDAL = _mapper.Map<DocumentDAL>(documentDTO);
-
-            var validationResult = await _dalValidator.ValidateAsync(documentDAL);
-            if (!validationResult.IsValid)
-            {
-                throw new ValidationException(validationResult.Errors);
+                _logger.Error("Error occurred when uploading file to MinIO.", ex);
+                throw;
             }
-
-            await _repository.AddAsync(documentDAL);
-            _publisher.Publish($"Document Path: {documentDAL.Path}", _routingKey);
-
-            return documentDAL.Id.ToString();
         }
 
         public async Task UpdateDocumentAsync(int id, DocumentDTO documentDTO)
@@ -127,6 +174,17 @@ namespace DAL.Services
             if (item == null)
             {
                 throw new KeyNotFoundException("Document not found.");
+            }
+
+            try
+            {
+                // Delete from MinIO bucket
+                await _minioClient.RemoveObjectAsync(new RemoveObjectArgs().WithBucket(_bucketName).WithObject(item.Name));
+                _logger.Info($"File {item.Name} successfully removed from MinIO bucket {_bucketName}.");
+            }
+            catch (MinioException ex)
+            {
+                _logger.Error($"Error occurred when deleting file {item.Name} from MinIO.", ex);
             }
 
             await _repository.DeleteAsync(id);
