@@ -15,9 +15,11 @@ public class RabbitMQConsumer : BackgroundService
     private readonly string _password;
     private IConnection _connection;
     private IModel _channel;
+    private readonly OCRService _ocrService;
 
-    public RabbitMQConsumer()
+    public RabbitMQConsumer(OCRService ocrService)
     {
+        _ocrService = ocrService;
         _hostname = "rabbitmq";
         _queueName = "dms_queue";
         _username = "user";
@@ -80,7 +82,6 @@ public class RabbitMQConsumer : BackgroundService
             {
                 // Call your processing method here
                 ProcessMessage(content);
-
                 // Acknowledge the message if processing is successful
                 _channel.BasicAck(ea.DeliveryTag, false);
             }
@@ -100,13 +101,14 @@ public class RabbitMQConsumer : BackgroundService
     }
 
 
-    private void ProcessMessage(string message)
+    private async void ProcessMessage(string message)
     {
         try
         {
             // Your message processing logic here
             _logger.Info($"Processing message: {message}");
-            
+            var document = await _ocrService.PerformOCRAsync(message);
+            _logger.Info($"OCR processing completed for document: {document}");
             // Example: Deserialize message and process document for OCR
             // DocumentDto document = JsonSerializer.Deserialize<DocumentDto>(message);
             // PerformOCR(document);

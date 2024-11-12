@@ -138,7 +138,7 @@ namespace DAL.Services
                 }
 
                 await _repository.AddAsync(documentDAL);
-                _publisher.Publish($"Document Path: {documentDAL.Path}", _routingKey);
+                _publisher.Publish(documentDAL.Path, _routingKey);
 
                 return documentDAL.Id.ToString();
             }
