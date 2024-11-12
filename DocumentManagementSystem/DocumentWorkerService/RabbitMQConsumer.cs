@@ -16,14 +16,16 @@ public class RabbitMQConsumer : BackgroundService
     private IConnection _connection;
     private IModel _channel;
     private readonly OCRService _ocrService;
+    private readonly IConfiguration _configuration;
 
-    public RabbitMQConsumer(OCRService ocrService)
+    public RabbitMQConsumer(OCRService ocrService, IConfiguration configuration)
     {
         _ocrService = ocrService;
-        _hostname = "rabbitmq";
-        _queueName = "dms_queue";
-        _username = "user";
-        _password = "password";
+        _configuration = configuration;
+        _hostname = configuration.GetValue<string>("RabbitMQSettings:HostName") ?? "rabbitmq";
+        _queueName = configuration.GetValue<string>("RabbitMQSettings:QueueName") ?? "dms_queue";
+        _username = configuration.GetValue<string>("RabbitMQSettings:UserName") ?? "user";
+        _password = configuration.GetValue<string>("RabbitMQSettings:Password") ?? "password";
 
         InitializeRabbitMQListener();
     }

@@ -5,6 +5,7 @@ using Minio;
 using Minio.DataModel.Args;
 using Tesseract;
 using log4net;
+using log4net.Util;
 
 namespace DocumentWorkerService
 {
@@ -13,10 +14,13 @@ namespace DocumentWorkerService
         private readonly IMinioClient _minioClient;
         private static readonly ILog _logger = LogManager.GetLogger(typeof(OCRService));
         private readonly string _bucketName = "uploads"; // Specify your MinIO bucket name here
+        private readonly string _routingKey = "ocr_routing_key";
+        private readonly IMessagePublisher _publisher;
 
-        public OCRService(IMinioClient minioClient)
+        public OCRService(IMinioClient minioClient, IMessagePublisher publisher)
         {
             _minioClient = minioClient;
+            _publisher = publisher;
         }
 
         public async Task<string> PerformOCRAsync(string filePath)
@@ -57,6 +61,8 @@ namespace DocumentWorkerService
                 if (process.ExitCode == 0)
                 {
                     string ocrText1 = File.ReadAllText(realOutputFile);
+                    // call queue publisher
+                    _publisher.Publish(ocrText1, _routingKey);
                     _logger.Info($"OCR Text: {ocrText1}");
                 }
                 else
@@ -64,7 +70,6 @@ namespace DocumentWorkerService
                     string error = process.StandardError.ReadToEnd();
                     _logger.Error($"Tesseract Error: {error}");
                 }
-
                 
                 // Clean up the image after processing
                 File.Delete(imagePath);

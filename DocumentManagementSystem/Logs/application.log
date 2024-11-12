@@ -2100,3 +2100,720 @@ Freizeit: Arbeiten am Computer
 2024-11-12 11:36:25,423 [10] INFO  DocumentWorkerService.OCRService - OCR Text: 
 2024-11-12 11:36:25,424 [10] INFO  DocumentWorkerService.RabbitMQConsumer - OCR processing completed for document: 
 2024-11-12 11:36:48,826 [15] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 13:57:17,576 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 13:57:18,738 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-12 13:57:21,165 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 132024-11-12 13:57:23,757 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 13:57:28,781 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 13:57:33,788 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 13:57:38,807 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 5/10. Exception: None of the specified endpoints were reachable
+2024-11-12 13:57:43,827 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 6/10. Exce2024-11-12 13:58:27,234 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 13:58:27,584 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-12 13:58:27,686 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 13:58:27,688 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 13:58:27,690 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-12 13:58:27,692 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-12 13:58:28,444 [15] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-12 13:58:28,519 [15] INFO  DAL.Repositorie2024-11-12 13:58:38,106 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 13:58:38,109 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 13:58:38,113 [10] INFO  DocumentWorkerService.OCRService - Performing OCR on file Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 13:58:38,243 [12] INFO  DocumentWorkerService.OCRService - File Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf downloaded from MinIO to /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 13:58:40,048 [12] INFO  DocumentWorkerService.OCRService - PDF converted to image: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.png
+2024-11-12 13:58:40,049 [12] INFO  DocumentWorkerService.OCRService - Image path after conversion: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.png
+2024-11-12 13:58:40,050 [12] INFO  DocumentWorkerService.OCRService - TESSDATA_ENVIRONMENT: /app/tessdata
+2024-11-12 13:58:42,922 [12] INFO  DocumentWorkerService.OCRService - OCR Text: Hohere Technische Bundeslehranstalt Hollabrunn
+Bl 7_2>Q20 Hollabrunn, Anton Ehrenfﬁg(js:trase 10 AR
+Jahrgang: 1AHEL Schuljahr 2016/17
+
+Jahreszeugnis
+Wudernitz Philipp
+
+Familien- oder Nachname und Varname(n)
+geboren am 8. Marz 2002, Religionsbekenntnis rém.-kath.,
+Schuler des ersten Jahrganges (9. Schulstufe) der Schulart
+Hohere Lehranstalt fur Elektronik und Technische Informatik (Lehrplan 2015)
+nach dem Lehrplan BGBLII Nr. 262/2015 in der geltenden Fassung
+Verhalten in der Schule: Sehr zufriedenstellend
+
+Pflichtgegenstande Beurteilung Beurteilung
+Religwon 1 Angewandte Mathematik 2
+Deutsch 2 Naturwissenschaften 1
+— s n
+
+Englisch 2 Hardwareentwicklung 1
+Geografie, Geschichte und politische 1 Fachspezifische Softwaretechnik -
+Bildun & q
+
+i o~ Prototypenbau elektronischer 1
+Bewegung und Sport 2 Systeme
+Verbindliche Ubungen
+
+. —— s,
+
+Soziale und personale Kompetenz Teilgenommen D i o VR S B
+
+Er hat gemaB § 22 Abs. 2 lit. g des Schulunterri2024-11-12 13:59:11,508 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 13:59:11,520 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 13:59:11,521 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 13:59:11,522 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-11-12 13:59:11,523 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-12 13:59:11,525 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-12 13:59:11,527 [11] INFO  DAL.Repositories.DocumentRepository - 5 documents fetched successfully.
+2024-11-12 13:59:40,278 [18] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 13:59:40,310 [1] INFO  Program - Application is shutting down.
+cation is shutting down...
+2024-11-12 14:02:06,570 [1] INFO  Program - Starting up Document Worker Ser2024-11-12 14:02:08,751 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:02:08,779 [1] INFO  Program - Application startup complete. Running now...
+2024-112024-11-12 14:02:12,274 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:02:17,284 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:02:22,297 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:02:27,303 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 5/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:02:32,404 [1] INFO  Docume2024-11-12 14:02:39,791 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:02:40,027 [13] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-12 14:02:40,107 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:02:40,108 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 14:02:40,110 [13] INFO  REST.Controllers.Document2024-11-12 14:06:37,937 [16] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+sitories.DocumentRepository - Fetching all documents from the database.
+2024-11-12 14:02:40,835 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-12 14:02:40,911 [11] INFO  DAL.Repositories.DocumentRepository - 5 documents fetched successfully.
+2024-11-12 14:02:44,139 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:02:44,149 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:02:44,151 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 14:02:44,174 [12] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 59
+2024-11-12 14:02:44,177 [12] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 59.
+2024-11-12 14:02:44,344 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (19ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-12 14:02:44,349 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 59 fetched successfully.
+2024-11-12 14:02:44,361 [13] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf successfully removed from MinIO bucket uploads.
+2024-11-12 14:02:44,364 [13] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 59.
+2024-11-12 14:02:44,458 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-12 14:02:44,470 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 59 deleted successfully.
+2024-11-12 14:02:46,142 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:02:46,153 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:02:46,154 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 14:02:46,158 [12] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 138
+2024-11-12 14:02:46,159 [12] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 138.
+2024-11-12 14:02:46,240 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-12 14:02:46,241 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 138 fetched successfully.
+2024-11-12 14:02:46,248 [12] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_Lebenslauf.pdf successfully removed from MinIO bucket uploads.
+2024-11-12 14:02:46,248 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 138.
+2024-11-12 14:02:46,254 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-12 14:02:46,255 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 138 deleted successfully.
+2024-11-12 14:02:47,883 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:02:47,888 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:02:47,889 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 14:02:47,891 [13] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 139
+2024-11-12 14:02:47,892 [13] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 139.
+2024-11-12 14:02:47,897 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-12 14:02:47,898 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 139 fetched successfully.
+2024-11-12 14:02:47,905 [13] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_Bewerbung_Sauter.pdf successfully removed from MinIO bucket uploads.
+2024-11-12 14:02:47,906 [13] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 139.
+2024-11-12 14:02:47,911 [13] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-12 14:02:47,912 [13] INFO  DAL.Repositories.DocumentRepository - Document with ID: 139 deleted successfully.
+2024-11-12 14:02:49,592 [13] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:02:49,598 [13] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:02:49,599 [13] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 14:02:49,601 [13] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 140
+2024-11-12 14:02:49,601 [13] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 140.
+2024-11-12 14:02:49,606 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-12 14:02:49,607 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 140 fetched successfully.
+2024-11-12 14:02:49,611 [12] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_Lebenslauf.pdf successfully removed from MinIO bucket uploads.
+2024-11-12 14:02:49,612 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 140.
+2024-11-12 14:02:49,618 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-12 14:02:49,619 [11] INFO  DAL.Repositories.DocumentRepository - Document with ID: 140 deleted successfully.
+2024-11-12 14:02:51,037 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:02:51,042 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:02:51,043 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-11-12 14:02:51,044 [11] INFO  REST.Controllers.DocumentController - Received DELETE request for document id: 141
+2024-11-12 14:02:51,045 [11] INFO  DAL.Repositories.DocumentRepository - Fetching document with ID: 141.
+2024-11-12 14:02:51,050 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+WHERE d.id = @__p_0
+LIMIT 1
+2024-11-12 14:02:51,052 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 141 fetched successfully.
+2024-11-12 14:02:51,057 [12] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf successfully removed from MinIO bucket uploads.
+2024-11-12 14:02:51,058 [12] INFO  DAL.Repositories.DocumentRepository - Attempting to delete document with ID: 141.
+2024-11-12 14:02:51,062 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+DELETE FROM "Documents"
+WHERE id = @p0;
+2024-11-12 14:02:51,063 [12] INFO  DAL.Repositories.DocumentRepository - Document with ID: 141 deleted successfully.
+2024-11-12 14:06:38,772 [23] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:06:38,816 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:06:56,308 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:06:56,351 [1] INFO  Program - Starting up the application...
+2024-11-12 14:06:57,931 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:06:57,958 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:06:58,219 [1] INFO  Program - Starting the web host...
+2024-11-12 14:06:58,289 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:06:58,428 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:06:58,504 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:06:58,507 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:06:58,509 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:06:58,511 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:08:32,580 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:08:32,599 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:08:53,524 [1] INFO  Program - Starting up the application...
+2024-11-12 14:08:55,105 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:08:55,130 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:08:55,383 [1] INFO  Program - Starting the web host...
+2024-11-12 14:08:55,454 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:08:55,589 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:08:55,659 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:08:55,662 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:08:55,663 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:08:55,665 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:10:22,661 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:10:22,681 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:10:46,510 [1] INFO  Program - Starting up the application...
+2024-11-12 14:10:48,026 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:10:48,060 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:10:48,353 [1] INFO  Program - Starting the web host...
+2024-11-12 14:10:48,428 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:10:48,597 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:10:48,681 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:10:48,683 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:10:48,685 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:10:48,687 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:11:15,415 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:11:15,445 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:13:17,509 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:13:17,569 [1] INFO  Program - Starting up the application...
+2024-11-12 14:13:18,986 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:13:19,005 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:13:19,165 [1] INFO  Program - Starting the web host...
+2024-11-12 14:13:19,229 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:13:19,348 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:13:19,443 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:13:19,445 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:13:19,447 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:13:19,449 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:13:43,643 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:13:43,683 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:15:34,951 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:15:35,403 [1] INFO  Program - Try to connect to OCR RabbitMQ.2024-11-12 14:15:36,627 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:15:36,653 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:15:36,976 [1] INFO  Program - Starting the web host...
+2024-11-12 14:15:37,081 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:15:37,261 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:15:37,363 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:15:37,365 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:15:37,367 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:15:37,370 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:21:24,334 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:21:24,359 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:21:39,403 [1] INFO  Program - Starting up Document Worker Ser2024-11-12 14:21:40,840 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:21:40,857 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:21:41,107 [1] INFO  Program - Starting the web host...
+2024-11-12 14:21:41,160 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:21:41,270 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:21:41,347 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:21:41,349 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:21:41,350 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:21:41,351 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:22:03,891 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:22:03,952 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:23:24,366 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:23:24,636 [1] INFO  Program - Starting up the application...
+2024-11-12 14:23:26,244 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:23:26,270 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:23:26,584 [1] INFO  Program - Starting the web host...
+2024-11-12 14:23:26,672 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:23:26,838 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:23:26,934 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:23:26,944 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:23:26,947 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:23:26,951 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:24:08,154 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:24:08,177 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:24:25,650 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:24:26,281 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-12 14:24:27,212 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 142024-11-12 14:24:31,290 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:24:36,298 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:24:41,309 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:24:46,358 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for messages...
+2024-11-12 14:24:46,380 [1] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/12/2024 14:24:46 +00:00
+2024-11-12 14:24:46,394 [1] INFO  Microsoft.Host2024-11-12 14:25:47,838 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:25:47,863 [1] INFO  Program - Application is shutting down.
+4:24:46,397 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:25:47,105 [13] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:26:04,293 [1] INFO  Program - Starting up the application...
+2024-11-12 14:26:05,705 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:26:05,724 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:26:05,985 [1] INFO  Program - Starting the web host...
+2024-11-12 14:26:06,048 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:26:06,157 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:26:06,244 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:26:06,245 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:26:06,247 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:26:06,247 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:27:44,630 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:27:44,650 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:28:01,040 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:28:01,581 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-12 14:28:02,401 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 142024-11-12 14:28:06,594 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:28:11,612 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:28:16,618 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:28:21,623 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 5/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:28:26,691 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for me2024-11-12 14:29:11,442 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:29:11,465 [1] INFO  Program - Application is shutting down.
+ft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:28:26,736 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:28:26,738 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:29:10,719 [13] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:29:26,101 [1] INFO  Program - Trying to create the queue...
+2024-11-12 14:29:26,137 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:29:26,745 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-12 14:29:27,739 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 142024-11-12 14:29:31,759 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:29:36,770 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:29:41,776 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:29:46,781 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 5/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:29:51,985 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for me2024-11-12 14:30:40,136 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:30:40,164 [1] INFO  Program - Application is shutting down.
+ft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:29:52,137 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:29:52,138 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:30:39,275 [13] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:30:49,359 [1] INFO  Program - Trying to create the queue...
+2024-11-12 14:30:49,369 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:30:49,555 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-12 14:30:49,939 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 142024-11-12 14:30:54,562 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:30:59,567 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:31:04,572 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:31:09,616 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for messages...
+2024-11-12 14:31:09,633 [1] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 11/12/2024 14:31:09 +00:00
+2024-11-12 14:31:09,644 [1] INFO  Microsoft.Host2024-11-12 14:31:16,824 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:31:17,095 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-12 14:31:17,179 [12024-11-12 14:31:29,142 [8] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: minio://uploads/Philipp_Wudernitz_Bewerbung_Sauter.pdf
+2024-11-12 14:31:29,144 [8] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: minio://uploads/Philipp_Wudernitz_Bewerbung_Sauter.pdf
+2024-11-12 14:31:29,147 [8] INFO  DocumentWorkerService.OCRService - Performing OCR on file Philipp_Wudernitz_Bewerbung_Sauter.pdf
+2024-11-12 14:31:29,259 [8] INFO  DocumentWorkerService.OCRService - File Philipp_Wudernitz_Bewerbung_Sauter.pdf downloaded from MinIO to /tmp/Philipp_Wudernitz_Bewerbung_Sauter.pdf
+2024-11-12 14:31:29,866 [8] INFO  DocumentWorkerService.OCRService - PDF converted to image: /tmp/Philipp_Wudernitz_Bewerbung_Sauter.png
+2024-11-12 14:31:29,867 [8] INFO  DocumentWorkerService.OCRService - Image path after conversion: /tmp/Philipp_Wudernitz_Bewerbung_Sauter.png
+2024-11-12 14:31:29,868 [8] INFO  DocumentWorkerService.OCRService - TESSDATA_ENVIRONMENT: /app/tessdata
+2024-11-12 14:31:31,462 [8] INFO  DocumentWorkerService.OCRService - OCR Text: Philipp Wudernitz
+
+In der Flur 15
+
+2115 Ernstbrunn
+Mobil: 0676 6080302
+philipp@wudernitz.at
+
+Sauter Mess- und Regeltechnik Ges.m.b.H.
+Niedermoserstralle 11
+1220 Wien
+
+Ernstbrunn, 23. September 2018
+
+Stellenbewerbung fiir Ferialpraxis
+
+Sehr geehrte Damen und Herren,
+
+Derzeit besuche ich den dritten Jahrgang der Fachrichtung Elektronik und technische Informatik der
+HTBL Hollabrunn. Fir den erfolgreichen Abschluss der Reifepriifung ist ein Pflichtpraktikum von zwei
+mal vier Wochen erforderlich.
+
+Im Werkstattenunterricht konnte ich bereits die ersten Grundlagen der Elektrotechnik,
+Elektromechanik und Elektronik erlernen. Diese vertiefte ich im Juli 2018 in meiner Ferialpraxis bzw.
+erweiterte ich um zusatzlichen Themen.
+
+Im zweiten Teil meines Pflichtpraktikums mochte ich mich verstarkt auf Planung und
+Projektabwicklung im Bereich der Mess- und Regeltechnik konzentrieren und Erfahrungen sammeln.
+Darum bewerbe ich mich hiermit fiir eine Stelle als Ferialpraktikant im Juli 2019.
+
+Im Anhang habe ich Ihnen meinen Lebenslauf und Kopien der Jahreszeugnisse der 8., 9. und 10.
+Schulstufe angehangt.
+
+Gerne stehe ich Ihnen fir ein personliches Gesprach zur Verfigung.
+In freudiger Erwartung auf eine Antwort verbleibe ich
+
+mit freundlichen GriRen
+
+Philipp Wudernitz
+
+Beilagen:
+
+Lebenslauf
+
+Abschlusszeugnis 4. Klasse NMS Ernstbrunn
+Jahreszeugnis 1. Klasse HTBL Hollabrunn
+Jahreszeugnis 2. Klasse HTBL Hollabrunn
+
+2024-11-12 14:31:31,464 [8] INFO  DocumentWorkerService.OCRService - OCR processing completed for file Philipp_Wudernitz_Bewerbung_Sauter.pdf
+2024-11-12 14:31:31,465 [8] INFO  DocumentWorkerService.OCRService - OCR Text: 
+2024-11-12 14:31:31,466 [8] INFO  DocumentWorkerService.RabbitMQConsumer - OCR processi2024-11-12 14:31:48,317 [15]2024-11-12 14:31:48,372 [8] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 14:31:48,373 [8] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 14:31:48,374 [8] INFO  DocumentWorkerService.OCRService - Performing OCR on file Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 14:31:48,384 [8] INFO  DocumentWorkerService.OCRService - File Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf downloaded from MinIO to /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 14:31:50,025 [8] INFO  DocumentWorkerService.OCRService - PDF converted to image: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.png
+2024-11-12 14:31:50,026 [8] INFO  DocumentWorkerService.OCRService - Image path after conversion: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.png
+2024-11-12 14:31:50,027 [8] INFO  DocumentWorkerService.OCRService - TESSDATA_ENVIRONMENT: /app/tessdata
+2024-11-12 14:31:52,575 [8] INFO  DocumentWorkerService.OCRService - OCR Text: Hohere Technische Bundeslehranstalt Hollabrunn
+Bl 7_2>Q20 Hollabrunn, Anton Ehrenfﬁg(js:trase 10 AR
+Jahrgang: 1AHEL Schuljahr 2016/17
+
+Jahreszeugnis
+Wudernitz Philipp
+
+Familien- oder Nachname und Varname(n)
+geboren am 8. Marz 2002, Religionsbekenntnis rém.-kath.,
+Schuler des ersten Jahrganges (9. Schulstufe) der Schulart
+Hohere Lehranstalt fur Elektronik und Technische Informatik (Lehrplan 2015)
+nach dem Lehrplan BGBLII Nr. 262/2015 in der geltenden Fassung
+Verhalten in der Schule: Sehr zufriedenstellend
+
+Pflichtgegenstande Beurteilung Beurteilung
+Religwon 1 Angewandte Mathematik 2
+Deutsch 2 Naturwissenschaften 1
+— s n
+
+Englisch 2 Hardwareentwicklung 1
+Geografie, Geschichte und politische 1 Fachspezifische Softwaretechnik -
+Bildun & q
+
+i o~ Prototypenbau elektronischer 1
+Bewegung und Sport 2 Systeme
+Verbindliche Ubungen
+
+. —— s,
+
+Soziale und personale Kompeten2024-11-12 14:31:54,967 [17] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:31:55,012 [1] INFO  Program - Application is shutting down.
+Er ist gemaB § 25 des Schulunterrichtsgesetzes zum Aufsteigen in den zweiten Jahrgang (10.
+
+Schulstufe) berechtigt.
+Er hat die allgemeine Schulpflicht gemag § 3 des Schulpflichtgesetzes 1985 mit Ende des
+
+Schuljahres 2016/17 beendet.
+Hollabruan, am 30, Juni 2017
+L g
+
+. ' - -
+.
+
+Gerald Z;t_d
+Jahrgangsvorstand
+
+Hng. Wolfgang Bodei
+Schulleiter
+
+Beurteilungsstufen: Sehir gut (1), Gut (2), Befriesigend (3), Genlgend (4), Nicht genigend (5)
+Vernalten in der Schule: Sehr rufriedenstellend, Zufriedenstellend, Wensg zufniedensteliend, Nicht aufriederstellend
+
+2024-11-12 14:31:52,577 [8] INFO  DocumentWorkerService.OCRService - OCR processing completed for file Philipp_Wudernitz_HTBL_Jahreszeugnis2017_1JG.pdf
+2024-11-12 14:31:52,578 [8] INFO  DocumentWorkerService.OCRService - OCR Text: 
+2024-11-12 14:31:52,579 [8] INFO  DocumentWorkerService.RabbitMQConsumer - OCR processing completed for document: 
+2024-11-12 14:31:54,183 [15] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:32:02,736 [1] INFO  Program - Trying to create the queue...
+22024-11-12 14:32:04,217 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:32:04,233 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:32:04,444 [1] INFO  Program - Starting the web host...
+2024-11-12 12024-11-12 14:32:08,358 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:32:13,363 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:32:18,367 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:32:23,408 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for messages...
+2024-11-122024-11-12 14:32:27,800 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:32:28,016 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-12 14:32:28,092 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:32:28,094 [11] INFO  REST.Controllers.DocumentController - Do2024-11-12 14:32:37,129 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:32:37,131 [6] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:32:37,134 [6] INFO  DocumentWorkerService.OCRService - Performing OCR on file Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:32:37,251 [11] INFO  DocumentWorkerService.OCRService - File Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf downloaded from MinIO to /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:32:39,803 [11] INFO  DocumentWorkerService.OCRService - PDF converted to image: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.png
+2024-11-12 14:32:39,803 [11] INFO  DocumentWorkerService.OCRService - Image path after conversion: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.png
+2024-11-12 14:32:39,804 [11] INFO  DocumentWorkerService.OCRService - TESSDATA_ENVIRONMENT: /app/tessdata
+2024-11-12 14:32:42,282 [11] INFO  DocumentWorkerService.OCRService - OCR Text: Hohere Technische Bundeslehranstalt Hollabrunn
+2020 Hollabrunn, Anton EhrenfriedstraRe 10
+
+Katalognummer: 31044720160055 Schuljahr 2017/18
+Jahrgang: 2AHEL
+
+Jahreszeugnis
+Wudernitz Philipp
+
+Familienname und Vorname(n)
+geboren am 8. Marz 2002, Religionsbekenntnis rom.-kath.,
+Schuler des zweiten Jahrganges (10. Schulstufe) der Schulart
+Hohere Lehranstalt fur Elektronik und Technische Informatik (Lehrplan 2015)
+nach dem Lehrplan BGBI.Il Nr. 262/2015 in der geltenden Fassung
+Verhalten in der Schule: Sehr zufriedenstellend
+
+Pflichtgegenstande Beurteilung Beurteilung
+Religion 1 Hardwareentwicklung 2
+Deutsch 3 Messtechnik und Regelungssysteme 1
+Englisch 2 Digitale Systeme und 5
+
+i ) o Computersysteme
+Geografie, Geschichte und politische 2
+Bildung Fachspezifische Softwaretechnik 2
+Bewegung und Sport 2 Prototypenbau elektronischer 1
+Angewandte Mathematik 3 Systeme
+Naturwissenschaften 3 VYT
+
+Er hat gemaR § 22 Abs. 2 lit. h des Schulunterrichtsgesetzes den zweiten Jahrgang (10. Schulstufe)
+
+mit gutem Erfolg abgeschlossen.
+Er ist gemal § 25 des Schulunterrichtsgesetzes zum Aufsteigen in den dritten Jahrgang (11.
+
+Schulstufe) berechtigt.
+
+7 Hollabrunn, am 29. Juni 2018
+
+/ LL ASNHD
+< { o ' L7 < //M
+
+/Dl Wolfgang Bodei E | < _prGerald Zottl
+
+/’ Schulleiter / ahrgangsvorstand
+
+Beurteilungsstufen: Sehr gut (1), Gut (2), Befriedigend (3), Gentigend (4), Nicht gentigend (5)
+Verhalten in der Schule: Sehr zufriedenstellend, Zufriedenstellend, Wenig zufriedenstellend, Nicht zufriedenstellend
+
+2024-11-12 14:32:42,285 [11] INFO  DocumentWorkerService.OCRService - OCR processing completed for file Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:32:42,286 [11] INFO  DocumentWorkerService.OCRService - OCR Text: 
+2024-11-12 14:32:42,287 [11] INFO  DocumentWorkerService.RabbitMQConsumer - OCR processing completed for document: 
+2024-11-12 14:35:04,520 [17] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+r all documents.
+2024-11-12 14:32:39,682 [16] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-11-12 14:32:39,687 [16] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-11-12 14:32:39,688 [16] INFO  DAL.Repositories.DocumentRepository - 3 documents fetched successfully.
+2024-11-12 14:35:05,258 [21] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:35:05,282 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:35:26,013 [1] INFO  Program - Trying to create the queue...
+2024-11-12 14:35:26,044 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:35:26,589 [1] ERROR DocumentWorkerService.RabbitMQConsumer - 2024-11-12 14:35:27,507 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 142024-11-12 14:35:31,599 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:35:36,607 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:35:41,612 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:35:46,618 [1] ERROR DocumentWorkerService.RabbitMQConsumer - Error connecting to RabbitMQ. Attempt 5/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:35:51,662 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for me2024-11-12 14:35:59,783 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:36:00,091 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-12 14:36:00,205 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-11-12 14:36:00,206 [12] INFO  REST.Controllers.DocumentController - DocumentController ini2024-11-12 14:36:01,356 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:36:01,359 [10] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: minio://uploads/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:36:01,361 [10] INFO  DocumentWorkerService.OCRService - Performing OCR on file Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:36:01,489 [13] INFO  DocumentWorkerService.OCRService - File Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf downloaded from MinIO to /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:36:04,245 [13] INFO  DocumentWorkerService.OCRService - PDF converted to image: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.png
+2024-11-12 14:36:04,246 [13] INFO  DocumentWorkerService.OCRService - Image path after conversion: /tmp/Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.png
+2024-11-12 14:36:04,247 [13] INFO  DocumentWorkerService.OCRService - TESSDATA_ENVIRONMENT: /app/tessdata
+2024-11-12 14:36:07,228 [13] INFO  DocumentWorkerService.OCRService - OCR Text: Hohere Technische Bundeslehranstalt Hollabrunn
+2020 Hollabrunn, Anton EhrenfriedstraRe 10
+
+Katalognummer: 31044720160055 Schuljahr 2017/18
+Jahrgang: 2AHEL
+
+Jahreszeugnis
+Wudernitz Philipp
+
+Familienname und Vorname(n)
+geboren am 8. Marz 2002, Religionsbekenntnis rom.-kath.,
+Schuler des zweiten Jahrganges (10. Schulstufe) der Schulart
+Hohere Lehranstalt fur Elektronik und Technische Informatik (Lehrplan 2015)
+nach dem Lehrplan BGBI.Il Nr. 262/2015 in der geltenden Fassung
+Verhalten in der Schule: Sehr zufriedenstellend
+
+Pflichtgegenstande Beurteilung Beurteilung
+Religion 1 Hardwareent2024-11-12 14:38:35,720 [22] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:38:35,753 [1] INFO  Program - Application is shutting down.
+ische Softwaretechnik 2
+Bewegung und Sport 2 Prototypenbau elektronischer 1
+Angewandte Mathematik 3 Systeme
+Naturwissenschaften 3 VYT
+
+Er hat gemaR § 22 Abs. 2 lit. h des Schulunterrichtsgesetzes den zweiten Jahrgang (10. Schulstufe)
+
+mit gutem Erfolg abgeschlossen.
+Er ist gemal § 25 des Schulunterrichtsgesetzes zum Aufsteigen in den dritten Jahrgang (11.
+
+Schulstufe) berechtigt.
+
+7 Hollabrunn, am 29. Juni 2018
+
+/ LL ASNHD
+< { o ' L7 < //M
+
+/Dl Wolfgang Bodei E | < _prGerald Zottl
+
+/’ Schulleiter / ahrgangsvorstand
+
+Beurteilungsstufen: Sehr gut (1), Gut (2), Befriedigend (3), Gentigend (4), Nicht gentigend (5)
+Verhalten in der Schule: Sehr zufriedenstellend, Zufriedenstellend, Wenig zufriedenstellend, Nicht zufriedenstellend
+
+2024-11-12 14:36:07,231 [13] INFO  DocumentWorkerService.OCRService - OCR processing completed for file Philipp_Wudernitz_HTBL_Jahreszeugnis2018_2JG.pdf
+2024-11-12 14:36:07,232 [13] INFO  DocumentWorkerService.OCRService - OCR Text: 
+2024-11-12 14:36:07,233 [13] INFO  DocumentWorkerService.RabbitMQConsumer - OCR processing completed for document: 
+2024-11-12 14:38:34,984 [18] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:38:51,533 [1] INFO  Program - Trying to create the queue...
+2024-11-12 14:38:51,568 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:38:51,926 [1] INFO  Program - Creating the ocr queue...
+n...
+2024-11-12 14:38:52,954 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:38:52,975 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:38:53,211 [1] INFO  Program - Starting the web host...
+2024-11-12 14:38:53,274 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:38:53,387 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:38:53,460 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:38:53,462 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:38:53,464 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:38:53,466 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:44:07,635 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:44:07,668 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:44:23,776 [1] INFO  Program - Trying to create the queue...
+22024-11-12 14:44:25,152 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:44:25,175 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:44:25,429 [1] INFO  Program - Starting the web host...
+2024-11-12 14:44:25,493 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:44:25,622 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:44:25,707 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:44:25,710 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:44:25,711 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:44:25,712 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:48:22,812 [10] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:48:22,845 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:48:46,563 [1] INFO  Program - Starting up the application...
+2024-11-12 14:48:48,130 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:48:48,155 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:48:48,428 [1] INFO  Program - Starting the web host...
+2024-11-12 14:48:48,487 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:48:48,610 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:48:48,691 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:48:48,693 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:48:48,696 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:48:48,697 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:49:03,022 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:49:03,050 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:49:23,537 [1] INFO  Program - Trying to create the queue...
+2024-11-12 14:49:23,569 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:49:23,648 [1] INFO  Program - Starting up the application...
+2024-11-12 14:49:25,126 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:49:25,148 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:49:25,505 [1] INFO  Program - Starting the web host...
+2024-11-12 14:49:25,596 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:49:25,747 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:49:25,859 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:49:25,864 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:49:25,865 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:49:25,866 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:49:40,528 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:49:40,569 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:50:03,317 [1] INFO  Program - Trying to create the queue...
+22024-11-12 14:50:04,767 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:50:04,793 [1] INFO  Program - Application startup complete. Running now...
+2024-11-12 14:50:05,100 [1] INFO  Program - Starting the web host...
+2024-11-12 14:50:05,185 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-11-12 14:50:05,313 [1] WARN  Microsoft.AspNetCore.Server.Kestrel - Overriding address(es) 'http://*:8080'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-11-12 14:50:05,403 [1] INFO  Microsoft.Hosting.Lifetime - Now listening on: http://[::]:8081
+2024-11-12 14:50:05,405 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-11-12 14:50:05,406 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-11-12 14:50:05,409 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: /app
+2024-11-12 14:50:29,665 [11] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:50:29,690 [1] INFO  Program - Application is shutting down.
+2024-11-12 14:53:00,043 [1] INFO  Program - Trying to create the queue...
+2024-11-12 14:53:00,081 [1] INFO  Program - Starting up Document Worker Service...
+2024-11-12 14:53:00,468 [1] INFO  Program - Attempting to create RabbitMQ c2024-11-12 14:53:01,557 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-11-12 14:53:01,572 [1] INFO  Program - Application startup comple2024-11-12 14:53:05,636 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 2/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:53:10,642 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 3/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:53:15,647 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 4/10. Exception: None of the specified endpoints were reachable
+2024-11-12 14:53:20,768 [1] INFO  Program - RabbitMQ connection successfully established with host: rabbitmq
+2024-11-12 14:53:20,811 [1] INFO  DocumentWorkerService.RabbitMQConsumer - RabbitMQ Listener initialized and waiting for messages...
+2024-11-12 14:53:20,864 [1] INFO  DocumentWorkerService.DocumentWorker - Worker running at: 112024-11-12 14:53:30,398 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-11-12 14:53:30,730 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-11-12 14:53:30,853 [11] INFO  DAL.Services.DocumentService - DocumentService initialized succe2024-11-12 14:53:36,415 [11] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: minio://uploads/Philipp_Wudernitz_Lebenslauf.pdf
+2024-11-12 14:53:36,417 [11] INFO  DocumentWorkerService.RabbitMQConsumer - Processing message: minio://uploads/Philipp_Wudernitz_Lebenslauf.pdf
+2024-11-12 14:53:36,421 [11] INFO  DocumentWorkerService.OCRService - Performing OCR on file Philipp_Wudernitz_Lebenslauf.pdf
+2024-11-12 14:53:36,524 [11] INFO  DocumentWorkerService.OCRService - File Philipp_Wudernitz_Lebenslauf.pdf downloaded from MinIO to /tmp/Philipp_Wudernitz_Lebenslauf.pdf
+2024-11-12 14:53:37,220 [11] INFO  DocumentWorkerService.OCRService - PDF converted to image: /tmp/Philipp_Wudernitz_Lebenslauf.png
+2024-11-12 14:53:37,221 [11] INFO  DocumentWorkerService.OCRService - Image path after conversion: /tmp/Philipp_Wudernitz_Lebenslauf.png
+2024-11-12 14:53:37,223 [11] INFO  DocumentWorkerService.OCRService - TESSDATA_ENVIRONMENT: /app/tessdata
+2024-11-12 14:53:39,053 [11] INFO  DocumentWorkerService.OCRService - OCR Text: Philipp Wudernitz
+In der Flur 15
+2115 Ernstbrunn
+
+Personliche Daten:
+
+Schullaufbahn:
+
+Praktische Berufstatigkeit:
+
+Praktische Erfahrungen:
+
+Besondere Kenntnisse:
+
+Hobbys:
+
+sErnstbrunn, 23. September 2018
+
+LEBENSLAUF
+
+Geburtstag und -ort: 8. Marz 2002 in Mistelbach
+Vater: Ing. Ralph Wudernitz, technischer Angestellter
+Mutter: Daniela Wudernitz, Krankenschwester
+
+Staatsbiirgerschaft: Osterreich
+
+HTBL Hollabrunn, Abteilung fiir Elektronik und technische Informatik ab
+September 2016
+
+Hauptschule in Ernstbrunn: 9/2012 bis 6/2016
+Volkschule in Ernstbrunn: 9/2008 bis 6/2012
+
+Juli 2018: Elektrotechnik Helmut Seibert, Langenzersdorf
+
+Werkstatte in der Schule: Elektronische Werkstatte, Elektromechanische
+Werkstatte, Dreherei, Elektroinstallation, Microprozessortechnik
+
+Reparaturen technischer Gerate zu Hause, z.B. Computer
+
+Besuch eines Englischkurses in der Unterstufe
+
+Teilnahme an den ,English-Olympics” (2. Platz Bezirk Korneuburg)
+Erste-Hilfe-Kurs (16 Stunden)
+
+Grundkenntnisse Microsoft Windows und Microsoft Office
+Grundkenntnisse Programmieren mit C++
+
+Grundkenntnisse SolidWorks, Altium
+
+Sport: Tennis, Radfahren
+
+Freizeit: Arbeiten am Computer
+
+4 ‘.“(«/’,/ ) /1, /
+
+2024-11-12 14:53:39,055 [11] INFO  DocumentWorkerService.OCRService - OCR processing completed for file Philipp_Wudernitz_Lebenslauf.pdf
+2024-11-12 14:53:39,055 [11] INFO  DocumentWorkerService.OCRService - OCR Text: 
+2024-11-12 14:53:39,057 [11] INFO  DocumentWorkerService.RabbitMQConsumer - OCR processing completed for document: 
+2024-11-12 14:54:00,123 [16] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+s.DocumentRepository - 5 documents fetched successfully.
+2024-11-12 14:54:00,955 [18] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-11-12 14:54:00,994 [1] INFO  Program - Application is shutting down.
