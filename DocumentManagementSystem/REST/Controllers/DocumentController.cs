@@ -26,8 +26,16 @@ public class DocumentController : ControllerBase
     public async Task<IActionResult> GetAsync()
     {
         _logger.Info("Received GET request for all documents.");
-        var documents = await _documentService.GetAllDocumentsAsync();
-        return Ok(documents);
+        try
+        {
+            var documents = await _documentService.GetAllDocumentsAsync();
+            return Ok(documents);
+        }
+        catch (Exception ex)
+        {
+            _logger.Error("An error occurred while fetching all documents.", ex);
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while fetching documents.");
+        }
     }
 
     // [HttpGet("files/{filename}")]
@@ -60,6 +68,11 @@ public class DocumentController : ControllerBase
         {
             return BadRequest(ex.Errors);
         }
+        catch (Exception ex) // Catch any other unexpected errors
+        {
+            _logger.Error("An unexpected error occurred while uploading the document.", ex);
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while uploading the document.");
+        }
     }
 
     [HttpDelete("{id}")]
@@ -74,6 +87,11 @@ public class DocumentController : ControllerBase
         catch (KeyNotFoundException)
         {
             return NotFound();
+        }
+        catch (Exception ex) // Handle unexpected errors
+        {
+            _logger.Error($"An error occurred while deleting document with ID: {id}", ex);
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while deleting the document.");
         }
     }
 
@@ -98,6 +116,11 @@ public class DocumentController : ControllerBase
         catch (KeyNotFoundException)
         {
             return NotFound();
+        }
+        catch (Exception ex) // Handle unexpected errors
+        {
+            _logger.Error($"An error occurred while updating document with ID: {id}", ex);
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while updating the document.");
         }
     }
 }

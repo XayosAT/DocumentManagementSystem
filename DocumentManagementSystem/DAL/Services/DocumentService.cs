@@ -101,6 +101,11 @@ namespace DAL.Services
                 _logger.Error($"Error occurred when trying to fetch file {filename} from MinIO.", ex);
                 throw new FileNotFoundException($"File {filename} not found in MinIO.", ex);
             }
+            catch (Exception ex)
+            {
+                _logger.Error($"Unexpected error occurred when fetching file {filename} from MinIO.", ex);
+                throw new FileNotFoundException($"Unexpected error occurred when fetching file {filename}.", ex);
+            }
         }
 
         public async Task<string> UploadDocumentAsync(IFormFile file)
@@ -147,25 +152,48 @@ namespace DAL.Services
                 _logger.Error("Error occurred when uploading file to MinIO.", ex);
                 throw;
             }
+            catch (ValidationException ex)
+            {
+                _logger.Error($"Validation failed for document {fileName}.", ex);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("An unexpected error occurred when uploading the document.", ex);
+                throw;
+            }
         }
 
         public async Task UpdateDocumentAsync(int id, DocumentDTO documentDTO)
         {
-            var existingItem = await _repository.GetByIdAsync(id);
-            if (existingItem == null)
+            try
             {
-                throw new KeyNotFoundException("Document not found.");
-            }
+                var existingItem = await _repository.GetByIdAsync(id);
+                if (existingItem == null)
+                {
+                    throw new KeyNotFoundException("Document not found.");
+                }
 
-            var documentBL = _mapper.Map<DocumentBL>(documentDTO);
-            var validationResult = await _blValidator.ValidateAsync(documentBL);
-            if (!validationResult.IsValid)
+                var documentBL = _mapper.Map<DocumentBL>(documentDTO);
+                var validationResult = await _blValidator.ValidateAsync(documentBL);
+                if (!validationResult.IsValid)
+                {
+                    throw new ValidationException(validationResult.Errors);
+                }
+
+                _mapper.Map(documentDTO, existingItem);
+                await _repository.UpdateAsync(existingItem);
+            }
+            catch (ValidationException ex)
             {
-                throw new ValidationException(validationResult.Errors);
+                _logger.Error("Validation error during document update.", ex);
+                throw;
             }
-
-            _mapper.Map(documentDTO, existingItem);
-            await _repository.UpdateAsync(existingItem);
+            catch (Exception ex)
+            {
+                _logger.Error($"An unexpected error occurred while updating document with ID: {id}", ex);
+                throw;
+            }
         }
 
         public async Task DeleteDocumentAsync(int id)
@@ -186,8 +214,20 @@ namespace DAL.Services
             {
                 _logger.Error($"Error occurred when deleting file {item.Name} from MinIO.", ex);
             }
+            catch (Exception ex)
+            {
+                _logger.Error($"An unexpected error occurred when deleting file {item.Name} from MinIO.", ex);
+            }
 
-            await _repository.DeleteAsync(id);
+            try
+            {
+                await _repository.DeleteAsync(id);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"An unexpected error occurred when deleting document with ID: {id}", ex);
+                throw;
+            }
         }
 
         private string GetContentType(string path)
