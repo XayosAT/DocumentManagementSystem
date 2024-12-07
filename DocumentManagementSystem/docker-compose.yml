@@ -100,7 +100,6 @@ services:
       - rest-server
     networks:
       - dms-network
-      
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.16.1
     container_name: elasticsearch

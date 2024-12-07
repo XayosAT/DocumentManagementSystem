@@ -14,6 +14,7 @@ using SharedData.EntitiesDAL;
 using DAL.RabbitMQ;
 using Microsoft.Extensions.Configuration;
 using Minio.DataModel.Args;
+using Elastic.Clients.Elasticsearch;
 
 namespace DAL.Services
 {
@@ -26,6 +27,7 @@ namespace DAL.Services
         private readonly IValidator<DocumentBL> _blValidator;
         private readonly IMessagePublisher _publisher;
         private readonly IMinioClient _minioClient;
+        private readonly ElasticsearchClient _elasticClient;
         private readonly string _bucketName;
         private readonly string _routingKey = "dms_routing_key";
 
@@ -36,6 +38,7 @@ namespace DAL.Services
             IValidator<DocumentBL> blValidator,
             IMessagePublisher publisher,
             IMinioClient minioClient,
+            ElasticsearchClient elasticClient,
             IConfiguration configuration)
         {
             _repository = repository;
@@ -44,6 +47,7 @@ namespace DAL.Services
             _blValidator = blValidator;
             _publisher = publisher;
             _minioClient = minioClient;
+            _elasticClient = elasticClient;
 
             // Set bucket name from configuration or default to 'uploads'.
             _bucketName = configuration["Minio:BucketName"] ?? "uploads";
@@ -145,17 +149,14 @@ namespace DAL.Services
                 await _repository.AddAsync(documentDAL);
                 _publisher.Publish(documentDAL.Path, _routingKey);
 
+                // Index the document in Elasticsearch
+                var indexResponse = await _elasticClient.IndexAsync(documentDTO, i => i.Index("documents"));
+                if (!indexResponse.IsValidResponse)
+                {
+                    _logger.Error("Failed to index document in Elasticsearch.");
+                }
+
                 return documentDAL.Id.ToString();
-            }
-            catch (MinioException ex)
-            {
-                _logger.Error("Error occurred when uploading file to MinIO.", ex);
-                throw;
-            }
-            catch (ValidationException ex)
-            {
-                _logger.Error($"Validation failed for document {fileName}.", ex);
-                throw;
             }
             catch (Exception ex)
             {
@@ -229,6 +230,35 @@ namespace DAL.Services
                 throw;
             }
         }
+
+        public async Task<IEnumerable<DocumentDTO>> SearchDocumentsAsync(string query)
+        {
+            try
+            {
+                var searchResponse = await _elasticClient.SearchAsync<DocumentDTO>(s => s
+                    .Index("documents")
+                    .Query(q => q
+                        .MultiMatch(m => m
+                            .Fields(new[] { "name", "fileType", "path" }) // Specify fields as a string array
+                            .Query(query)
+                        )
+                    )
+                );
+
+                if (!searchResponse.IsValidResponse)
+                {
+                    throw new Exception("Search operation failed in Elasticsearch.");
+                }
+
+                return searchResponse.Documents;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error("Error occurred while performing search in Elasticsearch.", ex);
+                throw;
+            }
+        }
+
 
         private string GetContentType(string path)
         {

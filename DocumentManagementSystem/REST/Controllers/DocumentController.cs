@@ -15,6 +15,7 @@ public class DocumentController : ControllerBase
 {
     private static readonly ILog _logger = LogManager.GetLogger(typeof(DocumentController));
     private readonly DocumentService _documentService;
+    
 
     public DocumentController(DocumentService documentService)
     {
@@ -123,4 +124,25 @@ public class DocumentController : ControllerBase
             return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while updating the document.");
         }
     }
+    [HttpGet("search")]
+    public async Task<IActionResult> SearchAsync([FromQuery] string query)
+    {
+        _logger.Info($"Received search request with query: {query}");
+        if (string.IsNullOrEmpty(query))
+        {
+            return BadRequest("Query cannot be empty.");
+        }
+
+        try
+        {
+            var results = await _documentService.SearchDocumentsAsync(query);
+            return Ok(results);
+        }
+        catch (Exception ex)
+        {
+            _logger.Error("Search failed.", ex);
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while performing the search.");
+        }
+    }
+
 }
