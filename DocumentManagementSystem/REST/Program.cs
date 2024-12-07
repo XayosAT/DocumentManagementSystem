@@ -17,6 +17,8 @@ using DAL.Services;
 using Microsoft.Extensions.Logging;
 using DAL.Services;
 using Minio;
+using Elastic.Clients.Elasticsearch;
+using Elastic.Transport;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -81,6 +83,14 @@ builder.Services.AddSingleton<IConnection>(sp =>
     logger.Info($"RabbitMQ connection successfully established with host {settings.HostName}");
 
     return connection;
+});
+
+builder.Services.AddSingleton<ElasticsearchClient>(sp =>
+{
+    var settings = new ElasticsearchClientSettings(new Uri("https://localhost:9200"))
+        .DefaultIndex("documents"); // Default index for operations
+
+    return new ElasticsearchClient(settings);
 });
 
 // Register RabbitMQ channel as scoped
