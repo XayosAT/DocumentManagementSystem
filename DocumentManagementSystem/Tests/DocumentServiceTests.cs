@@ -6,6 +6,7 @@ using AutoMapper;
 using DAL.RabbitMQ;
 using DAL.Repositories;
 using DAL.Services;
+using Elastic.Clients.Elasticsearch;
 using FluentValidation;
 using FluentValidation.Results;
 using log4net;
@@ -28,6 +29,7 @@ public class DocumentServiceTests
     private readonly Mock<IMessagePublisher> _publisherMock;
     private readonly Mock<IMinioClient> _minioClientMock;
     private readonly Mock<IConfiguration> _configurationMock;
+    private readonly Mock<ElasticsearchClient> _elasticClientMock;
     private readonly DocumentService _documentService;
 
     public DocumentServiceTests()
@@ -40,6 +42,7 @@ public class DocumentServiceTests
         _publisherMock = new Mock<IMessagePublisher>();
         _minioClientMock = new Mock<IMinioClient>();
         _configurationMock = new Mock<IConfiguration>();
+        _elasticClientMock = new Mock<ElasticsearchClient>();
 
         // Set a mock configuration value for MinIO bucket name
         _configurationMock.SetupGet(c => c["Minio:BucketName"]).Returns("uploads");
@@ -52,6 +55,7 @@ public class DocumentServiceTests
             _blValidatorMock.Object,
             _publisherMock.Object,
             _minioClientMock.Object,
+            _elasticClientMock.Object,
             _configurationMock.Object
         );
     }
@@ -92,44 +96,6 @@ public class DocumentServiceTests
         Assert.Equal(1, result.Id);
     }
 
-    // [Fact]
-    // public async Task UploadDocumentAsync_ShouldUploadFile_WhenFileIsValid()
-    // {
-    //     // Arrange
-    //     var fileMock = new Mock<IFormFile>();
-    //     var content = "Test file content";
-    //     var fileName = "test.txt";
-    //     var ms = new MemoryStream();
-    //     var writer = new StreamWriter(ms);
-    //     writer.Write(content);
-    //     writer.Flush();
-    //     ms.Position = 0;
-    //
-    //     fileMock.Setup(f => f.OpenReadStream()).Returns(ms);
-    //     fileMock.Setup(f => f.FileName).Returns(fileName);
-    //     fileMock.Setup(f => f.Length).Returns(ms.Length);
-    //     fileMock.Setup(f => f.ContentType).Returns("text/plain");
-    //
-    //     // Mock PutObjectAsync for MinIO
-    //     _minioClientMock.Setup(minio => minio.PutObjectAsync(It.IsAny<PutObjectArgs>(), default))
-    //                     .ReturnsAsync(Mock.Of<Minio.DataModel.Response.PutObjectResponse>());
-    //
-    //     // Mock mapping and validation
-    //     var documentDTO = new DocumentDTO { Name = fileName, Path = $"minio://uploads/{fileName}", FileType = ".txt" };
-    //     var documentDAL = new DocumentDAL { Name = fileName, Path = $"minio://uploads/{fileName}", FileType = ".txt" };
-    //
-    //     _mapperMock.Setup(mapper => mapper.Map<DocumentDAL>(documentDTO)).Returns(documentDAL);
-    //     _dalValidatorMock.Setup(v => v.ValidateAsync(It.IsAny<DocumentDAL>(), default))
-    //                      .ReturnsAsync(new ValidationResult());
-    //
-    //     // Act
-    //     var result = await _documentService.UploadDocumentAsync(fileMock.Object);
-    //
-    //     // Assert
-    //     Assert.NotNull(result);
-    //     _minioClientMock.Verify(minio => minio.PutObjectAsync(It.IsAny<PutObjectArgs>(), default), Times.Once);
-    //     _repositoryMock.Verify(repo => repo.AddAsync(It.IsAny<DocumentDAL>()), Times.Once);
-    // }
 
     [Fact]
     public async Task UpdateDocumentAsync_ShouldUpdateDocument_WhenValidationPasses()
@@ -170,31 +136,5 @@ public class DocumentServiceTests
         _minioClientMock.Verify(minio => minio.RemoveObjectAsync(It.IsAny<RemoveObjectArgs>(), default), Times.Once);
         _repositoryMock.Verify(repo => repo.DeleteAsync(documentId), Times.Once);
     }
-
-    // [Fact]
-    // public async Task GetFileAsync_ShouldReturnFile_WhenFileExists()
-    // {
-    //     // Arrange
-    //     var fileName = "test.txt";
-    //     var ms = new MemoryStream();
-    //     var content = "This is a test file.";
-    //     var writer = new StreamWriter(ms);
-    //     writer.Write(content);
-    //     writer.Flush();
-    //     ms.Position = 0;
-    //
-    //     _minioClientMock.Setup(minio => minio.GetObjectAsync(It.IsAny<GetObjectArgs>(), default))
-    //                     .Callback<GetObjectArgs, CancellationToken>((args, token) =>
-    //                     {
-    //                         args.CallbackStream(ms);
-    //                     })
-    //                     .Returns(Task.CompletedTask);
-    //
-    //     // Act
-    //     var result = await _documentService.GetFileAsync(fileName);
-    //
-    //     // Assert
-    //     Assert.NotNull(result);
-    //     Assert.Equal(ms.ToArray(), result);
-    // }
+    
 }

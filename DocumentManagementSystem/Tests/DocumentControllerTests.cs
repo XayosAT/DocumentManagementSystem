@@ -16,6 +16,7 @@ using SharedData.EntitiesBL;
 using AutoMapper;
 using DAL.Repositories;
 using DAL.RabbitMQ;
+using Elastic.Clients.Elasticsearch;
 using Microsoft.Extensions.Configuration;
 using Minio.DataModel.Response;
 
@@ -27,6 +28,7 @@ public class DocumentControllerTests
     private readonly Mock<IValidator<DocumentDAL>> _dalValidatorMock;
     private readonly Mock<IValidator<DocumentBL>> _blValidatorMock;
     private readonly Mock<IMessagePublisher> _publisherMock;
+    private readonly Mock<ElasticsearchClient> _elasticClientMock;
     private readonly DocumentController _controller;
 
     public DocumentControllerTests()
@@ -38,6 +40,7 @@ public class DocumentControllerTests
         _dalValidatorMock = new Mock<IValidator<DocumentDAL>>();
         _blValidatorMock = new Mock<IValidator<DocumentBL>>();
         _publisherMock = new Mock<IMessagePublisher>();
+        _elasticClientMock = new Mock<ElasticsearchClient>();
 
         // Mock IConfiguration if necessary
         var configurationMock = new Mock<IConfiguration>();
@@ -51,6 +54,7 @@ public class DocumentControllerTests
             _blValidatorMock.Object,
             _publisherMock.Object,
             _minioClientMock.Object,
+            _elasticClientMock.Object,
             configurationMock.Object
         );
 
