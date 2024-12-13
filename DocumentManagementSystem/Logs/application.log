@@ -2512,3 +2512,122 @@ FROM "Documents" AS d
 2024-12-13 19:18:44,267 [18] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
 2024-12-13 19:19:28,606 [27] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
 2024-12-13 19:19:28,664 [1] INFO  Program - Application is shutting down.
+2024-12-13 19:46:33,784 [1] INFO  Program - Starting up the application...
+2024-12-13 19:46:35,956 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-12-13 19:46:35,982 [1] INFO  Program - Application startup complete. Running now...
+2024-12-13 19:46:36,382 [1] INFO  Program - Starting the web host...
+2024-12-13 19:46:36,469 [1] INFO  Program - CORS is configured to allow all origins, methods, and headers
+2024-12-13 19:46:36,692 [1] WARN  Micr2024-12-13 19:46:39,525 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 2/20. Exception: None of the specified endpoints were reachable
+2024-12-13 19:46:44,754 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 3/20. Exception: None of the specified endpoints were reachable
+2024-12-13 19:46:50,082 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 4/20. Exception: None of the specified endpoints were reachable
+2024-12-13 19:46:55,148 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 5/20. Exception: None 2024-12-13 19:49:25,575 [12] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-12-13 19:49:26,959 [12] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-12-13 19:49:27,555 [12] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-12-13 19:49:27,557 [12] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-12-13 19:49:27,562 [12] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-12-13 19:49:27,568 [12] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-12-13 19:49:29,542 [12] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (46ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-12-13 19:49:29,740 [12] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-12-13 19:54:53,769 [19] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-12-13 19:54:53,819 [19] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-12-13 19:54:53,820 [19] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-12-13 19:54:53,822 [19] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-12-13 19:54:53,823 [19] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-12-13 19:54:53,934 [17] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (11ms) [Parameters=[], CommandType='Text', C2024-12-13 19:55:02,828 [17] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+:54:53,938 [17] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-12-13 19:55:05,144 [22] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-12-13 19:55:05,282 [1] INFO  Program - Application is shutting down.
+2024-12-13 19:57:31,765 [1] INFO  Program - Trying to create the queue...
+2024-12-13 19:57:31,823 [1] INFO  Program - Starting up Document Worker Service...
+2024-12-13 19:57:32,930 [1] INFO  Program - Attempting to create RabbitMQ c2024-12-13 19:57:38,695 [1] INFO  Program - Kestrel is configured to listen on port 8081
+2024-12-13 19:57:38,753 [1] INFO  Program - Application startup complete. Running now...
+2024-12-13 19:57:39,387 [1] INFO  Program - Starting the web host...
+2024-12-13 19:57:39,571 [1] INFO  Program - CORS is config2024-12-13 19:57:43,730 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 3/20. Exception: None of the specified endpoints were reachable
+2024-12-13 19:57:48,978 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 4/20. Exception: None of the specified endpoints were reachable
+2024-12-13 19:57:54,916 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 5/20. Exception: None of the specified endpoints were reachable
+2024-12-13 19:58:00,931 [1] ERROR Program - Error connecting to RabbitMQ. Attempt 6/20. Exception: None of the specified endpoints were reachable
+2024-12-13 19:58:05,944 [1] ERROR Program - 2024-12-13 19:59:50,621 [11] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-12-13 19:59:52,058 [11] INFO  Program - RabbitMQ connection successfully established with host rabbitmq
+2024-12-13 19:59:52,802 [11] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-12-13 19:59:52,804 [11] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-12-13 19:59:52,808 [11] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-12-13 19:59:52,817 [11] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-12-13 19:59:55,440 [11] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (49ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-12-13 19:59:55,693 [11] INFO  DAL.Repositories.DocumentRepository - 4 documents fetched successfully.
+2024-12-13 20:04:28,243 [15] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-12-13 20:04:28,288 [15] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-12-13 20:04:28,289 [15] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-12-13 20:04:28,437 [21] INFO  REST.Controllers.DocumentController - Received file upload request.
+2024-12-13 20:04:28,648 [15] INFO  DAL.Services.DocumentService - File Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf successfully uploaded to MinIO bucket uploads.
+2024-12-13 20:04:28,678 [15] INFO  DAL.Repositories.DocumentRepository - Adding a new document with Name: Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf.
+2024-12-13 20:04:29,064 [21] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (58ms) [Parameters=[@p0='?', @p1='?', @p2='?'], CommandType='Text', Command2024-12-13 20:04:29,159 [11] INFO  DocumentWorkerService.RabbitMQConsumer - Message received: minio://uploads/Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf
+2024-12-13 20:04:29,163 [11] INFO  DocumentWorkerService.RabbitMQ2024-12-13 20:04:29,455 [19] ERROR DAL.Services.DocumentService - Failed to create Elasticsearch index.
+2024-12-13 20:04:29,487 [19] ERROR DAL.Services.DocumentService - Failed to index document in Elasticsearch.
+2024-12-13 20:04:30,848 [21] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-12-13 20:04:30,870 [21] INFO  DAL.Services.DocumentService - DocumentServ2024-12-13 20:04:41,282 [11] INFO  DocumentWorkerService.OCRService - PDF converted to image: /tmp/Philipp_Wudernitz_NMS_Ernstbrunn_4.png
+2024-12-13 20:04:41,284 [11] INFO  DocumentWorkerService.OCRService - Image path after conversion: /tmp/Philipp_Wudernitz_NMS_Ernstbrunn_4.png
+2024-12-13 20:04:41,284 [11] INFO  DocumentWorkerService.OCRService - TESSDATA_ENVIRONMENT: /app/tessdata
+2024-12-13 20:04:54,948 [11] INFO  DocumentWorkerService.OCRService - OCR Text: NNOMS Ernstbrunn
+312012 NO OKO Mittelschule Ernstbrunn
+2115 Ernstbrunn Laarer StraBe 1
+
+4\1(\\\\4) J //A\ / ‘U n \th i—i’&‘/J ME:j (S\\Clj\uljahr 2015/16
+
+— |
+
+Jahres- und Absc Iusszeugms
+w
+
+geboren am 8. Marz ZOBZ,VBe
+
+C
+
+dennf ﬁz:h2024-12-13 20:11:42,081 [30] INFO  Program - Configuring PostgreSQL with connection string: DefaultConnection
+2024-12-13 20:11:42,103 [30] INFO  DAL.Services.DocumentService - DocumentService initialized successfully.
+2024-12-13 20:11:42,104 [30] INFO  REST.Controllers.DocumentController - DocumentController initialized successfully.
+2024-12-13 20:11:42,106 [30] INFO  REST.Controllers.DocumentController - Received GET request for all documents.
+2024-12-13 20:11:42,107 [30] INFO  DAL.Repositories.DocumentRepository - Fetching all documents from the database.
+2024-12-13 20:11:42,146 [25] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT d.id, d.file_type, d.name, d.path
+FROM "Documents" AS d
+2024-12-13 20:11:42,149 [25] INFO  DAL.Repositories.DocumentRepository - 5 documents fetched successfully.
+2024-12-13 20:16:05,584 [42] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-12-13 20:16:05,648 [1] INFO  Program - Application is shutting down.
+4. Klasse (achte Schulstufe) mit
+ausgezeichnetem Erfolg abgescmossen
+
+Ernstbrunn am 1. Juh 2016
+
+s i
+ZXELSC
+,/’/r;\( \ C/{
+o 7 N
+A / - b
+\~ &}\/\/' (D B \ % ‘#{9 lfpw
+’ 7~ y ;’\"" Q—-\___
+) B T -\ & 1 ¥ }TC
+Felix Swoboda %‘,e SrNEUDHs = Franz Hofmann”
+Direktor ) %\xl{} é?‘ Klassenvorstand
+> ":5
+/8\ i:‘ rﬁg{%g;\' d
+NSANSYE
+
+Beurteilungsstufen: Sehr gut (1), Gut (2), Befriedigend (3), Gentigend (4), Nicht genugend (5)
+
+In Deutsch, Lebende Fremdsprache und Mathematik auf der 7. und 8. Schulstufe zusatzlich zu den Beurteilungsstufen:
+
+"Nach den Anforderungen der grundlegenden Allgemeinbildung.” oder "Nach den Anforderungen der vertieften Angmemblldung diese
+entsprechen geméR § 21b Abs. 2 des Schulorganlsatlonsgesetzes Jenen der Unterstufe der Allgemeln blldenden hoheren Schule."
+
+DVR: 0064394312012 ; :
+NACHDRUCK VERBOTEN
+
+
+2024-12-13 20:04:54,959 [11] INFO  DocumentWorkerService.OCRService - OCR processing completed for file Philipp_Wudernitz_NMS_Ernstbrunn_4.pdf
+2024-12-13 20:04:54,960 [11] INFO  DocumentWorkerService.OCRService - OCR Text: 
+2024-12-13 20:04:54,963 [11] INFO  DocumentWorkerService.RabbitMQConsumer - OCR processing completed for document: 
+2024-12-13 20:16:03,687 [22] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
