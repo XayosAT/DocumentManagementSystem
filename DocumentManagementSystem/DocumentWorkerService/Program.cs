@@ -66,7 +66,7 @@ builder.Services.AddSingleton<IConnection>(sp =>
     logger.Info("Attempting to create RabbitMQ connection...");
 
     IConnection connection = null;
-    int retryCount = 10;
+    int retryCount = 20;
     int currentTry = 0;
     bool connected = false;
 
