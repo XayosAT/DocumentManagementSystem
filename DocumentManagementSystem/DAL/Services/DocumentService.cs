@@ -148,6 +148,17 @@ namespace DAL.Services
 
                 await _repository.AddAsync(documentDAL);
                 _publisher.Publish(documentDAL.Path, _routingKey);
+                
+                var indexExists = await _elasticClient.Indices.ExistsAsync("documents");
+                if (!indexExists.Exists)
+                {
+                    var createIndexResponse = await _elasticClient.Indices.CreateAsync("documents");
+                    if (!createIndexResponse.IsValidResponse)
+                    {
+                        _logger.Error("Failed to create Elasticsearch index.");
+                    }
+                }
+
 
                 // Index the document in Elasticsearch
                 var indexResponse = await _elasticClient.IndexAsync(documentDTO, i => i.Index("documents"));
